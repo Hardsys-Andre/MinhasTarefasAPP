@@ -9,13 +9,26 @@
 /* Begin PBXBuildFile section */
 		AC1E8EE529E98F3800D8A130 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8EE429E98F3800D8A130 /* AppDelegate.swift */; };
 		AC1E8EE729E98F3800D8A130 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8EE629E98F3800D8A130 /* SceneDelegate.swift */; };
-		AC1E8EE929E98F3800D8A130 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8EE829E98F3800D8A130 /* ViewController.swift */; };
-		AC1E8EEC29E98F3800D8A130 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC1E8EEA29E98F3800D8A130 /* Main.storyboard */; };
 		AC1E8EEE29E98F3900D8A130 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC1E8EED29E98F3900D8A130 /* Assets.xcassets */; };
 		AC1E8EF129E98F3900D8A130 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC1E8EEF29E98F3900D8A130 /* LaunchScreen.storyboard */; };
 		AC1E8EFC29E98F3900D8A130 /* MinhasTarefasAPPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8EFB29E98F3900D8A130 /* MinhasTarefasAPPTests.swift */; };
 		AC1E8F0629E98F3900D8A130 /* MinhasTarefasAPPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F0529E98F3900D8A130 /* MinhasTarefasAPPUITests.swift */; };
 		AC1E8F0829E98F3900D8A130 /* MinhasTarefasAPPUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F0729E98F3900D8A130 /* MinhasTarefasAPPUITestsLaunchTests.swift */; };
+		AC1E8F1B29E9909A00D8A130 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F1A29E9909A00D8A130 /* LoginVC.swift */; };
+		AC1E8F1D29E990B900D8A130 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F1C29E990B900D8A130 /* LoginScreen.swift */; };
+		AC1E8F1F29E9923000D8A130 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F1E29E9923000D8A130 /* TabBarController.swift */; };
+		AC1E8F2429E992A200D8A130 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F2329E992A200D8A130 /* HomeScreen.swift */; };
+		AC1E8F2629E992D400D8A130 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F2529E992D400D8A130 /* HomeVC.swift */; };
+		AC1E8F2B29E9935900D8A130 /* AddTarefasScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F2A29E9935900D8A130 /* AddTarefasScreen.swift */; };
+		AC1E8F2D29E9937400D8A130 /* AddTarefasVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F2C29E9937400D8A130 /* AddTarefasVC.swift */; };
+		AC1E8F3229E9943E00D8A130 /* AddTarefasCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F3129E9943E00D8A130 /* AddTarefasCollectionViewCell.swift */; };
+		AC1E8F3629E994DA00D8A130 /* TarefasCriadasTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F3529E994DA00D8A130 /* TarefasCriadasTableViewCell.swift */; };
+		AC1E8F3829E9958000D8A130 /* AddTarefasCollectionViewCellScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F3729E9958000D8A130 /* AddTarefasCollectionViewCellScreen.swift */; };
+		AC1E8F3A29E995D000D8A130 /* TarefasCriadasTableViewCellScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F3929E995D000D8A130 /* TarefasCriadasTableViewCellScreen.swift */; };
+		AC1E8F4029E9964000D8A130 /* CadastroScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F3F29E9964000D8A130 /* CadastroScreen.swift */; };
+		AC1E8F4329E9968800D8A130 /* CadastroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F4229E9968800D8A130 /* CadastroVC.swift */; };
+		AC1E8F4629E996DC00D8A130 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F4529E996DC00D8A130 /* Alert.swift */; };
+		AC1E8F4829E9970C00D8A130 /* AlertPop.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F4729E9970C00D8A130 /* AlertPop.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +52,6 @@
 		AC1E8EE129E98F3800D8A130 /* MinhasTarefasAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MinhasTarefasAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC1E8EE429E98F3800D8A130 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC1E8EE629E98F3800D8A130 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AC1E8EE829E98F3800D8A130 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		AC1E8EEB29E98F3800D8A130 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC1E8EED29E98F3900D8A130 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC1E8EF029E98F3900D8A130 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC1E8EF229E98F3900D8A130 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +60,21 @@
 		AC1E8F0129E98F3900D8A130 /* MinhasTarefasAPPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MinhasTarefasAPPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC1E8F0529E98F3900D8A130 /* MinhasTarefasAPPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinhasTarefasAPPUITests.swift; sourceTree = "<group>"; };
 		AC1E8F0729E98F3900D8A130 /* MinhasTarefasAPPUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinhasTarefasAPPUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		AC1E8F1A29E9909A00D8A130 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		AC1E8F1C29E990B900D8A130 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		AC1E8F1E29E9923000D8A130 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		AC1E8F2329E992A200D8A130 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		AC1E8F2529E992D400D8A130 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		AC1E8F2A29E9935900D8A130 /* AddTarefasScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTarefasScreen.swift; sourceTree = "<group>"; };
+		AC1E8F2C29E9937400D8A130 /* AddTarefasVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTarefasVC.swift; sourceTree = "<group>"; };
+		AC1E8F3129E9943E00D8A130 /* AddTarefasCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTarefasCollectionViewCell.swift; sourceTree = "<group>"; };
+		AC1E8F3529E994DA00D8A130 /* TarefasCriadasTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarefasCriadasTableViewCell.swift; sourceTree = "<group>"; };
+		AC1E8F3729E9958000D8A130 /* AddTarefasCollectionViewCellScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTarefasCollectionViewCellScreen.swift; sourceTree = "<group>"; };
+		AC1E8F3929E995D000D8A130 /* TarefasCriadasTableViewCellScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarefasCriadasTableViewCellScreen.swift; sourceTree = "<group>"; };
+		AC1E8F3F29E9964000D8A130 /* CadastroScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroScreen.swift; sourceTree = "<group>"; };
+		AC1E8F4229E9968800D8A130 /* CadastroVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroVC.swift; sourceTree = "<group>"; };
+		AC1E8F4529E996DC00D8A130 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		AC1E8F4729E9970C00D8A130 /* AlertPop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPop.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +125,11 @@
 		AC1E8EE329E98F3800D8A130 /* MinhasTarefasAPP */ = {
 			isa = PBXGroup;
 			children = (
+				AC1E8F1629E9902700D8A130 /* Features */,
+				AC1E8F1529E9901A00D8A130 /* TabBar */,
+				AC1E8F1429E9900800D8A130 /* Utils */,
 				AC1E8EE429E98F3800D8A130 /* AppDelegate.swift */,
 				AC1E8EE629E98F3800D8A130 /* SceneDelegate.swift */,
-				AC1E8EE829E98F3800D8A130 /* ViewController.swift */,
-				AC1E8EEA29E98F3800D8A130 /* Main.storyboard */,
 				AC1E8EED29E98F3900D8A130 /* Assets.xcassets */,
 				AC1E8EEF29E98F3900D8A130 /* LaunchScreen.storyboard */,
 				AC1E8EF229E98F3900D8A130 /* Info.plist */,
@@ -125,6 +152,194 @@
 				AC1E8F0729E98F3900D8A130 /* MinhasTarefasAPPUITestsLaunchTests.swift */,
 			);
 			path = MinhasTarefasAPPUITests;
+			sourceTree = "<group>";
+		};
+		AC1E8F1429E9900800D8A130 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E8F4429E996C800D8A130 /* Alert */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		AC1E8F1529E9901A00D8A130 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E8F1E29E9923000D8A130 /* TabBarController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		AC1E8F1629E9902700D8A130 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E8F3B29E995FB00D8A130 /* Cadastro */,
+				AC1E8F2E29E993ED00D8A130 /* Cells */,
+				AC1E8F2729E9932A00D8A130 /* AddTarefas */,
+				AC1E8F2029E9925800D8A130 /* Home */,
+				AC1E8F1729E9904E00D8A130 /* Login */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		AC1E8F1729E9904E00D8A130 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E8F1929E9906200D8A130 /* Screen */,
+				AC1E8F1829E9905900D8A130 /* VC */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		AC1E8F1829E9905900D8A130 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E8F1A29E9909A00D8A130 /* LoginVC.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		AC1E8F1929E9906200D8A130 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E8F1C29E990B900D8A130 /* LoginScreen.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		AC1E8F2029E9925800D8A130 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E8F2229E9927100D8A130 /* Screen */,
+				AC1E8F2129E9926200D8A130 /* VC */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		AC1E8F2129E9926200D8A130 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E8F2529E992D400D8A130 /* HomeVC.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		AC1E8F2229E9927100D8A130 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E8F2329E992A200D8A130 /* HomeScreen.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		AC1E8F2729E9932A00D8A130 /* AddTarefas */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E8F2929E9933D00D8A130 /* Screen */,
+				AC1E8F2829E9933500D8A130 /* VC */,
+			);
+			path = AddTarefas;
+			sourceTree = "<group>";
+		};
+		AC1E8F2829E9933500D8A130 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E8F2C29E9937400D8A130 /* AddTarefasVC.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		AC1E8F2929E9933D00D8A130 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E8F2A29E9935900D8A130 /* AddTarefasScreen.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		AC1E8F2E29E993ED00D8A130 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E8F3329E9948C00D8A130 /* TarefasCriadasTableViewCell */,
+				AC1E8F2F29E9940600D8A130 /* AddTarefasCollectionViewCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		AC1E8F2F29E9940600D8A130 /* AddTarefasCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E8F3129E9943E00D8A130 /* AddTarefasCollectionViewCell.swift */,
+				AC1E8F3029E9940F00D8A130 /* Screen */,
+			);
+			path = AddTarefasCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		AC1E8F3029E9940F00D8A130 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E8F3729E9958000D8A130 /* AddTarefasCollectionViewCellScreen.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		AC1E8F3329E9948C00D8A130 /* TarefasCriadasTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E8F3529E994DA00D8A130 /* TarefasCriadasTableViewCell.swift */,
+				AC1E8F3429E9949700D8A130 /* Screen */,
+			);
+			path = TarefasCriadasTableViewCell;
+			sourceTree = "<group>";
+		};
+		AC1E8F3429E9949700D8A130 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E8F3929E995D000D8A130 /* TarefasCriadasTableViewCellScreen.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		AC1E8F3B29E995FB00D8A130 /* Cadastro */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E8F3E29E9961900D8A130 /* ViewModel */,
+				AC1E8F3D29E9960E00D8A130 /* Screen */,
+				AC1E8F3C29E9960600D8A130 /* VC */,
+			);
+			path = Cadastro;
+			sourceTree = "<group>";
+		};
+		AC1E8F3C29E9960600D8A130 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E8F4229E9968800D8A130 /* CadastroVC.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		AC1E8F3D29E9960E00D8A130 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E8F3F29E9964000D8A130 /* CadastroScreen.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		AC1E8F3E29E9961900D8A130 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AC1E8F4429E996C800D8A130 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E8F4529E996DC00D8A130 /* Alert.swift */,
+				AC1E8F4729E9970C00D8A130 /* AlertPop.swift */,
+			);
+			path = Alert;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +448,6 @@
 			files = (
 				AC1E8EF129E98F3900D8A130 /* LaunchScreen.storyboard in Resources */,
 				AC1E8EEE29E98F3900D8A130 /* Assets.xcassets in Resources */,
-				AC1E8EEC29E98F3800D8A130 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +472,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC1E8EE929E98F3800D8A130 /* ViewController.swift in Sources */,
+				AC1E8F3629E994DA00D8A130 /* TarefasCriadasTableViewCell.swift in Sources */,
+				AC1E8F3829E9958000D8A130 /* AddTarefasCollectionViewCellScreen.swift in Sources */,
+				AC1E8F4829E9970C00D8A130 /* AlertPop.swift in Sources */,
+				AC1E8F2B29E9935900D8A130 /* AddTarefasScreen.swift in Sources */,
+				AC1E8F3A29E995D000D8A130 /* TarefasCriadasTableViewCellScreen.swift in Sources */,
+				AC1E8F4029E9964000D8A130 /* CadastroScreen.swift in Sources */,
 				AC1E8EE529E98F3800D8A130 /* AppDelegate.swift in Sources */,
+				AC1E8F2629E992D400D8A130 /* HomeVC.swift in Sources */,
+				AC1E8F4329E9968800D8A130 /* CadastroVC.swift in Sources */,
+				AC1E8F2D29E9937400D8A130 /* AddTarefasVC.swift in Sources */,
+				AC1E8F1D29E990B900D8A130 /* LoginScreen.swift in Sources */,
+				AC1E8F2429E992A200D8A130 /* HomeScreen.swift in Sources */,
 				AC1E8EE729E98F3800D8A130 /* SceneDelegate.swift in Sources */,
+				AC1E8F1F29E9923000D8A130 /* TabBarController.swift in Sources */,
+				AC1E8F1B29E9909A00D8A130 /* LoginVC.swift in Sources */,
+				AC1E8F4629E996DC00D8A130 /* Alert.swift in Sources */,
+				AC1E8F3229E9943E00D8A130 /* AddTarefasCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +525,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		AC1E8EEA29E98F3800D8A130 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AC1E8EEB29E98F3800D8A130 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		AC1E8EEF29E98F3900D8A130 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -441,9 +661,10 @@
 				INFOPLIST_FILE = MinhasTarefasAPP/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -468,9 +689,10 @@
 				INFOPLIST_FILE = MinhasTarefasAPP/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
