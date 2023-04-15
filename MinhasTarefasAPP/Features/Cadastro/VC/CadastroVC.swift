@@ -12,6 +12,7 @@ class CadastroVC: UIViewController {
     private var screen: CadastroScreen?
     private var alert: Alert?
     private var alertPop: AlertPop?
+    private var viewModel: CadastroViewModel = CadastroViewModel()
     
     
     override func loadView() {
@@ -19,6 +20,7 @@ class CadastroVC: UIViewController {
         screen?.delegate(delegate: self)
         alert = Alert(controller: self)
         alertPop = AlertPop(controller: self)
+        viewModel.delegate(delegate: self)
         view = screen
     }
     
@@ -59,7 +61,6 @@ extension CadastroVC: CadastroScreenProtocol {
     }
     
     func tappedCadastrarButton() {
-        print(#function)
         
         if (screen?.nameTextField.text == "") ||
             (screen?.lastNameTextField.text == "") ||
@@ -69,10 +70,17 @@ extension CadastroVC: CadastroScreenProtocol {
             (screen?.passwordTextField.text == ""){
             alert?.alert(title: "Atenção", message: "Preencha todos os campos antes de prosseguir")
         }else{
-            alertPop?.alertPop(title: "Parabéns", message: "Cadastro realizado com sucesso")
-
+            viewModel.cadastroUser(email: screen?.emailTextField.text ?? "", password: screen?.passwordTextField.text ?? "", nome: screen?.nameTextField.text ?? "", sobrenome: screen?.lastNameTextField.text ?? "", uf: screen?.ufTextField.text ?? "", cidade: screen?.cityTextField.text ?? "", imageUser: screen?.userImageView.image ?? UIImage())
         }
-
+    }
+}
+extension CadastroVC: CadastroViewModelProtocol {
+    func sucessCadastro() {
+        alertPop?.alertPop(title: "Parabéns", message: "Cadastro realizado com sucesso")
+    }
+    
+    func errorCadastro(errorMessage: String) {
+        alert?.alert(title: "Ops Erro no Cadastro", message: errorMessage)
     }
     
     

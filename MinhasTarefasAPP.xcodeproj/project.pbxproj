@@ -39,6 +39,8 @@
 		AC9E186A29E9D3270016A773 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = AC9E186929E9D3270016A773 /* FirebaseStorage */; };
 		AC9E186C29E9D3270016A773 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = AC9E186B29E9D3270016A773 /* FirebaseStorageCombine-Community */; };
 		AC9E186E29E9D65C0016A773 /* CadastroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9E186D29E9D65C0016A773 /* CadastroViewModel.swift */; };
+		AC9E187129EA1D460016A773 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9E187029EA1D460016A773 /* LoginViewModel.swift */; };
+		AC9E187429EA25000016A773 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9E187329EA25000016A773 /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,8 @@
 		AC1E8F4729E9970C00D8A130 /* AlertPop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPop.swift; sourceTree = "<group>"; };
 		AC1E8F4A29E99C8B00D8A130 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AC9E186D29E9D65C0016A773 /* CadastroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroViewModel.swift; sourceTree = "<group>"; };
+		AC9E187029EA1D460016A773 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		AC9E187329EA25000016A773 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +210,7 @@
 		AC1E8F1729E9904E00D8A130 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				AC9E186F29EA1D2F0016A773 /* ViewModel */,
 				AC1E8F1929E9906200D8A130 /* Screen */,
 				AC1E8F1829E9905900D8A130 /* VC */,
 			);
@@ -231,6 +236,7 @@
 		AC1E8F2029E9925800D8A130 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				AC9E187229EA24ED0016A773 /* ViewModel */,
 				AC1E8F2229E9927100D8A130 /* Screen */,
 				AC1E8F2129E9926200D8A130 /* VC */,
 			);
@@ -362,6 +368,22 @@
 				AC1E8F4729E9970C00D8A130 /* AlertPop.swift */,
 			);
 			path = Alert;
+			sourceTree = "<group>";
+		};
+		AC9E186F29EA1D2F0016A773 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AC9E187029EA1D460016A773 /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AC9E187229EA24ED0016A773 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AC9E187329EA25000016A773 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -511,6 +533,7 @@
 				AC1E8F3629E994DA00D8A130 /* TarefasCriadasTableViewCell.swift in Sources */,
 				AC1E8F3829E9958000D8A130 /* AddTarefasCollectionViewCellScreen.swift in Sources */,
 				AC1E8F4829E9970C00D8A130 /* AlertPop.swift in Sources */,
+				AC9E187429EA25000016A773 /* HomeViewModel.swift in Sources */,
 				AC1E8F2B29E9935900D8A130 /* AddTarefasScreen.swift in Sources */,
 				AC1E8F3A29E995D000D8A130 /* TarefasCriadasTableViewCellScreen.swift in Sources */,
 				AC1E8F4029E9964000D8A130 /* CadastroScreen.swift in Sources */,
@@ -525,6 +548,7 @@
 				AC1E8F1F29E9923000D8A130 /* TabBarController.swift in Sources */,
 				AC1E8F1B29E9909A00D8A130 /* LoginVC.swift in Sources */,
 				AC1E8F4629E996DC00D8A130 /* Alert.swift in Sources */,
+				AC9E187129EA1D460016A773 /* LoginViewModel.swift in Sources */,
 				AC1E8F3229E9943E00D8A130 /* AddTarefasCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

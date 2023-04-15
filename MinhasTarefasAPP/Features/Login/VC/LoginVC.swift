@@ -10,10 +10,14 @@ import UIKit
 class LoginVC: UIViewController {
     
     private var screen: LoginScreen?
+    private var viewModel: LoginViewModel = LoginViewModel()
+    private var alert: Alert?
     
     override func loadView() {
         screen = LoginScreen()
+        alert = Alert(controller: self)
         screen?.delegate(delegate: self)
+        viewModel.delegate(delegate: self)
         view = screen
     }
 
@@ -27,10 +31,7 @@ class LoginVC: UIViewController {
 extension LoginVC: LoginScreenProtocol {
     
     func tappedEnterButton() {
-        print(#function)
-        let vc = TabBarController()
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
+        viewModel.loginUser(email: screen?.emailTextField.text ?? "", password: screen?.passwordTextField.text ?? "")
     }
     
     func tappedCadastroButton() {
@@ -38,6 +39,24 @@ extension LoginVC: LoginScreenProtocol {
         let vc = CadastroVC()
         present(vc, animated: true)
     }
+    
+}
+
+extension LoginVC: LoginViewModelProtocol {
+    func sucessLogin() {
+        let vc = TabBarController()
+        screen?.emailTextField.text = ""
+        screen?.passwordTextField.text = ""
+        
+        
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+    
+    func errorLogin(errorMessage: String) {
+        alert?.alert(title: "Ops Erro no Login", message: errorMessage)
+    }
+    
     
 }
 

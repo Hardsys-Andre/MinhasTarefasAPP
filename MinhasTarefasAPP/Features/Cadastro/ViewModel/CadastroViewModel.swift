@@ -11,6 +11,7 @@ import FirebaseCore
 import FirebaseAuth
 import Firebase
 import FirebaseStorage
+import FirebaseFirestore
 
 protocol CadastroViewModelProtocol: AnyObject {
     func sucessCadastro()
@@ -27,7 +28,6 @@ class CadastroViewModel {
     private var auth = Auth.auth()
     
     public func cadastroUser(email: String, password: String, nome: String, sobrenome: String, uf: String, cidade: String, imageUser: UIImage){
-       
        
         let db = Firestore.firestore()
         
@@ -52,26 +52,17 @@ class CadastroViewModel {
                 self.auth.createUser(withEmail: email, password: password) { authResult, error in
                     if let error = error {
                             if error.localizedDescription.contains("email") && error.localizedDescription.contains("already in use") {
-                                //self.alert?.alert(title: "Atenção", message: "Este email já está cadastrado")
                                 return
                             }
-                            //self.alert?.alert(title: "Atenção", message: "Falha ao cadastrar")
                             return
                     }else{
                         db.collection("users").addDocument(data: userData) { (error) in
-                            if let error = error {
-                                print("error")
+                            if error != nil {
+                                self.delegate?.errorCadastro(errorMessage: error?.localizedDescription ?? "")
+                               
 
-                                //self.alert?.alert(title: "Atenção", message: "Erro ao salvar usuário: \(error)")
                             } else {
-                                /*self.nameTextField.text = ""
-                                self.sobrenomeTextField.text = ""
-                                self.emailTextField.text = ""
-                                self.senhaTextField.text = ""
-                                self.imagemUsuario.image = UIImage(named: "galery_cam")*/
-                                print("Sucesso no cadastro")
-                                
-                                //self.alertPop?.alertPop(title: "Parabéns", message: "Cadastro realizado com sucesso")
+                                self.delegate?.sucessCadastro()
                             }
                         }
                     }

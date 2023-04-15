@@ -16,9 +16,10 @@ class HomeVC: UIViewController {
         
     }
     
+    
     override func loadView() {
         screen = HomeScreen()
-        screen?.delegate(delegate: self)
+        screen?.delegate(delegate: self)        
         screen?.configTableViewProtocol(delegate: self, dataSource: self)
         view = screen
     }
@@ -57,5 +58,5 @@ extension HomeVC: HomeScreenProtocol {
         present(vc, animated: true)
     }
     
-    
 }
+
