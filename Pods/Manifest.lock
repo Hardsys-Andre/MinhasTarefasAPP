@@ -1,0 +1,22 @@
+PODS:
+  - InputMask (6.1.0)
+  - SDWebImage (5.15.2):
+    - SDWebImage/Core (= 5.15.2)
+  - SDWebImage/Core (5.15.2)
+
+DEPENDENCIES:
+  - InputMask
+  - SDWebImage
+
+SPEC REPOS:
+  trunk:
+    - InputMask
+    - SDWebImage
+
+SPEC CHECKSUMS:
+  InputMask: 71d291dc54d2deaeac6512afb6ec2304228c0bb7
+  SDWebImage: 8ab87d4b3e5cc4927bd47f78db6ceb0b94442577
+
+PODFILE CHECKSUM: b5d20de21e806bf29a999a4e3f7044192af18a65
+
+COCOAPODS: 1.12.1

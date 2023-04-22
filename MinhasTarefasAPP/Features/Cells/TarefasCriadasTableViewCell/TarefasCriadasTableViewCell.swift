@@ -11,8 +11,8 @@ class TarefasCriadasTableViewCell: UITableViewCell {
     
     static let identifier: String = String(describing: TarefasCriadasTableViewCell.self)
     
-    private lazy var screen: TarefasCriadasTableViewCellScreen = {
-        let view = TarefasCriadasTableViewCellScreen()
+    private lazy var cellTarefasCriadasView: TarefasCriadasTableViewCellView = {
+        let view = TarefasCriadasTableViewCellView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -30,23 +30,18 @@ class TarefasCriadasTableViewCell: UITableViewCell {
     }
     
     private func configElementes(){
-        contentView.addSubview(screen)
+        contentView.addSubview(cellTarefasCriadasView)
         
     }
     
     private func configConstraints(){
         NSLayoutConstraint.activate([
-            screen.topAnchor.constraint(equalTo: topAnchor),
-            screen.leadingAnchor.constraint(equalTo: leadingAnchor),
-            screen.trailingAnchor.constraint(equalTo: trailingAnchor),
-            screen.bottomAnchor.constraint(equalTo: bottomAnchor),
+            cellTarefasCriadasView.topAnchor.constraint(equalTo: topAnchor),
+            cellTarefasCriadasView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            cellTarefasCriadasView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            cellTarefasCriadasView.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
     }
-    
-    //public func setupCell(delegate: ProfileTableViewCellScreenDelegate) {
-       // screen.delegate(delegate: delegate)
-        
-   // }
 
 
 }

@@ -7,10 +7,11 @@
 
 import Foundation
 import FirebaseAuth
+import FirebaseFirestore
 
 protocol LoginViewModelProtocol: AnyObject {
-    func sucessLogin()
-    func errorLogin(errorMessage: String)
+    func loginSuccess(userData: UserData)
+    func loginFailure(message: String?)
 }
 
 class LoginViewModel {
@@ -25,11 +26,31 @@ class LoginViewModel {
     public func loginUser(email: String, password: String) {
         auth.signIn(withEmail: email, password: password) { authResult, error in
             if error == nil{
-                self.delegate?.sucessLogin()
-                
+                self.usuarioRecebido(email: email)
             }else{
-                self.delegate?.errorLogin(errorMessage: error?.localizedDescription ?? "")
+                self.delegate?.loginFailure(message: error?.localizedDescription)
             }
         }
     }
+    
+    public func usuarioRecebido(email: String) {
+        let db = Firestore.firestore()
+
+        db.collection("users").whereField("email", isEqualTo: email as Any).getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                self.delegate?.loginFailure(message: err.localizedDescription)
+            } else {
+                guard let data = querySnapshot?.documents.first?.data() else {
+                    self.delegate?.loginFailure(message: nil)
+                    
+                    return
+                }
+                let imageUrl = data["image"] as? String ?? ""
+                let name = data["nome"] as? String ?? ""
+                let userData = UserData(email: email, name: name , imageUrl: imageUrl)
+                self.delegate?.loginSuccess(userData: userData)
+            }
+        }
+    }
+    
 }

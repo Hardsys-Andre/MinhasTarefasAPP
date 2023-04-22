@@ -1,0 +1,6 @@
+framework module Pods_MinhasTarefasAPP_MinhasTarefasAPPUITests {
+  umbrella header "Pods-MinhasTarefasAPP-MinhasTarefasAPPUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

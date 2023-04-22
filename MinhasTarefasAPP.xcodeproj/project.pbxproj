@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		143695670700EDDD43877A4B /* Pods_MinhasTarefasAPP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959A657B784DDEC53654666A /* Pods_MinhasTarefasAPP.framework */; };
+		AC00EE5329F4118100F228A1 /* AddTarefasCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC00EE5229F4118100F228A1 /* AddTarefasCellViewModel.swift */; };
 		AC1E8EE529E98F3800D8A130 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8EE429E98F3800D8A130 /* AppDelegate.swift */; };
 		AC1E8EE729E98F3800D8A130 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8EE629E98F3800D8A130 /* SceneDelegate.swift */; };
 		AC1E8EEE29E98F3900D8A130 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC1E8EED29E98F3900D8A130 /* Assets.xcassets */; };
@@ -14,19 +16,19 @@
 		AC1E8EFC29E98F3900D8A130 /* MinhasTarefasAPPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8EFB29E98F3900D8A130 /* MinhasTarefasAPPTests.swift */; };
 		AC1E8F0629E98F3900D8A130 /* MinhasTarefasAPPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F0529E98F3900D8A130 /* MinhasTarefasAPPUITests.swift */; };
 		AC1E8F0829E98F3900D8A130 /* MinhasTarefasAPPUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F0729E98F3900D8A130 /* MinhasTarefasAPPUITestsLaunchTests.swift */; };
-		AC1E8F1B29E9909A00D8A130 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F1A29E9909A00D8A130 /* LoginVC.swift */; };
-		AC1E8F1D29E990B900D8A130 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F1C29E990B900D8A130 /* LoginScreen.swift */; };
+		AC1E8F1B29E9909A00D8A130 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F1A29E9909A00D8A130 /* LoginViewController.swift */; };
+		AC1E8F1D29E990B900D8A130 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F1C29E990B900D8A130 /* LoginView.swift */; };
 		AC1E8F1F29E9923000D8A130 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F1E29E9923000D8A130 /* TabBarController.swift */; };
-		AC1E8F2429E992A200D8A130 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F2329E992A200D8A130 /* HomeScreen.swift */; };
-		AC1E8F2629E992D400D8A130 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F2529E992D400D8A130 /* HomeVC.swift */; };
-		AC1E8F2B29E9935900D8A130 /* AddTarefasScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F2A29E9935900D8A130 /* AddTarefasScreen.swift */; };
-		AC1E8F2D29E9937400D8A130 /* AddTarefasVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F2C29E9937400D8A130 /* AddTarefasVC.swift */; };
+		AC1E8F2429E992A200D8A130 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F2329E992A200D8A130 /* HomeView.swift */; };
+		AC1E8F2629E992D400D8A130 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F2529E992D400D8A130 /* HomeViewController.swift */; };
+		AC1E8F2B29E9935900D8A130 /* AddTarefasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F2A29E9935900D8A130 /* AddTarefasView.swift */; };
+		AC1E8F2D29E9937400D8A130 /* AddTarefasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F2C29E9937400D8A130 /* AddTarefasViewController.swift */; };
 		AC1E8F3229E9943E00D8A130 /* AddTarefasCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F3129E9943E00D8A130 /* AddTarefasCollectionViewCell.swift */; };
 		AC1E8F3629E994DA00D8A130 /* TarefasCriadasTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F3529E994DA00D8A130 /* TarefasCriadasTableViewCell.swift */; };
-		AC1E8F3829E9958000D8A130 /* AddTarefasCollectionViewCellScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F3729E9958000D8A130 /* AddTarefasCollectionViewCellScreen.swift */; };
-		AC1E8F3A29E995D000D8A130 /* TarefasCriadasTableViewCellScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F3929E995D000D8A130 /* TarefasCriadasTableViewCellScreen.swift */; };
-		AC1E8F4029E9964000D8A130 /* CadastroScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F3F29E9964000D8A130 /* CadastroScreen.swift */; };
-		AC1E8F4329E9968800D8A130 /* CadastroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F4229E9968800D8A130 /* CadastroVC.swift */; };
+		AC1E8F3829E9958000D8A130 /* AddTarefasCollectionViewCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F3729E9958000D8A130 /* AddTarefasCollectionViewCellView.swift */; };
+		AC1E8F3A29E995D000D8A130 /* TarefasCriadasTableViewCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F3929E995D000D8A130 /* TarefasCriadasTableViewCellView.swift */; };
+		AC1E8F4029E9964000D8A130 /* CadastroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F3F29E9964000D8A130 /* CadastroView.swift */; };
+		AC1E8F4329E9968800D8A130 /* CadastroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F4229E9968800D8A130 /* CadastroViewController.swift */; };
 		AC1E8F4629E996DC00D8A130 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F4529E996DC00D8A130 /* Alert.swift */; };
 		AC1E8F4829E9970C00D8A130 /* AlertPop.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F4729E9970C00D8A130 /* AlertPop.swift */; };
 		AC1E8F4B29E99C8B00D8A130 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC1E8F4A29E99C8B00D8A130 /* GoogleService-Info.plist */; };
@@ -41,6 +43,9 @@
 		AC9E186E29E9D65C0016A773 /* CadastroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9E186D29E9D65C0016A773 /* CadastroViewModel.swift */; };
 		AC9E187129EA1D460016A773 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9E187029EA1D460016A773 /* LoginViewModel.swift */; };
 		AC9E187429EA25000016A773 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9E187329EA25000016A773 /* HomeViewModel.swift */; };
+		ACA98A8A29F3023600570216 /* AddTarefasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA98A8929F3023600570216 /* AddTarefasViewModel.swift */; };
+		CB6158D403AFEC085375B4E8 /* Pods_MinhasTarefasAPPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B087EAFC1139B3874D03E61 /* Pods_MinhasTarefasAPPTests.framework */; };
+		D67FDB41908710E73373A4AC /* Pods_MinhasTarefasAPP_MinhasTarefasAPPUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC027C357A8AAB0CEDC481AE /* Pods_MinhasTarefasAPP_MinhasTarefasAPPUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +66,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		10DCB271569A9AD0F7EEE9E5 /* Pods-MinhasTarefasAPP-MinhasTarefasAPPUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MinhasTarefasAPP-MinhasTarefasAPPUITests.debug.xcconfig"; path = "Target Support Files/Pods-MinhasTarefasAPP-MinhasTarefasAPPUITests/Pods-MinhasTarefasAPP-MinhasTarefasAPPUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		161124AF01E49806E3E4FA71 /* Pods-MinhasTarefasAPPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MinhasTarefasAPPTests.release.xcconfig"; path = "Target Support Files/Pods-MinhasTarefasAPPTests/Pods-MinhasTarefasAPPTests.release.xcconfig"; sourceTree = "<group>"; };
+		2B087EAFC1139B3874D03E61 /* Pods_MinhasTarefasAPPTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MinhasTarefasAPPTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C56E9519808DD28F7A0A0DE /* Pods-MinhasTarefasAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MinhasTarefasAPP.release.xcconfig"; path = "Target Support Files/Pods-MinhasTarefasAPP/Pods-MinhasTarefasAPP.release.xcconfig"; sourceTree = "<group>"; };
+		8DD9F878BDADA55CD4D54B0A /* Pods-MinhasTarefasAPP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MinhasTarefasAPP.debug.xcconfig"; path = "Target Support Files/Pods-MinhasTarefasAPP/Pods-MinhasTarefasAPP.debug.xcconfig"; sourceTree = "<group>"; };
+		904F69CE50CBF4DE278FD7FE /* Pods-MinhasTarefasAPP-MinhasTarefasAPPUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MinhasTarefasAPP-MinhasTarefasAPPUITests.release.xcconfig"; path = "Target Support Files/Pods-MinhasTarefasAPP-MinhasTarefasAPPUITests/Pods-MinhasTarefasAPP-MinhasTarefasAPPUITests.release.xcconfig"; sourceTree = "<group>"; };
+		959A657B784DDEC53654666A /* Pods_MinhasTarefasAPP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MinhasTarefasAPP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC00EE5229F4118100F228A1 /* AddTarefasCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTarefasCellViewModel.swift; sourceTree = "<group>"; };
 		AC1E8EE129E98F3800D8A130 /* MinhasTarefasAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MinhasTarefasAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC1E8EE429E98F3800D8A130 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC1E8EE629E98F3800D8A130 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,25 +85,28 @@
 		AC1E8F0129E98F3900D8A130 /* MinhasTarefasAPPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MinhasTarefasAPPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC1E8F0529E98F3900D8A130 /* MinhasTarefasAPPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinhasTarefasAPPUITests.swift; sourceTree = "<group>"; };
 		AC1E8F0729E98F3900D8A130 /* MinhasTarefasAPPUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinhasTarefasAPPUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		AC1E8F1A29E9909A00D8A130 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
-		AC1E8F1C29E990B900D8A130 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		AC1E8F1A29E9909A00D8A130 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		AC1E8F1C29E990B900D8A130 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		AC1E8F1E29E9923000D8A130 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		AC1E8F2329E992A200D8A130 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
-		AC1E8F2529E992D400D8A130 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
-		AC1E8F2A29E9935900D8A130 /* AddTarefasScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTarefasScreen.swift; sourceTree = "<group>"; };
-		AC1E8F2C29E9937400D8A130 /* AddTarefasVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTarefasVC.swift; sourceTree = "<group>"; };
+		AC1E8F2329E992A200D8A130 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		AC1E8F2529E992D400D8A130 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		AC1E8F2A29E9935900D8A130 /* AddTarefasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTarefasView.swift; sourceTree = "<group>"; };
+		AC1E8F2C29E9937400D8A130 /* AddTarefasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTarefasViewController.swift; sourceTree = "<group>"; };
 		AC1E8F3129E9943E00D8A130 /* AddTarefasCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTarefasCollectionViewCell.swift; sourceTree = "<group>"; };
 		AC1E8F3529E994DA00D8A130 /* TarefasCriadasTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarefasCriadasTableViewCell.swift; sourceTree = "<group>"; };
-		AC1E8F3729E9958000D8A130 /* AddTarefasCollectionViewCellScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTarefasCollectionViewCellScreen.swift; sourceTree = "<group>"; };
-		AC1E8F3929E995D000D8A130 /* TarefasCriadasTableViewCellScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarefasCriadasTableViewCellScreen.swift; sourceTree = "<group>"; };
-		AC1E8F3F29E9964000D8A130 /* CadastroScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroScreen.swift; sourceTree = "<group>"; };
-		AC1E8F4229E9968800D8A130 /* CadastroVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroVC.swift; sourceTree = "<group>"; };
+		AC1E8F3729E9958000D8A130 /* AddTarefasCollectionViewCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTarefasCollectionViewCellView.swift; sourceTree = "<group>"; };
+		AC1E8F3929E995D000D8A130 /* TarefasCriadasTableViewCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarefasCriadasTableViewCellView.swift; sourceTree = "<group>"; };
+		AC1E8F3F29E9964000D8A130 /* CadastroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroView.swift; sourceTree = "<group>"; };
+		AC1E8F4229E9968800D8A130 /* CadastroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroViewController.swift; sourceTree = "<group>"; };
 		AC1E8F4529E996DC00D8A130 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		AC1E8F4729E9970C00D8A130 /* AlertPop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPop.swift; sourceTree = "<group>"; };
 		AC1E8F4A29E99C8B00D8A130 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AC9E186D29E9D65C0016A773 /* CadastroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroViewModel.swift; sourceTree = "<group>"; };
 		AC9E187029EA1D460016A773 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		AC9E187329EA25000016A773 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		ACA98A8929F3023600570216 /* AddTarefasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTarefasViewModel.swift; sourceTree = "<group>"; };
+		CC027C357A8AAB0CEDC481AE /* Pods_MinhasTarefasAPP_MinhasTarefasAPPUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MinhasTarefasAPP_MinhasTarefasAPPUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E789481FAE5C44800F912FB5 /* Pods-MinhasTarefasAPPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MinhasTarefasAPPTests.debug.xcconfig"; path = "Target Support Files/Pods-MinhasTarefasAPPTests/Pods-MinhasTarefasAPPTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +122,7 @@
 				AC9E186A29E9D3270016A773 /* FirebaseStorage in Frameworks */,
 				AC9E186029E9D3270016A773 /* FirebaseAuthCombine-Community in Frameworks */,
 				AC9E186829E9D3270016A773 /* FirebaseFirestoreSwift in Frameworks */,
+				143695670700EDDD43877A4B /* Pods_MinhasTarefasAPP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB6158D403AFEC085375B4E8 /* Pods_MinhasTarefasAPPTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,12 +138,44 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D67FDB41908710E73373A4AC /* Pods_MinhasTarefasAPP_MinhasTarefasAPPUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B510C10B50936D071789E08 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8DD9F878BDADA55CD4D54B0A /* Pods-MinhasTarefasAPP.debug.xcconfig */,
+				8C56E9519808DD28F7A0A0DE /* Pods-MinhasTarefasAPP.release.xcconfig */,
+				10DCB271569A9AD0F7EEE9E5 /* Pods-MinhasTarefasAPP-MinhasTarefasAPPUITests.debug.xcconfig */,
+				904F69CE50CBF4DE278FD7FE /* Pods-MinhasTarefasAPP-MinhasTarefasAPPUITests.release.xcconfig */,
+				E789481FAE5C44800F912FB5 /* Pods-MinhasTarefasAPPTests.debug.xcconfig */,
+				161124AF01E49806E3E4FA71 /* Pods-MinhasTarefasAPPTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		96FF928E96860A46F53DDD4D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				959A657B784DDEC53654666A /* Pods_MinhasTarefasAPP.framework */,
+				CC027C357A8AAB0CEDC481AE /* Pods_MinhasTarefasAPP_MinhasTarefasAPPUITests.framework */,
+				2B087EAFC1139B3874D03E61 /* Pods_MinhasTarefasAPPTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AC00EE5129F4116100F228A1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AC00EE5229F4118100F228A1 /* AddTarefasCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		AC1E8ED829E98F3800D8A130 = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +183,8 @@
 				AC1E8EFA29E98F3900D8A130 /* MinhasTarefasAPPTests */,
 				AC1E8F0429E98F3900D8A130 /* MinhasTarefasAPPUITests */,
 				AC1E8EE229E98F3800D8A130 /* Products */,
+				6B510C10B50936D071789E08 /* Pods */,
+				96FF928E96860A46F53DDD4D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -211,77 +263,78 @@
 			isa = PBXGroup;
 			children = (
 				AC9E186F29EA1D2F0016A773 /* ViewModel */,
-				AC1E8F1929E9906200D8A130 /* Screen */,
-				AC1E8F1829E9905900D8A130 /* VC */,
+				AC1E8F1929E9906200D8A130 /* View */,
+				AC1E8F1829E9905900D8A130 /* ViewController */,
 			);
 			path = Login;
 			sourceTree = "<group>";
 		};
-		AC1E8F1829E9905900D8A130 /* VC */ = {
+		AC1E8F1829E9905900D8A130 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				AC1E8F1A29E9909A00D8A130 /* LoginVC.swift */,
+				AC1E8F1A29E9909A00D8A130 /* LoginViewController.swift */,
 			);
-			path = VC;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
-		AC1E8F1929E9906200D8A130 /* Screen */ = {
+		AC1E8F1929E9906200D8A130 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AC1E8F1C29E990B900D8A130 /* LoginScreen.swift */,
+				AC1E8F1C29E990B900D8A130 /* LoginView.swift */,
 			);
-			path = Screen;
+			path = View;
 			sourceTree = "<group>";
 		};
 		AC1E8F2029E9925800D8A130 /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				AC9E187229EA24ED0016A773 /* ViewModel */,
-				AC1E8F2229E9927100D8A130 /* Screen */,
-				AC1E8F2129E9926200D8A130 /* VC */,
+				AC1E8F2229E9927100D8A130 /* View */,
+				AC1E8F2129E9926200D8A130 /* ViewContoller */,
 			);
 			path = Home;
 			sourceTree = "<group>";
 		};
-		AC1E8F2129E9926200D8A130 /* VC */ = {
+		AC1E8F2129E9926200D8A130 /* ViewContoller */ = {
 			isa = PBXGroup;
 			children = (
-				AC1E8F2529E992D400D8A130 /* HomeVC.swift */,
+				AC1E8F2529E992D400D8A130 /* HomeViewController.swift */,
 			);
-			path = VC;
+			path = ViewContoller;
 			sourceTree = "<group>";
 		};
-		AC1E8F2229E9927100D8A130 /* Screen */ = {
+		AC1E8F2229E9927100D8A130 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AC1E8F2329E992A200D8A130 /* HomeScreen.swift */,
+				AC1E8F2329E992A200D8A130 /* HomeView.swift */,
 			);
-			path = Screen;
+			path = View;
 			sourceTree = "<group>";
 		};
 		AC1E8F2729E9932A00D8A130 /* AddTarefas */ = {
 			isa = PBXGroup;
 			children = (
-				AC1E8F2929E9933D00D8A130 /* Screen */,
-				AC1E8F2829E9933500D8A130 /* VC */,
+				ACA98A8829F3021500570216 /* ViewModel */,
+				AC1E8F2929E9933D00D8A130 /* View */,
+				AC1E8F2829E9933500D8A130 /* ViewController */,
 			);
 			path = AddTarefas;
 			sourceTree = "<group>";
 		};
-		AC1E8F2829E9933500D8A130 /* VC */ = {
+		AC1E8F2829E9933500D8A130 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				AC1E8F2C29E9937400D8A130 /* AddTarefasVC.swift */,
+				AC1E8F2C29E9937400D8A130 /* AddTarefasViewController.swift */,
 			);
-			path = VC;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
-		AC1E8F2929E9933D00D8A130 /* Screen */ = {
+		AC1E8F2929E9933D00D8A130 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AC1E8F2A29E9935900D8A130 /* AddTarefasScreen.swift */,
+				AC1E8F2A29E9935900D8A130 /* AddTarefasView.swift */,
 			);
-			path = Screen;
+			path = View;
 			sourceTree = "<group>";
 		};
 		AC1E8F2E29E993ED00D8A130 /* Cells */ = {
@@ -296,61 +349,62 @@
 		AC1E8F2F29E9940600D8A130 /* AddTarefasCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				AC00EE5129F4116100F228A1 /* ViewModel */,
 				AC1E8F3129E9943E00D8A130 /* AddTarefasCollectionViewCell.swift */,
-				AC1E8F3029E9940F00D8A130 /* Screen */,
+				AC1E8F3029E9940F00D8A130 /* VIew */,
 			);
 			path = AddTarefasCollectionViewCell;
 			sourceTree = "<group>";
 		};
-		AC1E8F3029E9940F00D8A130 /* Screen */ = {
+		AC1E8F3029E9940F00D8A130 /* VIew */ = {
 			isa = PBXGroup;
 			children = (
-				AC1E8F3729E9958000D8A130 /* AddTarefasCollectionViewCellScreen.swift */,
+				AC1E8F3729E9958000D8A130 /* AddTarefasCollectionViewCellView.swift */,
 			);
-			path = Screen;
+			path = VIew;
 			sourceTree = "<group>";
 		};
 		AC1E8F3329E9948C00D8A130 /* TarefasCriadasTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
 				AC1E8F3529E994DA00D8A130 /* TarefasCriadasTableViewCell.swift */,
-				AC1E8F3429E9949700D8A130 /* Screen */,
+				AC1E8F3429E9949700D8A130 /* View */,
 			);
 			path = TarefasCriadasTableViewCell;
 			sourceTree = "<group>";
 		};
-		AC1E8F3429E9949700D8A130 /* Screen */ = {
+		AC1E8F3429E9949700D8A130 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AC1E8F3929E995D000D8A130 /* TarefasCriadasTableViewCellScreen.swift */,
+				AC1E8F3929E995D000D8A130 /* TarefasCriadasTableViewCellView.swift */,
 			);
-			path = Screen;
+			path = View;
 			sourceTree = "<group>";
 		};
 		AC1E8F3B29E995FB00D8A130 /* Cadastro */ = {
 			isa = PBXGroup;
 			children = (
 				AC1E8F3E29E9961900D8A130 /* ViewModel */,
-				AC1E8F3D29E9960E00D8A130 /* Screen */,
-				AC1E8F3C29E9960600D8A130 /* VC */,
+				AC1E8F3D29E9960E00D8A130 /* View */,
+				AC1E8F3C29E9960600D8A130 /* ViewController */,
 			);
 			path = Cadastro;
 			sourceTree = "<group>";
 		};
-		AC1E8F3C29E9960600D8A130 /* VC */ = {
+		AC1E8F3C29E9960600D8A130 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				AC1E8F4229E9968800D8A130 /* CadastroVC.swift */,
+				AC1E8F4229E9968800D8A130 /* CadastroViewController.swift */,
 			);
-			path = VC;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
-		AC1E8F3D29E9960E00D8A130 /* Screen */ = {
+		AC1E8F3D29E9960E00D8A130 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AC1E8F3F29E9964000D8A130 /* CadastroScreen.swift */,
+				AC1E8F3F29E9964000D8A130 /* CadastroView.swift */,
 			);
-			path = Screen;
+			path = View;
 			sourceTree = "<group>";
 		};
 		AC1E8F3E29E9961900D8A130 /* ViewModel */ = {
@@ -386,6 +440,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		ACA98A8829F3021500570216 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				ACA98A8929F3023600570216 /* AddTarefasViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -393,9 +455,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AC1E8F0B29E98F3900D8A130 /* Build configuration list for PBXNativeTarget "MinhasTarefasAPP" */;
 			buildPhases = (
+				469976C9BD7BDD78D0ACBB8E /* [CP] Check Pods Manifest.lock */,
 				AC1E8EDD29E98F3800D8A130 /* Sources */,
 				AC1E8EDE29E98F3800D8A130 /* Frameworks */,
 				AC1E8EDF29E98F3800D8A130 /* Resources */,
+				EF3B580E83C41FAB996EAE7F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -420,6 +484,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AC1E8F0E29E98F3900D8A130 /* Build configuration list for PBXNativeTarget "MinhasTarefasAPPTests" */;
 			buildPhases = (
+				288BE96DE8EC64FC72BC5BB6 /* [CP] Check Pods Manifest.lock */,
 				AC1E8EF329E98F3900D8A130 /* Sources */,
 				AC1E8EF429E98F3900D8A130 /* Frameworks */,
 				AC1E8EF529E98F3900D8A130 /* Resources */,
@@ -438,9 +503,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AC1E8F1129E98F3900D8A130 /* Build configuration list for PBXNativeTarget "MinhasTarefasAPPUITests" */;
 			buildPhases = (
+				2250935F2BE96F53B64F3C72 /* [CP] Check Pods Manifest.lock */,
 				AC1E8EFD29E98F3900D8A130 /* Sources */,
 				AC1E8EFE29E98F3900D8A130 /* Frameworks */,
 				AC1E8EFF29E98F3900D8A130 /* Resources */,
+				F8EDE1851069934EFC615973 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -525,31 +592,136 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2250935F2BE96F53B64F3C72 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MinhasTarefasAPP-MinhasTarefasAPPUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		288BE96DE8EC64FC72BC5BB6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MinhasTarefasAPPTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		469976C9BD7BDD78D0ACBB8E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MinhasTarefasAPP-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF3B580E83C41FAB996EAE7F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MinhasTarefasAPP/Pods-MinhasTarefasAPP-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MinhasTarefasAPP/Pods-MinhasTarefasAPP-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MinhasTarefasAPP/Pods-MinhasTarefasAPP-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8EDE1851069934EFC615973 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MinhasTarefasAPP-MinhasTarefasAPPUITests/Pods-MinhasTarefasAPP-MinhasTarefasAPPUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MinhasTarefasAPP-MinhasTarefasAPPUITests/Pods-MinhasTarefasAPP-MinhasTarefasAPPUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MinhasTarefasAPP-MinhasTarefasAPPUITests/Pods-MinhasTarefasAPP-MinhasTarefasAPPUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AC1E8EDD29E98F3800D8A130 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				AC1E8F3629E994DA00D8A130 /* TarefasCriadasTableViewCell.swift in Sources */,
-				AC1E8F3829E9958000D8A130 /* AddTarefasCollectionViewCellScreen.swift in Sources */,
+				AC1E8F3829E9958000D8A130 /* AddTarefasCollectionViewCellView.swift in Sources */,
 				AC1E8F4829E9970C00D8A130 /* AlertPop.swift in Sources */,
 				AC9E187429EA25000016A773 /* HomeViewModel.swift in Sources */,
-				AC1E8F2B29E9935900D8A130 /* AddTarefasScreen.swift in Sources */,
-				AC1E8F3A29E995D000D8A130 /* TarefasCriadasTableViewCellScreen.swift in Sources */,
-				AC1E8F4029E9964000D8A130 /* CadastroScreen.swift in Sources */,
+				AC1E8F2B29E9935900D8A130 /* AddTarefasView.swift in Sources */,
+				ACA98A8A29F3023600570216 /* AddTarefasViewModel.swift in Sources */,
+				AC1E8F3A29E995D000D8A130 /* TarefasCriadasTableViewCellView.swift in Sources */,
+				AC1E8F4029E9964000D8A130 /* CadastroView.swift in Sources */,
 				AC1E8EE529E98F3800D8A130 /* AppDelegate.swift in Sources */,
 				AC9E186E29E9D65C0016A773 /* CadastroViewModel.swift in Sources */,
-				AC1E8F2629E992D400D8A130 /* HomeVC.swift in Sources */,
-				AC1E8F4329E9968800D8A130 /* CadastroVC.swift in Sources */,
-				AC1E8F2D29E9937400D8A130 /* AddTarefasVC.swift in Sources */,
-				AC1E8F1D29E990B900D8A130 /* LoginScreen.swift in Sources */,
-				AC1E8F2429E992A200D8A130 /* HomeScreen.swift in Sources */,
+				AC1E8F2629E992D400D8A130 /* HomeViewController.swift in Sources */,
+				AC1E8F4329E9968800D8A130 /* CadastroViewController.swift in Sources */,
+				AC1E8F2D29E9937400D8A130 /* AddTarefasViewController.swift in Sources */,
+				AC1E8F1D29E990B900D8A130 /* LoginView.swift in Sources */,
+				AC1E8F2429E992A200D8A130 /* HomeView.swift in Sources */,
 				AC1E8EE729E98F3800D8A130 /* SceneDelegate.swift in Sources */,
 				AC1E8F1F29E9923000D8A130 /* TabBarController.swift in Sources */,
-				AC1E8F1B29E9909A00D8A130 /* LoginVC.swift in Sources */,
+				AC1E8F1B29E9909A00D8A130 /* LoginViewController.swift in Sources */,
 				AC1E8F4629E996DC00D8A130 /* Alert.swift in Sources */,
 				AC9E187129EA1D460016A773 /* LoginViewModel.swift in Sources */,
 				AC1E8F3229E9943E00D8A130 /* AddTarefasCollectionViewCell.swift in Sources */,
+				AC00EE5329F4118100F228A1 /* AddTarefasCellViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -713,6 +885,7 @@
 		};
 		AC1E8F0C29E98F3900D8A130 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8DD9F878BDADA55CD4D54B0A /* Pods-MinhasTarefasAPP.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -741,6 +914,7 @@
 		};
 		AC1E8F0D29E98F3900D8A130 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C56E9519808DD28F7A0A0DE /* Pods-MinhasTarefasAPP.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -769,6 +943,7 @@
 		};
 		AC1E8F0F29E98F3900D8A130 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E789481FAE5C44800F912FB5 /* Pods-MinhasTarefasAPPTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -788,6 +963,7 @@
 		};
 		AC1E8F1029E98F3900D8A130 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 161124AF01E49806E3E4FA71 /* Pods-MinhasTarefasAPPTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -807,6 +983,7 @@
 		};
 		AC1E8F1229E98F3900D8A130 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10DCB271569A9AD0F7EEE9E5 /* Pods-MinhasTarefasAPP-MinhasTarefasAPPUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -824,6 +1001,7 @@
 		};
 		AC1E8F1329E98F3900D8A130 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 904F69CE50CBF4DE278FD7FE /* Pods-MinhasTarefasAPP-MinhasTarefasAPPUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
