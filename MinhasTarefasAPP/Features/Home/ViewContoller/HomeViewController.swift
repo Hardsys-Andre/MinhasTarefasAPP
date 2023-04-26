@@ -46,7 +46,7 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tarefasCriadasCountViewModel.tarefas()
+        tarefasCriadasCountViewModel.tarefas(email: viewModel?.userData?.email ?? "")
         tarefasCriadasCountViewModel.delegateCount(delegateCount: self)
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
         homeView.tableView.addGestureRecognizer(longPressRecognizer)
@@ -80,7 +80,6 @@ class HomeViewController: UIViewController {
 extension HomeViewController: tarefasCriadasCountProtocol {
     func tasksData(data: [DocumentSnapshot]) {
         taskCount = data
-        //print(taskCount)
         homeView.tableView.reloadData()
     }
     
@@ -93,7 +92,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TarefasCriadasTableViewCell.identifier, for: indexPath) as? TarefasCriadasTableViewCell
-        tarefasCriadasCountViewModel.tarefas()
+        tarefasCriadasCountViewModel.tarefas(email: viewModel?.userData?.email ?? "")
         let task = taskCount[indexPath.row]
         let titleTask = task.data()?["title"]
         let dateTask = task.data()?["dateTask"]

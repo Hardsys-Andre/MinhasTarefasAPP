@@ -33,7 +33,7 @@ class TarefasCriadasTableViewCellView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor(red: 128/255, green: 128/255, blue: 128/255, alpha: 0.4)
+        backgroundColor = .black
         configElements()
         configConstraints()
     }

@@ -7,6 +7,7 @@
 
 import Foundation
 import Firebase
+import UIKit
 
 protocol AddTarefasViewModelProtocol: AnyObject {
     func success()
@@ -20,29 +21,37 @@ class AddTarefasViewModel {
     public func delegate(delegate: AddTarefasViewModelProtocol?){
         self.delegate = delegate
     }
-    
+   
     
     public func addTarefas(email: String, title: String, descriptionTask: String, priority: String, dateTask: String, category: String){
-        let db = Firestore.firestore()
         
-        let taskData: [String: Any] = [
-            "email": email,
-            "title": title,
-            "descripitonTask": descriptionTask,
-            "priority": priority,
-            "dateTask": dateTask,
-            "category": category
-        ]
-        
-        db.collection("tasks").addDocument(data: taskData) { (error) in
-            if error != nil {
-                self.delegate?.failure(message: error?.localizedDescription ?? "")
-               
+        if title == "" || priority == "" || dateTask == "" || category == "" {
+            delegate?.failure(message: "Preencha e escolha todas as opções da tarefa")
 
-            } else {
                 
-                self.delegate?.success()
+        }else{
+            let db = Firestore.firestore()
+            
+            let taskData: [String: Any] = [
+                "email": email,
+                "title": title,
+                "descripitonTask": descriptionTask,
+                "priority": priority,
+                "dateTask": dateTask,
+                "category": category
+            ]
+            
+            db.collection("tasks").addDocument(data: taskData) { (error) in
+                if error != nil {
+                    self.delegate?.failure(message: error?.localizedDescription ?? "")
+                    
+                    
+                } else {
+                    
+                    self.delegate?.success()
+                }
             }
         }
     }
+    
 }

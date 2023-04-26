@@ -28,9 +28,7 @@ class TarefasCriadasTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .black
         tarefasCriadasViewModel = TarefasCriadasViewModel()
-        tarefasCriadasViewModel?.tarefas()
         configElementes()
-        tasksCriates()
         configConstraints()
     }
     
@@ -43,11 +41,6 @@ class TarefasCriadasTableViewCell: UITableViewCell {
         
     }
     
-    private func tasksCriates(){
-        tarefasCriadasViewModel?.delegate(delegate: self)
-        
-        
-    }
     private func configConstraints(){
         NSLayoutConstraint.activate([
             cellTarefasCriadasView.topAnchor.constraint(equalTo: topAnchor, constant:6),
@@ -58,15 +51,4 @@ class TarefasCriadasTableViewCell: UITableViewCell {
     }
 
 
-}
-extension TarefasCriadasTableViewCell: TarefasCriadasViewModelProtocol {
-    
-    func dataTask(title: String, dateTask: String, data: [DocumentSnapshot]) {
-        
-        //self.cellTarefasCriadasView.titleTarefaLabel.text = title
-        //self.cellTarefasCriadasView.dateTarefaLabel.text = dateTask
-        //print(cellTarefasCriadasView.titleTarefaLabel.text)
-    }
-    
-    
 }

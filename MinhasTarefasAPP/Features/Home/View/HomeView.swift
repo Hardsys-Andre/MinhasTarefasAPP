@@ -53,7 +53,7 @@ class HomeView: UIView {
         image.contentMode = .scaleAspectFill
         image.isUserInteractionEnabled = true
         image.clipsToBounds = true
-        image.layer.cornerRadius = 40
+        image.layer.cornerRadius = 50
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tappedUserImage))
         image.addGestureRecognizer(tapGesture)
         return image
@@ -76,7 +76,7 @@ class HomeView: UIView {
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundColor = UIColor(red: 26/255, green: 26/255, blue: 1/255, alpha: 1.0)
+        tableView.backgroundColor = .black
         tableView.separatorStyle = .none
         tableView.register(TarefasCriadasTableViewCell.self, forCellReuseIdentifier: TarefasCriadasTableViewCell.identifier)
         return tableView
@@ -137,8 +137,8 @@ class HomeView: UIView {
             
             userImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 5),
             userImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
-            userImageView.heightAnchor.constraint(equalToConstant: 80),
-            userImageView.widthAnchor.constraint(equalToConstant: 80),
+            userImageView.heightAnchor.constraint(equalToConstant: 100),
+            userImageView.widthAnchor.constraint(equalToConstant: 100),
             
             nameUserLabel.topAnchor.constraint(equalTo: userImageView.bottomAnchor, constant: 0),
             nameUserLabel.centerXAnchor.constraint(equalTo: userImageView.centerXAnchor),

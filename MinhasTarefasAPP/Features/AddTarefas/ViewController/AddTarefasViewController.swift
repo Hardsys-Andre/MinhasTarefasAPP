@@ -12,6 +12,7 @@ class AddTarefasViewController: UIViewController {
     private var addTarefasView: AddTarefasView?
     private var viewModel: AddTarefasViewModel = AddTarefasViewModel()
     private var alert: Alert?
+    private var alertPop: AlertPop?
     var emailLogado: String?
 
     
@@ -19,6 +20,8 @@ class AddTarefasViewController: UIViewController {
         addTarefasView = AddTarefasView()
         view = addTarefasView
         alert = Alert(controller: self)
+        alertPop = AlertPop(controller: self)
+        
     }
     
     
@@ -33,12 +36,12 @@ class AddTarefasViewController: UIViewController {
 
 extension AddTarefasViewController: AddTarefasViewModelProtocol {
     func success() {
-        
-        print("Sucesso no cadastro da tarefa")
+        categoria = ""
+        alertPop?.alertPop(title: "Atenção", message: "Tarefa cadastrada com sucesso")
     }
     
     func failure(message: String?) {
-        alert?.alert(title: "Ops Erro no Login", message: message ?? "")
+        alert?.alert(title: "Ops Erro no Cadastro da tarefa", message: message ?? "")
     }
 }
 var priorityTask: String?
@@ -62,14 +65,19 @@ extension AddTarefasViewController: AddTarefasViewProtocol{
         dismiss(animated: true)
     }
     func tappedCriarTarefa() {
-       
-        viewModel.addTarefas(email: emailLogado ?? "",
-                             title: addTarefasView?.titleTarefaTextField.text ?? "",
-                             descriptionTask: addTarefasView?.descriptionTarefasTextView.text ?? "",
-                             priority: priorityTask ?? "",
-                             dateTask: addTarefasView?.selectedDate ?? "",
-                             category: categoria ?? "")
-        
+        if addTarefasView?.titleTarefaTextField.text == "" || priorityTask == "" || addTarefasView?.selectedDate == "" || categoria == "" {
+            print("erro da tarefa")
+            alert?.alert(title: "Atenção Erro!", message: "Preencha e escolha todas as opções da tarefa")
+            
+        }else{
+            viewModel.addTarefas(email: emailLogado ?? "",
+                                 title: addTarefasView?.titleTarefaTextField.text ?? "",
+                                 descriptionTask: addTarefasView?.descriptionTarefasTextView.text ?? "",
+                                 priority: priorityTask ?? "",
+                                 dateTask: addTarefasView?.selectedDate ?? "",
+                                 category: categoria ?? "")
+            
+        }
     }
 }
 extension AddTarefasViewController: AddTarefasCollectionViewCellProtocol {

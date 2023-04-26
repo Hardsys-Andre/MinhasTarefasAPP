@@ -22,11 +22,13 @@ class LoginViewModel {
     }
     
     private var auth = Auth.auth()
+    public var emailLogado: String?
     
     public func loginUser(email: String, password: String) {
         auth.signIn(withEmail: email, password: password) { authResult, error in
             if error == nil{
                 self.usuarioRecebido(email: email)
+                self.emailLogado = email
             }else{
                 self.delegate?.loginFailure(message: error?.localizedDescription)
             }
