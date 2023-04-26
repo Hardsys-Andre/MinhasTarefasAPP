@@ -13,6 +13,7 @@ class TabBarController: UITabBarController {
     
     init(userData: UserData){
         self.userData = userData
+        
         super.init(nibName: nil, bundle: nil)
 
 
@@ -31,7 +32,7 @@ class TabBarController: UITabBarController {
     private func setupTabBar(){
         guard let userData = userData else{return}
             
-            let viewModel = HomeViewModel(userData: userData)
+        let viewModel = HomeViewModel(userData: userData)
         
         let home = UINavigationController(rootViewController: HomeViewController(viewModel: viewModel))
         

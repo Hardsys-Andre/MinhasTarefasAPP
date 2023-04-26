@@ -24,14 +24,16 @@ class TarefasCriadasTableViewCellView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.text = "10/04/2023"
-        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.font = UIFont.boldSystemFont(ofSize: 16)
         
         return label
     }()
+    
+    
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor(red: 26/255, green: 26/255, blue: 1/255, alpha: 1.0)
+        backgroundColor = UIColor(red: 128/255, green: 128/255, blue: 128/255, alpha: 0.4)
         configElements()
         configConstraints()
     }
@@ -39,19 +41,20 @@ class TarefasCriadasTableViewCellView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     private func configElements(){
         addSubview(titleTarefaLabel)
         addSubview(dateTarefaLabel)
     }
     private func configConstraints(){
         NSLayoutConstraint.activate([
-            titleTarefaLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            titleTarefaLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
-            titleTarefaLabel.heightAnchor.constraint(equalToConstant: 35),
+            titleTarefaLabel.topAnchor.constraint(equalTo: topAnchor, constant: 4),
+            titleTarefaLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            titleTarefaLabel.heightAnchor.constraint(equalToConstant: 30),
             
-            dateTarefaLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            dateTarefaLabel.leadingAnchor.constraint(equalTo: titleTarefaLabel.trailingAnchor, constant: 10),
-            dateTarefaLabel.heightAnchor.constraint(equalToConstant: 35),
+            dateTarefaLabel.topAnchor.constraint(equalTo: titleTarefaLabel.bottomAnchor, constant: 0),
+            dateTarefaLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            dateTarefaLabel.heightAnchor.constraint(equalToConstant: 30),
         ])
     }
     

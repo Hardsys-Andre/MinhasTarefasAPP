@@ -40,6 +40,7 @@ class AddTarefasViewModel {
                
 
             } else {
+                
                 self.delegate?.success()
             }
         }

@@ -17,13 +17,16 @@ struct UserData {
     let imageUrl: String
 }
 
+
 class HomeViewModel {
     
    
     var userData: UserData?
     
+    
     init(userData: UserData){
         self.userData = userData
+        
         
     }
   

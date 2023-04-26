@@ -52,6 +52,8 @@ class HomeView: UIView {
         image.image = UIImage(named: "user_Image")
         image.contentMode = .scaleAspectFill
         image.isUserInteractionEnabled = true
+        image.clipsToBounds = true
+        image.layer.cornerRadius = 40
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tappedUserImage))
         image.addGestureRecognizer(tapGesture)
         return image
@@ -65,7 +67,7 @@ class HomeView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Usuário"
         label.textColor = .white
-        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textAlignment = .center
         
         return label

@@ -22,7 +22,7 @@ class LoginViewModel {
     }
     
     private var auth = Auth.auth()
-
+    
     public func loginUser(email: String, password: String) {
         auth.signIn(withEmail: email, password: password) { authResult, error in
             if error == nil{
@@ -35,7 +35,7 @@ class LoginViewModel {
     
     public func usuarioRecebido(email: String) {
         let db = Firestore.firestore()
-
+        
         db.collection("users").whereField("email", isEqualTo: email as Any).getDocuments() { (querySnapshot, err) in
             if let err = err {
                 self.delegate?.loginFailure(message: err.localizedDescription)
@@ -51,6 +51,6 @@ class LoginViewModel {
                 self.delegate?.loginSuccess(userData: userData)
             }
         }
+        
     }
-    
 }

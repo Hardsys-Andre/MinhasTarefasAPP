@@ -12,6 +12,8 @@ class AddTarefasViewController: UIViewController {
     private var addTarefasView: AddTarefasView?
     private var viewModel: AddTarefasViewModel = AddTarefasViewModel()
     private var alert: Alert?
+    var emailLogado: String?
+
     
     override func loadView() {
         addTarefasView = AddTarefasView()
@@ -61,12 +63,13 @@ extension AddTarefasViewController: AddTarefasViewProtocol{
     }
     func tappedCriarTarefa() {
        
-        viewModel.addTarefas(email: "Tibia@gmail.com",
+        viewModel.addTarefas(email: emailLogado ?? "",
                              title: addTarefasView?.titleTarefaTextField.text ?? "",
                              descriptionTask: addTarefasView?.descriptionTarefasTextView.text ?? "",
                              priority: priorityTask ?? "",
                              dateTask: addTarefasView?.selectedDate ?? "",
                              category: categoria ?? "")
+        
     }
 }
 extension AddTarefasViewController: AddTarefasCollectionViewCellProtocol {
