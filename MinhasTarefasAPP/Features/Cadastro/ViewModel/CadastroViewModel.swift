@@ -27,7 +27,7 @@ class CadastroViewModel {
     
     private var auth = Auth.auth()
     
-    public func cadastroUser(email: String, password: String, nome: String, sobrenome: String, uf: String, cidade: String, imageUser: UIImage){
+    public func cadastroUser(email: String, password: String, name: String, lastName: String, uf: String, city: String, imageUser: UIImage){
        
         let db = Firestore.firestore()
         
@@ -43,10 +43,10 @@ class CadastroViewModel {
             storageRef.child(email).downloadURL { url, errorUrl in
                 
                 let userData: [String: Any] = [
-                    "nome": nome,
-                    "sobrenome": sobrenome,
+                    "name": name,
+                    "lastName": lastName,
                     "uf" : uf,
-                    "cidade" : cidade,
+                    "city" : city,
                     "email": email,
                     "image": url?.absoluteString as Any]
                 

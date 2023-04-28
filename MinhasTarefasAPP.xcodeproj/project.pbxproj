@@ -45,6 +45,9 @@
 		AC9E187129EA1D460016A773 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9E187029EA1D460016A773 /* LoginViewModel.swift */; };
 		AC9E187429EA25000016A773 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9E187329EA25000016A773 /* HomeViewModel.swift */; };
 		ACA98A8A29F3023600570216 /* AddTarefasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA98A8929F3023600570216 /* AddTarefasViewModel.swift */; };
+		ACFF3B7D29FAEB5800C54C44 /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFF3B7C29FAEB5800C54C44 /* PerfilViewController.swift */; };
+		ACFF3B7F29FAEB7700C54C44 /* PerfilVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFF3B7E29FAEB7700C54C44 /* PerfilVIew.swift */; };
+		ACFF3B8129FB481100C54C44 /* PerfilViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFF3B8029FB481100C54C44 /* PerfilViewModel.swift */; };
 		CB6158D403AFEC085375B4E8 /* Pods_MinhasTarefasAPPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B087EAFC1139B3874D03E61 /* Pods_MinhasTarefasAPPTests.framework */; };
 		D67FDB41908710E73373A4AC /* Pods_MinhasTarefasAPP_MinhasTarefasAPPUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC027C357A8AAB0CEDC481AE /* Pods_MinhasTarefasAPP_MinhasTarefasAPPUITests.framework */; };
 /* End PBXBuildFile section */
@@ -107,6 +110,9 @@
 		AC9E187029EA1D460016A773 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		AC9E187329EA25000016A773 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		ACA98A8929F3023600570216 /* AddTarefasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTarefasViewModel.swift; sourceTree = "<group>"; };
+		ACFF3B7C29FAEB5800C54C44 /* PerfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewController.swift; sourceTree = "<group>"; };
+		ACFF3B7E29FAEB7700C54C44 /* PerfilVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilVIew.swift; sourceTree = "<group>"; };
+		ACFF3B8029FB481100C54C44 /* PerfilViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewModel.swift; sourceTree = "<group>"; };
 		CC027C357A8AAB0CEDC481AE /* Pods_MinhasTarefasAPP_MinhasTarefasAPPUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MinhasTarefasAPP_MinhasTarefasAPPUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E789481FAE5C44800F912FB5 /* Pods-MinhasTarefasAPPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MinhasTarefasAPPTests.debug.xcconfig"; path = "Target Support Files/Pods-MinhasTarefasAPPTests/Pods-MinhasTarefasAPPTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -252,6 +258,7 @@
 		AC1E8F1629E9902700D8A130 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				ACFF3B7829FAEB0600C54C44 /* Perfil */,
 				AC1E8F3B29E995FB00D8A130 /* Cadastro */,
 				AC1E8F2E29E993ED00D8A130 /* Cells */,
 				AC1E8F2729E9932A00D8A130 /* AddTarefas */,
@@ -455,6 +462,40 @@
 			isa = PBXGroup;
 			children = (
 				ACA98A8929F3023600570216 /* AddTarefasViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		ACFF3B7829FAEB0600C54C44 /* Perfil */ = {
+			isa = PBXGroup;
+			children = (
+				ACFF3B7B29FAEB2600C54C44 /* ViewModel */,
+				ACFF3B7A29FAEB1E00C54C44 /* View */,
+				ACFF3B7929FAEB1200C54C44 /* ViewController */,
+			);
+			path = Perfil;
+			sourceTree = "<group>";
+		};
+		ACFF3B7929FAEB1200C54C44 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				ACFF3B7C29FAEB5800C54C44 /* PerfilViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		ACFF3B7A29FAEB1E00C54C44 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ACFF3B7E29FAEB7700C54C44 /* PerfilVIew.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ACFF3B7B29FAEB2600C54C44 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				ACFF3B8029FB481100C54C44 /* PerfilViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -711,12 +752,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACFF3B8129FB481100C54C44 /* PerfilViewModel.swift in Sources */,
 				AC1E8F3629E994DA00D8A130 /* TarefasCriadasTableViewCell.swift in Sources */,
 				AC1E8F3829E9958000D8A130 /* AddTarefasCollectionViewCellView.swift in Sources */,
 				AC89FF4729F6B9D000613C19 /* TarefasCriadasViewModel.swift in Sources */,
 				AC1E8F4829E9970C00D8A130 /* AlertPop.swift in Sources */,
 				AC9E187429EA25000016A773 /* HomeViewModel.swift in Sources */,
 				AC1E8F2B29E9935900D8A130 /* AddTarefasView.swift in Sources */,
+				ACFF3B7D29FAEB5800C54C44 /* PerfilViewController.swift in Sources */,
 				ACA98A8A29F3023600570216 /* AddTarefasViewModel.swift in Sources */,
 				AC1E8F3A29E995D000D8A130 /* TarefasCriadasTableViewCellView.swift in Sources */,
 				AC1E8F4029E9964000D8A130 /* CadastroView.swift in Sources */,
@@ -725,6 +768,7 @@
 				AC1E8F2629E992D400D8A130 /* HomeViewController.swift in Sources */,
 				AC1E8F4329E9968800D8A130 /* CadastroViewController.swift in Sources */,
 				AC1E8F2D29E9937400D8A130 /* AddTarefasViewController.swift in Sources */,
+				ACFF3B7F29FAEB7700C54C44 /* PerfilVIew.swift in Sources */,
 				AC1E8F1D29E990B900D8A130 /* LoginView.swift in Sources */,
 				AC1E8F2429E992A200D8A130 /* HomeView.swift in Sources */,
 				AC1E8EE729E98F3800D8A130 /* SceneDelegate.swift in Sources */,

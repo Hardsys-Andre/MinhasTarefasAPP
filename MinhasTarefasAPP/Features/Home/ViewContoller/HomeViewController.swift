@@ -105,26 +105,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
     }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            let selectedTask = taskCount[indexPath.row] // Obtém a tarefa selecionada usando o índice da linha
-            
-            if let titleTask = selectedTask.data()?["title"] as? String { // Obtém o título da tarefa
-                tarefasCriadasCountViewModel.deleteTask(title: titleTask) // Chama o método de deleção da tarefa
-            }
-            
-            taskCount.remove(at: indexPath.row) // Remove a tarefa do array de tarefas
-            tableView.deleteRows(at: [indexPath], with: .fade) // Remove a linha da tabela
-        }
-    }
-    
 }
 
 extension HomeViewController: HomeViewProtocol {
-    func tappedBackImage() {
-        dismiss(animated: true)
-    }
     
     func tappedCriarTarefaButton() {
         let vc = AddTarefasViewController()

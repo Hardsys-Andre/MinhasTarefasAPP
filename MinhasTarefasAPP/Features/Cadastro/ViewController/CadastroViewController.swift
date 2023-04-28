@@ -70,7 +70,7 @@ extension CadastroViewController: CadastroViewProtocol {
             (screen?.passwordTextField.text == ""){
             alert?.alert(title: "Atenção", message: "Preencha todos os campos antes de prosseguir")
         }else{
-            viewModel.cadastroUser(email: screen?.emailTextField.text ?? "", password: screen?.passwordTextField.text ?? "", nome: screen?.nameTextField.text ?? "", sobrenome: screen?.lastNameTextField.text ?? "", uf: screen?.ufTextField.text ?? "", cidade: screen?.cityTextField.text ?? "", imageUser: screen?.userImageView.image ?? UIImage())
+            viewModel.cadastroUser(email: screen?.emailTextField.text ?? "", password: screen?.passwordTextField.text ?? "", name: screen?.nameTextField.text ?? "", lastName: screen?.lastNameTextField.text ?? "", uf: screen?.ufTextField.text ?? "", city: screen?.cityTextField.text ?? "", imageUser: screen?.userImageView.image ?? UIImage())
         }
     }
 }

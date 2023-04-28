@@ -45,7 +45,6 @@ extension LoginViewController: LoginViewProtocol {
     }
     
     func tappedCadastroButton() {
-        print(#function)
         let vc = CadastroViewController()
         present(vc, animated: true)
     }

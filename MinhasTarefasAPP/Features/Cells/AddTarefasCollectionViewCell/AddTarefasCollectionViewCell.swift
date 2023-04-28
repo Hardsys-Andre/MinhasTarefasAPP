@@ -67,7 +67,7 @@ extension AddTarefasCollectionViewCell: AddTarefasCollectionViewCellViewProtocol
         cellAddTarefasView.escolaButton.backgroundColor = .blue
         cellAddTarefasView.lazerButton.backgroundColor = .orange
         cellAddTarefasView.saudeButton.backgroundColor = .green
-        cellAddTarefasView.alimentacaoButton.backgroundColor = .yellow
+        cellAddTarefasView.alimentacaoButton.backgroundColor = .brown
         cellAddTarefasView.domesticaButton.backgroundColor = .purple
         cellAddTarefasView.outrasButton.backgroundColor = .systemPink
     }
@@ -80,7 +80,7 @@ extension AddTarefasCollectionViewCell: AddTarefasCollectionViewCellViewProtocol
         cellAddTarefasView.escolaButton.backgroundColor = .gray
         cellAddTarefasView.lazerButton.backgroundColor = .orange
         cellAddTarefasView.saudeButton.backgroundColor = .green
-        cellAddTarefasView.alimentacaoButton.backgroundColor = .yellow
+        cellAddTarefasView.alimentacaoButton.backgroundColor = .brown
         cellAddTarefasView.domesticaButton.backgroundColor = .purple
         cellAddTarefasView.outrasButton.backgroundColor = .systemPink
     }
@@ -93,7 +93,7 @@ extension AddTarefasCollectionViewCell: AddTarefasCollectionViewCellViewProtocol
         cellAddTarefasView.escolaButton.backgroundColor = .blue
         cellAddTarefasView.lazerButton.backgroundColor = .gray
         cellAddTarefasView.saudeButton.backgroundColor = .green
-        cellAddTarefasView.alimentacaoButton.backgroundColor = .yellow
+        cellAddTarefasView.alimentacaoButton.backgroundColor = .brown
         cellAddTarefasView.domesticaButton.backgroundColor = .purple
         cellAddTarefasView.outrasButton.backgroundColor = .systemPink
     }
@@ -106,7 +106,7 @@ extension AddTarefasCollectionViewCell: AddTarefasCollectionViewCellViewProtocol
         cellAddTarefasView.escolaButton.backgroundColor = .blue
         cellAddTarefasView.lazerButton.backgroundColor = .orange
         cellAddTarefasView.saudeButton.backgroundColor = .gray
-        cellAddTarefasView.alimentacaoButton.backgroundColor = .yellow
+        cellAddTarefasView.alimentacaoButton.backgroundColor = .brown
         cellAddTarefasView.domesticaButton.backgroundColor = .purple
         cellAddTarefasView.outrasButton.backgroundColor = .systemPink
     }
@@ -132,7 +132,7 @@ extension AddTarefasCollectionViewCell: AddTarefasCollectionViewCellViewProtocol
         cellAddTarefasView.escolaButton.backgroundColor = .blue
         cellAddTarefasView.lazerButton.backgroundColor = .orange
         cellAddTarefasView.saudeButton.backgroundColor = .green
-        cellAddTarefasView.alimentacaoButton.backgroundColor = .yellow
+        cellAddTarefasView.alimentacaoButton.backgroundColor = .brown
         cellAddTarefasView.domesticaButton.backgroundColor = .gray
         cellAddTarefasView.outrasButton.backgroundColor = .systemPink
     }
@@ -145,7 +145,7 @@ extension AddTarefasCollectionViewCell: AddTarefasCollectionViewCellViewProtocol
         cellAddTarefasView.escolaButton.backgroundColor = .blue
         cellAddTarefasView.lazerButton.backgroundColor = .orange
         cellAddTarefasView.saudeButton.backgroundColor = .green
-        cellAddTarefasView.alimentacaoButton.backgroundColor = .yellow
+        cellAddTarefasView.alimentacaoButton.backgroundColor = .brown
         cellAddTarefasView.domesticaButton.backgroundColor = .purple
         cellAddTarefasView.outrasButton.backgroundColor = .gray
     }

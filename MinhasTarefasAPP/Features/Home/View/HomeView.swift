@@ -9,7 +9,7 @@ import UIKit
 
 protocol HomeViewProtocol: AnyObject {
     func tappedCriarTarefaButton()
-    func tappedBackImage()
+   
 }
 
 class HomeView: UIView {
@@ -18,21 +18,6 @@ class HomeView: UIView {
     
     public func delegate(delegate: HomeViewProtocol?){
         self.delegate = delegate
-    }
-    
-    lazy var backImageView: UIImageView = {
-        let image = UIImageView()
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(named: "Botao_Back")
-        image.contentMode = .scaleAspectFill
-        image.isUserInteractionEnabled = true
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tappedBackImage))
-        image.addGestureRecognizer(tapGesture)
-        
-        return image
-    }()
-    @objc func tappedBackImage(){
-       self.delegate?.tappedBackImage()
     }
     
     lazy var titleLabel: UILabel = {
@@ -45,6 +30,7 @@ class HomeView: UIView {
         
         return label
     }()
+    
     
     lazy var userImageView: UIImageView = {
         let image = UIImageView()
@@ -117,7 +103,6 @@ class HomeView: UIView {
     }
     
     private func configElements(){
-        addSubview(backImageView)
         addSubview(titleLabel)
         addSubview(userImageView)
         addSubview(nameUserLabel)
@@ -126,13 +111,10 @@ class HomeView: UIView {
     }
     private func configConstraints(){
         NSLayoutConstraint.activate([
-            backImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 5),
-            backImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
-            backImageView.heightAnchor.constraint(equalToConstant: 30),
-            backImageView.widthAnchor.constraint(equalToConstant: 30),
             
-            titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 50),
-            titleLabel.leadingAnchor.constraint(equalTo: backImageView.trailingAnchor, constant: 15),
+            
+            titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             titleLabel.heightAnchor.constraint(equalToConstant: 30),
             
             userImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 5),

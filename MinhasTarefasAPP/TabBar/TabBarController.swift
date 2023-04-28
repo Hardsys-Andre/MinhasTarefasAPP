@@ -35,8 +35,9 @@ class TabBarController: UITabBarController {
         let viewModel = HomeViewModel(userData: userData)
         
         let home = UINavigationController(rootViewController: HomeViewController(viewModel: viewModel))
+        let perfil = UINavigationController(rootViewController: PerfilViewController())
         
-        setViewControllers([home], animated: false)
+        setViewControllers([home, perfil], animated: false)
         tabBar.isTranslucent = false
         tabBar.tintColor = .darkGray
         let tabBarAppearence: UITabBarAppearance = UITabBarAppearance()
@@ -47,6 +48,7 @@ class TabBarController: UITabBarController {
         
         guard let items = tabBar.items else { return }
         items[0].image = UIImage(systemName: "house")
+        items[1].image = UIImage(systemName: "person")
     }
 
    

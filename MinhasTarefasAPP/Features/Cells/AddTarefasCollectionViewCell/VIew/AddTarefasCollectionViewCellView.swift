@@ -108,7 +108,7 @@ class AddTarefasCollectionViewCellView: UIView {
     lazy var alimentacaoButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .yellow
+        button.backgroundColor = .brown
         button.setTitle("Alimentação", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         button.titleLabel?.textColor = .white

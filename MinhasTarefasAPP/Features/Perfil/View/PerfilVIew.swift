@@ -1,45 +1,48 @@
 //
-//  CadastroScreen.swift
+//  PerfilVIew.swift
 //  MinhasTarefasAPP
 //
-//  Created by user226298 on 4/14/23.
+//  Created by user226298 on 4/27/23.
 //
 
 import UIKit
 
-protocol CadastroViewProtocol: AnyObject {
-    func tappedCadastrarButton()
-    func tappedBackImage()
-    func tappedUserImage()
+protocol PerfilViewProtocol: AnyObject {
+    func tappedLogoutApp()
 }
 
-class CadastroView: UIView {
+class PerfilVIew: UIView {
     
-    private weak var delegate: CadastroViewProtocol?
-    
-    public func delegate(delegate: CadastroViewProtocol? ) {
+    private weak var delegate: PerfilViewProtocol?
+    public func delegate(delegate: PerfilViewProtocol?){
         self.delegate = delegate
     }
     
-    lazy var backImageView: UIImageView = {
-        let image = UIImageView()
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(named: "Botao_Back")
-        image.contentMode = .scaleAspectFill
-        image.isUserInteractionEnabled = true
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tappedBackImage))
-        image.addGestureRecognizer(tapGesture)
-        
-        return image
-    }()
-    @objc func tappedBackImage(){
-        self.delegate?.tappedBackImage()
-    }
-    
-    lazy var titleLabel: UILabel = {
+    lazy var exitLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Cadastre seu Usuário"
+        label.text = "Sair"
+        label.textColor = .white
+        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.clipsToBounds = true
+        label.layer.cornerRadius = 8
+        label.layer.borderWidth = 1
+        label.layer.borderColor = UIColor.white.cgColor
+        label.textAlignment = .center
+        label.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tappedLogoutApp))
+        label.addGestureRecognizer(tapGesture)
+        
+        return label
+    }()
+    @objc func tappedLogoutApp(){
+        self.delegate?.tappedLogoutApp()
+    }
+    
+    lazy var nameUserLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Usuário Logado"
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 22)
         label.textAlignment = .center
@@ -47,10 +50,10 @@ class CadastroView: UIView {
         return label
     }()
     
-    lazy var userImageView: UIImageView = {
+    lazy var userLogadoImageView: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(named: "galery_cam")
+        image.image = UIImage(named: "user_Image")
         image.contentMode = .scaleAspectFill
         image.isUserInteractionEnabled = true
         image.clipsToBounds = true
@@ -60,19 +63,8 @@ class CadastroView: UIView {
         return image
     }()
     @objc func tappedUserImage(){
-        self.delegate?.tappedUserImage()
+        print(#function)
     }
-    
-    lazy var fotoUserLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Escolha sua Foto"
-        label.textColor = .white
-        label.font = UIFont.boldSystemFont(ofSize: 18)
-        label.textAlignment = .center
-        
-        return label
-    }()
     
     lazy var nameLabel: UILabel = {
         let label = UILabel()
@@ -204,40 +196,31 @@ class CadastroView: UIView {
         return tf
     }()
     
-    lazy var passwordLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Senha"
-        label.textColor = .white
-        label.font = UIFont.boldSystemFont(ofSize: 18)
-        
-        return label
-    }()
-    
-    lazy var passwordTextField: UITextField = {
-        let tf = UITextField()
-        tf.translatesAutoresizingMaskIntoConstraints = false
-        tf.autocorrectionType = .no
-        tf.backgroundColor = .gray
-        tf.borderStyle = .roundedRect
-        tf.attributedPlaceholder = NSAttributedString(string: "Digite sua Senha", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white.withAlphaComponent(0.4)])
-        tf.textColor = .white
-        tf.isSecureTextEntry = true
-        tf.clipsToBounds = true
-        tf.layer.cornerRadius = 10
-        tf.layer.borderWidth = 1.0
-        tf.layer.borderColor = UIColor.white.cgColor
-        
-        return tf
-    }()
-    
-    lazy var cadastrarButton: UIButton = {
+    lazy var editarCadastroButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Cadastrar", for: .normal)
+        button.setTitle("Editar Cadastro", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-        button.backgroundColor = .gray
+        button.backgroundColor = .red
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 8
+        button.tintColor = .white
+        button.addTarget(self, action: #selector(tappedEditarCadastroButton), for: .touchUpInside)
+        
+        return button
+    }()
+    @objc func tappedEditarCadastroButton(){
+        print(#function)
+    }
+    
+    lazy var salvarAlteracaoButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Salvar Alterações", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        button.backgroundColor = .white
         button.clipsToBounds = true
         button.layer.cornerRadius = 8
         button.tintColor = .white
@@ -246,14 +229,16 @@ class CadastroView: UIView {
         return button
     }()
     @objc func tappedCadastrarButton(){
-        self.delegate?.tappedCadastrarButton()
+        print(#function)
     }
+    
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .black
         configElements()
         configConstraints()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -261,10 +246,9 @@ class CadastroView: UIView {
     }
     
     private func configElements(){
-        addSubview(backImageView)
-        addSubview(titleLabel)
-        addSubview(userImageView)
-        addSubview(fotoUserLabel)
+        addSubview(exitLabel)
+        addSubview(nameUserLabel)
+        addSubview(userLogadoImageView)
         addSubview(nameLabel)
         addSubview(nameTextField)
         addSubview(lastNameLabel)
@@ -275,31 +259,26 @@ class CadastroView: UIView {
         addSubview(cityTextField)
         addSubview(emailLabel)
         addSubview(emailTextField)
-        addSubview(passwordLabel)
-        addSubview(passwordTextField)
-        addSubview(cadastrarButton)
+        addSubview(editarCadastroButton)
+        addSubview(salvarAlteracaoButton)
     }
     private func configConstraints(){
         NSLayoutConstraint.activate([
-            backImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
-            backImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
-            backImageView.heightAnchor.constraint(equalToConstant: 30),
-            backImageView.widthAnchor.constraint(equalToConstant: 30),
+            exitLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 2),
+            exitLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
+            exitLabel.heightAnchor.constraint(equalToConstant: 50),
+            exitLabel.widthAnchor.constraint(equalToConstant: 50),
             
-            titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 25),
-            titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            titleLabel.heightAnchor.constraint(equalToConstant: 35),
+            nameUserLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
+            nameUserLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            nameUserLabel.heightAnchor.constraint(equalToConstant: 35),
             
-            userImageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 25),
-            userImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            userImageView.heightAnchor.constraint(equalToConstant: 160),
-            userImageView.widthAnchor.constraint(equalToConstant: 160),
+            userLogadoImageView.topAnchor.constraint(equalTo: nameUserLabel.bottomAnchor, constant: 10),
+            userLogadoImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            userLogadoImageView.heightAnchor.constraint(equalToConstant: 160),
+            userLogadoImageView.widthAnchor.constraint(equalToConstant: 160),
             
-            fotoUserLabel.topAnchor.constraint(equalTo: userImageView.bottomAnchor, constant: 10),
-            fotoUserLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            fotoUserLabel.heightAnchor.constraint(equalToConstant: 30),
-            
-            nameLabel.topAnchor.constraint(equalTo: fotoUserLabel.bottomAnchor, constant: 5),
+            nameLabel.topAnchor.constraint(equalTo: userLogadoImageView.bottomAnchor, constant: 5),
             nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
             nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
             nameLabel.heightAnchor.constraint(equalToConstant: 35),
@@ -349,23 +328,16 @@ class CadastroView: UIView {
             emailTextField.trailingAnchor.constraint(equalTo: nameLabel.trailingAnchor),
             emailTextField.heightAnchor.constraint(equalToConstant: 40),
             
-            passwordLabel.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 2),
-            passwordLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
-            passwordLabel.trailingAnchor.constraint(equalTo: nameLabel.trailingAnchor),
-            passwordLabel.heightAnchor.constraint(equalToConstant: 35),
+            editarCadastroButton.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 20),
+            editarCadastroButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
+            editarCadastroButton.heightAnchor.constraint(equalToConstant: 40),
+            editarCadastroButton.widthAnchor.constraint(equalToConstant: 150),
             
-            passwordTextField.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: 2),
-            passwordTextField.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
-            passwordTextField.trailingAnchor.constraint(equalTo: nameLabel.trailingAnchor),
-            passwordTextField.heightAnchor.constraint(equalToConstant: 40),
-            
-            cadastrarButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 10),
-            cadastrarButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            cadastrarButton.heightAnchor.constraint(equalToConstant: 40),
-            cadastrarButton.widthAnchor.constraint(equalToConstant: 120),
-            
-            
+            salvarAlteracaoButton.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 20),
+            salvarAlteracaoButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
+            salvarAlteracaoButton.heightAnchor.constraint(equalToConstant: 40),
+            salvarAlteracaoButton.widthAnchor.constraint(equalToConstant: 160),
         ])
+        
     }
-    
 }

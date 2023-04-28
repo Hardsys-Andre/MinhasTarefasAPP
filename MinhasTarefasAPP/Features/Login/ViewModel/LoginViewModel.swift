@@ -48,7 +48,7 @@ class LoginViewModel {
                     return
                 }
                 let imageUrl = data["image"] as? String ?? ""
-                let name = data["nome"] as? String ?? ""
+                let name = data["name"] as? String ?? ""
                 let userData = UserData(email: email, name: name , imageUrl: imageUrl)
                 self.delegate?.loginSuccess(userData: userData)
             }
