@@ -34,14 +34,14 @@ class AddTarefasView: UIView {
         return image
     }()
     @objc func tappedBackImage(){
-       self.delegate?.tappedBackImage()
+        self.delegate?.tappedBackImage()
     }
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Crie Sua Tarefa"
-        label.textColor = .white
+        label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 22)
         label.textAlignment = .center
         
@@ -52,10 +52,10 @@ class AddTarefasView: UIView {
         let tf = UITextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
         tf.autocorrectionType = .no
-        tf.backgroundColor = .gray
+        tf.backgroundColor = .white
         tf.borderStyle = .roundedRect
-        tf.attributedPlaceholder = NSAttributedString(string: "Digite um título para sua tarefa", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white.withAlphaComponent(0.4)])
-        tf.textColor = .white
+        tf.attributedPlaceholder = NSAttributedString(string: "Digite um título para sua tarefa", attributes: [NSAttributedString.Key.foregroundColor : UIColor.black.withAlphaComponent(0.4)])
+        tf.textColor = .black
         tf.font = UIFont.systemFont(ofSize: 20)
         tf.clipsToBounds = true
         tf.layer.cornerRadius = 10
@@ -68,7 +68,7 @@ class AddTarefasView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Descreva sua tarefa abaixo"
-        label.textColor = .white
+        label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 18)
         label.textAlignment = .center
         
@@ -79,8 +79,8 @@ class AddTarefasView: UIView {
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.autocorrectionType = .no
         textView.font = UIFont.systemFont(ofSize: 20)
-        textView.textColor = .white
-        textView.backgroundColor = .gray
+        textView.textColor = .black
+        textView.backgroundColor = .white
         textView.layer.borderWidth = 1
         textView.layer.borderColor = UIColor.white.cgColor
         textView.clipsToBounds = true
@@ -93,7 +93,7 @@ class AddTarefasView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Prioridade da tarefa"
-        label.textColor = .white
+        label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 22)
         label.textAlignment = .center
         
@@ -142,7 +142,7 @@ class AddTarefasView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Data e horário da sua tarefa"
-        label.textColor = .white
+        label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textAlignment = .center
         
@@ -153,7 +153,7 @@ class AddTarefasView: UIView {
         let picker = UIDatePicker()
         picker.datePickerMode = .dateAndTime
         picker.translatesAutoresizingMaskIntoConstraints = false
-        picker.backgroundColor = .gray
+        picker.backgroundColor = .white
         picker.tintColor = .black
         picker.clipsToBounds = true
         picker.layer.cornerRadius = 10
@@ -161,8 +161,8 @@ class AddTarefasView: UIView {
         picker.layer.borderWidth = 1
         picker.contentHorizontalAlignment = .center
         picker.addTarget(self, action: #selector(dataPickerValueChanged), for: .valueChanged)
-            return picker
-        }()
+        return picker
+    }()
     
     var selectedDate: String?
     @objc func dataPickerValueChanged(){
@@ -176,7 +176,7 @@ class AddTarefasView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Categoria da tarefa"
-        label.textColor = .white
+        label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textAlignment = .center
         
@@ -191,7 +191,7 @@ class AddTarefasView: UIView {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.setCollectionViewLayout(layout, animated: false)
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.backgroundColor = .black
+        collectionView.backgroundColor = UIColor(red: 67/255, green: 154/255, blue: 224/255, alpha: 1)
         collectionView.register(AddTarefasCollectionViewCell.self, forCellWithReuseIdentifier: AddTarefasCollectionViewCell.identifier)
         
         return collectionView
@@ -220,10 +220,10 @@ class AddTarefasView: UIView {
     @objc func tappedCriarTarefa(){
         self.delegate?.tappedCriarTarefa()
     }
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .black
+        backgroundColor = UIColor(red: 67/255, green: 154/255, blue: 224/255, alpha: 1)
         configElements()
         configConstraints()
     }
@@ -250,14 +250,14 @@ class AddTarefasView: UIView {
     
     private func configConstraints(){
         NSLayoutConstraint.activate([
-            backImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 5),
-            backImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
+            backImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 15),
+            backImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             backImageView.heightAnchor.constraint(equalToConstant: 30),
             backImageView.widthAnchor.constraint(equalToConstant: 30),
             
             titleLabel.topAnchor.constraint(equalTo: backImageView.bottomAnchor, constant: 0),
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
             titleLabel.heightAnchor.constraint(equalToConstant: 30),
             
             titleTarefaTextField.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
@@ -281,12 +281,12 @@ class AddTarefasView: UIView {
             prioritLabel.heightAnchor.constraint(equalToConstant: 30),
             
             importanteButton.topAnchor.constraint(equalTo: prioritLabel.bottomAnchor, constant: 5),
-            importanteButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
+            importanteButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             importanteButton.heightAnchor.constraint(equalToConstant: 40),
             importanteButton.widthAnchor.constraint(equalToConstant: 120),
             
             comumButton.topAnchor.constraint(equalTo: prioritLabel.bottomAnchor, constant: 5),
-            comumButton.trailingAnchor.constraint(equalTo: trailingAnchor , constant: -5),
+            comumButton.trailingAnchor.constraint(equalTo: trailingAnchor , constant: -15),
             comumButton.heightAnchor.constraint(equalToConstant: 40),
             comumButton.widthAnchor.constraint(equalToConstant: 120),
             
@@ -306,17 +306,15 @@ class AddTarefasView: UIView {
             categoriaLabel.heightAnchor.constraint(equalToConstant: 30),
             
             collectionView.topAnchor.constraint(equalTo: categoriaLabel.bottomAnchor, constant: 10),
-            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
-            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
             collectionView.heightAnchor.constraint(equalToConstant: 125),
             
             criarTarefaButton.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 10),
-            criarTarefaButton.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            criarTarefaButton.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
-            criarTarefaButton.heightAnchor.constraint(equalToConstant: 30),
-            
+            criarTarefaButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
+            criarTarefaButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -35),
+            criarTarefaButton.heightAnchor.constraint(equalToConstant: 40),
             
         ])
     }
-    
 }

@@ -14,7 +14,7 @@ protocol AddTarefasCollectionViewCellProtocol: AnyObject {
 
 class AddTarefasCollectionViewCell: UICollectionViewCell {
     
-   private weak var delegate: AddTarefasCollectionViewCellProtocol?
+    private weak var delegate: AddTarefasCollectionViewCellProtocol?
     public func delegate(delegate: AddTarefasCollectionViewCellProtocol?){
         self.delegate = delegate
     }
@@ -49,7 +49,7 @@ class AddTarefasCollectionViewCell: UICollectionViewCell {
             cellAddTarefasView.trailingAnchor.constraint(equalTo: trailingAnchor),
             cellAddTarefasView.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
-       
+        
     }
     var categoryTask: String?
     
@@ -60,9 +60,9 @@ extension AddTarefasCollectionViewCell: AddTarefasCollectionViewCellViewProtocol
     
     
     func tappedTrabalho() {
-        var categoriTask = "Trabalho"
+        let categoriTask = "Trabalho"
         delegate?.categorySelected(withName: categoriTask)
-     
+        
         cellAddTarefasView.trabalhoButton.backgroundColor = .gray
         cellAddTarefasView.escolaButton.backgroundColor = .blue
         cellAddTarefasView.lazerButton.backgroundColor = .orange
@@ -73,7 +73,7 @@ extension AddTarefasCollectionViewCell: AddTarefasCollectionViewCellViewProtocol
     }
     
     func tappedEscola() {
-        var categoriTask = "Escola"
+        let categoriTask = "Escola"
         delegate?.categorySelected(withName: categoriTask)
         
         cellAddTarefasView.trabalhoButton.backgroundColor = .red
@@ -86,7 +86,7 @@ extension AddTarefasCollectionViewCell: AddTarefasCollectionViewCellViewProtocol
     }
     
     func tappedLazer() {
-        var categoriTask = "Lazer"
+        let categoriTask = "Lazer"
         delegate?.categorySelected(withName: categoriTask)
         
         cellAddTarefasView.trabalhoButton.backgroundColor = .red
@@ -99,7 +99,7 @@ extension AddTarefasCollectionViewCell: AddTarefasCollectionViewCellViewProtocol
     }
     
     func tappedSaude() {
-        var categoriTask = "Saude"
+        let categoriTask = "Saude"
         delegate?.categorySelected(withName: categoriTask)
         
         cellAddTarefasView.trabalhoButton.backgroundColor = .red
@@ -112,7 +112,7 @@ extension AddTarefasCollectionViewCell: AddTarefasCollectionViewCellViewProtocol
     }
     
     func tappedAlimentacao() {
-        var categoriTask = "Alimentacao"
+        let categoriTask = "Alimentacao"
         delegate?.categorySelected(withName: categoriTask)
         
         cellAddTarefasView.trabalhoButton.backgroundColor = .red
@@ -125,7 +125,7 @@ extension AddTarefasCollectionViewCell: AddTarefasCollectionViewCellViewProtocol
     }
     
     func tappedDomestica() {
-        var categoriTask = "Domestica"
+        let categoriTask = "Domestica"
         delegate?.categorySelected(withName: categoriTask)
         
         cellAddTarefasView.trabalhoButton.backgroundColor = .red
@@ -138,7 +138,7 @@ extension AddTarefasCollectionViewCell: AddTarefasCollectionViewCellViewProtocol
     }
     
     func tappedOutra() {
-        var categoriTask = "Outra"
+        let categoriTask = "Outra"
         delegate?.categorySelected(withName: categoriTask)
         
         cellAddTarefasView.trabalhoButton.backgroundColor = .red

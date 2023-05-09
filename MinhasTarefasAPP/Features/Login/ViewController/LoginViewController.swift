@@ -32,7 +32,7 @@ class LoginViewController: UIViewController {
         viewModel.delegate(delegate: self)
         view = loginView
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,13 +46,14 @@ extension LoginViewController: LoginViewProtocol {
     
     func tappedCadastroButton() {
         let vc = CadastroViewController()
+        vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }
 }
 
 extension LoginViewController: LoginViewModelProtocol {
-    func loginSuccess(userData: UserData) {
-        let vc = TabBarController(userData: userData)
+    func loginSuccess() {
+        let vc = TabBarController()
         loginView?.emailTextField.text = ""
         loginView?.passwordTextField.text = ""
         
@@ -63,6 +64,4 @@ extension LoginViewController: LoginViewModelProtocol {
     func loginFailure(message: String?) {
         alert?.alert(title: "Ops Erro no Login", message: message ?? "")
     }
-    
 }
-

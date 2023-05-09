@@ -28,8 +28,6 @@ class CadastroViewController: UIViewController {
         super.viewDidLoad()
         
     }
-    
-    
 }
 
 extension CadastroViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -43,7 +41,6 @@ extension CadastroViewController: UIImagePickerControllerDelegate, UINavigationC
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            // define a imagem selecionada na UIImageView
             screen?.userImageView.image = selectedImage
         }
         picker.dismiss(animated: true, completion: nil)

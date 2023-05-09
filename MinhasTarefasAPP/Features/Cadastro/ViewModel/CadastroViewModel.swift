@@ -28,14 +28,14 @@ class CadastroViewModel {
     private var auth = Auth.auth()
     
     public func cadastroUser(email: String, password: String, name: String, lastName: String, uf: String, city: String, imageUser: UIImage){
-       
+        
         let db = Firestore.firestore()
         
         let image = imageUser
         let imageData = image.jpegData(compressionQuality: 0.75)
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpeg"
-
+        
         let storage = Storage.storage()
         let storageRef = storage.reference()
         
@@ -52,16 +52,15 @@ class CadastroViewModel {
                 
                 self.auth.createUser(withEmail: email, password: password) { authResult, error in
                     if let error = error {
-                            if error.localizedDescription.contains("email") && error.localizedDescription.contains("already in use") {
-                                return
-                            }
+                        if error.localizedDescription.contains("email") && error.localizedDescription.contains("already in use") {
                             return
+                        }
+                        return
                     }else{
                         db.collection("users").addDocument(data: userData) { (error) in
                             if error != nil {
                                 self.delegate?.errorCadastro(errorMessage: error?.localizedDescription ?? "")
-                               
-
+                                
                             } else {
                                 self.delegate?.sucessCadastro()
                             }
@@ -71,6 +70,5 @@ class CadastroViewModel {
             }
         }
     }
-    
 }
 

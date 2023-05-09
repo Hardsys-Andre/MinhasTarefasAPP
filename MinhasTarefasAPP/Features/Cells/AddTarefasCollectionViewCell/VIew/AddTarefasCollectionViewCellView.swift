@@ -164,7 +164,7 @@ class AddTarefasCollectionViewCellView: UIView {
     @objc func tappedOutra(){
         self.delegate?.tappedOutra()
     }
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configElements()
@@ -188,12 +188,12 @@ class AddTarefasCollectionViewCellView: UIView {
             trabalhoButton.topAnchor.constraint(equalTo: topAnchor, constant: 5),
             trabalhoButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
             trabalhoButton.heightAnchor.constraint(equalToConstant: 30),
-            trabalhoButton.widthAnchor.constraint(equalToConstant: 120),
+            trabalhoButton.widthAnchor.constraint(equalToConstant: 110),
             
             escolaButton.topAnchor.constraint(equalTo: topAnchor, constant: 5),
             escolaButton.leadingAnchor.constraint(equalTo: trabalhoButton.trailingAnchor, constant: 2),
             escolaButton.heightAnchor.constraint(equalToConstant: 30),
-            escolaButton.widthAnchor.constraint(equalToConstant: 110),
+            escolaButton.widthAnchor.constraint(equalToConstant: 100),
             
             lazerButton.topAnchor.constraint(equalTo: topAnchor, constant: 5),
             lazerButton.leadingAnchor.constraint(equalTo: escolaButton.trailingAnchor, constant: 2),
@@ -203,25 +203,23 @@ class AddTarefasCollectionViewCellView: UIView {
             saudeButton.topAnchor.constraint(equalTo: lazerButton.bottomAnchor, constant: 5),
             saudeButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
             saudeButton.heightAnchor.constraint(equalToConstant: 30),
-            saudeButton.widthAnchor.constraint(equalToConstant: 95),
+            saudeButton.widthAnchor.constraint(equalToConstant: 90),
             
             alimentacaoButton.topAnchor.constraint(equalTo: escolaButton.bottomAnchor, constant: 5),
             alimentacaoButton.leadingAnchor.constraint(equalTo: saudeButton.trailingAnchor, constant: 2),
             alimentacaoButton.heightAnchor.constraint(equalToConstant: 30),
-            alimentacaoButton.widthAnchor.constraint(equalToConstant: 145),
+            alimentacaoButton.widthAnchor.constraint(equalToConstant: 140),
             
             domesticaButton.topAnchor.constraint(equalTo: lazerButton.bottomAnchor, constant: 5),
             domesticaButton.leadingAnchor.constraint(equalTo: alimentacaoButton.trailingAnchor, constant: 2),
             domesticaButton.heightAnchor.constraint(equalToConstant: 30),
-            domesticaButton.widthAnchor.constraint(equalToConstant: 135),
+            domesticaButton.widthAnchor.constraint(equalToConstant: 125),
             
             outrasButton.topAnchor.constraint(equalTo: domesticaButton.bottomAnchor, constant: 5),
             outrasButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
-            outrasButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -9),
+            outrasButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -29),
             outrasButton.heightAnchor.constraint(equalToConstant: 30),
-            
             
         ])
     }
-    
 }

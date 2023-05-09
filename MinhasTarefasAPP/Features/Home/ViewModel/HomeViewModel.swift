@@ -7,30 +7,59 @@
 
 import Foundation
 import FirebaseFirestore
-import Firebase
-import SDWebImage
+import FirebaseFirestoreSwift
 
-
-struct UserData {
-    let email: String
-    let name: String
-    let imageUrl: String
+protocol HomeViewModelViewDelegate {
+    func fetchTasksSuccess()
+    func fetchTasksFailure()
 }
-
 
 class HomeViewModel {
     
-   
-    var userData: UserData?
+    var dataSource: [TaskModel?] = []
+    var viewDelegate: HomeViewModelViewDelegate?
     
-    
-    init(userData: UserData){
-        self.userData = userData
-        
+    init(){
         
     }
-  
+    func getUser() -> UserDataModel? {
+        UserRepository().getUser()
+    }
     
-   
+    func getTask(row: Int) -> TaskModel? {
+        dataSource[row]
+    }
     
+    func fetchTasks() {
+        let db = Firestore.firestore()
+        
+        db.collection("tasks").whereField("email", isEqualTo: getUser()?.email ?? "")
+            .addSnapshotListener { querySnapshot, error in
+                guard let documents = querySnapshot?.documents else {
+                    print("Error fetching documents: \(error!)")
+                    self.viewDelegate?.fetchTasksFailure()
+                    return
+                }
+                self.dataSource = documents.compactMap { document in
+                    try? document.data(as: TaskModel.self)
+                }
+                self.viewDelegate?.fetchTasksSuccess()
+            }
+    }
+    
+    func deleteTask(title: String) {
+        let db = Firestore.firestore()
+        
+        db.collection("tasks")
+            .whereField("title", isEqualTo: title)
+            .getDocuments() { (querySnapshot, error) in
+                if let error = error {
+                    print("Error deleting document: \(error)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        document.reference.delete()
+                    }
+                }
+            }
+    }
 }

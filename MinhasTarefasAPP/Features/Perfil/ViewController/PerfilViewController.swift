@@ -12,64 +12,99 @@ import SDWebImage
 class PerfilViewController: UIViewController {
     
     private var perfilView: PerfilVIew?
-    private var perfilViewModel: PerfilViewModel?
-    private var userSearchData: [DocumentSnapshot] = []
     
+    private var viewModel: PerfilViewModel?
+    
+    private var alert: Alert?
+    
+    init(viewModel: PerfilViewModel){
+        super.init(nibName: nil, bundle: nil)
+        self.viewModel = viewModel
+        alert = Alert(controller: self)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
-        perfilViewModel?.delegate(delegate: self)
         perfilView?.delegate(delegate: self)
+        
     }
     
     override func loadView() {
-        perfilViewModel = PerfilViewModel()
         perfilView = PerfilVIew()
-        
         view = perfilView
         
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        perfilViewModel?.searchUser(email: "Tibia@gmail.com")
-        print(self.userSearchData)
-    }
-    
-}
-extension PerfilViewController: perfilViewModelProtocol {
-    func userSearchData(data: [DocumentSnapshot]) {
-        userSearchData = data
-        let user = userSearchData.first?.data()
-        if let imageUrl = user?["image"] as? String {
+        if let imageUrl = viewModel?.userData?.imageUrl {
             self.perfilView?.userLogadoImageView.sd_setImage(with: URL(string: imageUrl))
         }else{
             print("Falha na extração da URL")
         }
-        perfilView?.nameTextField.text = user?["name"] as? String
-        perfilView?.lastNameTextField.text = user?["lastName"] as? String
-        perfilView?.ufTextField.text = user?["uf"] as? String
-        perfilView?.cityTextField.text = user?["city"] as? String
-        perfilView?.emailTextField.text = user?["email"] as? String
-            
+        perfilView?.nameTextField.text = viewModel?.userData?.name
+        perfilView?.lastNameTextField.text = viewModel?.userData?.lastName
+        perfilView?.ufTextField.text = viewModel?.userData?.uf
+        perfilView?.cityTextField.text = viewModel?.userData?.city
+        perfilView?.emailTextField.text = viewModel?.userData?.email
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        viewModel?.delegate(delegate: self)
     }
 }
+
 extension PerfilViewController: PerfilViewProtocol {
+    func tappedImagePicker() {
+        showImagePicker()
+    }
+    
+    func tappedSalvar() {
+        viewModel?.updateUserData(name: perfilView?.nameTextField.text ?? "",
+                                  lastName: perfilView?.lastNameTextField.text ?? "",
+                                  uf: perfilView?.ufTextField.text ?? "",
+                                  city: perfilView?.cityTextField.text ?? "",
+                                  imageUser: perfilView?.userLogadoImageView.image ?? UIImage())
+        
+    }
+    
     func tappedLogoutApp() {
         
         let windows = UIApplication.shared.windows
-           windows.forEach { $0.isHidden = true }
-
-           // Fazer logout do usuário (ou realizar outras ações de logout, se necessário)
-           // ...
-
-           // Abrir a tela de login
-           let loginViewController = LoginViewController()
+        windows.forEach { $0.isHidden = true }
+        
+        let loginViewController = LoginViewController()
         let window = UIApplication.shared.windows.first
         window?.rootViewController = loginViewController
         window?.makeKeyAndVisible()
-
+        
     }
     
+}
+
+extension PerfilViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    func showImagePicker(){
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            perfilView?.userLogadoImageView.image = selectedImage
+            viewModel?.imageHasChanged = true
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+}
+extension PerfilViewController: PerfilViewModelProtocol {
+    func successUpdate() {
+        alert?.alert(title: "Atenção", message: "Alterações feitas com sucesso")
+    }
+    func errorUpdate(message: String) {
+        alert?.alert(title: "Atenção Error", message: message)
+    }
 }

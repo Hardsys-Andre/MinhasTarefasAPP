@@ -12,23 +12,53 @@ class TarefasCriadasTableViewCell: UITableViewCell {
     
     static let identifier: String = String(describing: TarefasCriadasTableViewCell.self)
     
-    public lazy var cellTarefasCriadasView: TarefasCriadasTableViewCellView = {
-        let view = TarefasCriadasTableViewCellView()
+    lazy var view: UIView = {
+        let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.borderColor = UIColor.white.cgColor
-        view.layer.borderWidth = 1
+        view.backgroundColor = .white
+        clipsToBounds = true
         view.layer.cornerRadius = 10
         return view
+        
     }()
     
-    var tarefasCriadasViewModel: TarefasCriadasViewModel?
+    lazy var categoryImageVIew: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(systemName: "person")
+        image.tintColor = .cyan
+        
+        return image
+    }()
     
+    lazy var titleTarefaLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .black
+        label.text = "Tarefa criada"
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        
+        return label
+    }()
+    
+    lazy var dateTarefaLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .white
+        label.backgroundColor = .black
+        label.text = "10/04/2023"
+        label.textAlignment = .center
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.clipsToBounds = true
+        label.layer.cornerRadius = 10
+        
+        return label
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        backgroundColor = .black
-        tarefasCriadasViewModel = TarefasCriadasViewModel()
-        configElementes()
+        backgroundColor = UIColor(red: 67/255, green: 154/255, blue: 224/255, alpha: 1)
+        configElements()
         configConstraints()
     }
     
@@ -36,19 +66,39 @@ class TarefasCriadasTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func configElementes(){
-        contentView.addSubview(cellTarefasCriadasView)
+    func configureTask(model: TaskModel?){
+        titleTarefaLabel.text = model?.title
+        dateTarefaLabel.text = model?.date
         
     }
     
+    private func configElements(){
+        addSubview(view)
+        view.addSubview(categoryImageVIew)
+        view.addSubview(titleTarefaLabel)
+        view.addSubview(dateTarefaLabel)
+    }
     private func configConstraints(){
         NSLayoutConstraint.activate([
-            cellTarefasCriadasView.topAnchor.constraint(equalTo: topAnchor, constant:6),
-            cellTarefasCriadasView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            cellTarefasCriadasView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            cellTarefasCriadasView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -6),
+            view.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor,constant: 30),
+            view.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
+            view.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
+            view.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
+            
+            categoryImageVIew.topAnchor.constraint(equalTo: view.topAnchor, constant: 5),
+            categoryImageVIew.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
+            categoryImageVIew.heightAnchor.constraint(equalToConstant: 80),
+            categoryImageVIew.widthAnchor.constraint(equalToConstant: 80),
+            
+            titleTarefaLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
+            titleTarefaLabel.leadingAnchor.constraint(equalTo: categoryImageVIew.trailingAnchor, constant: 15),
+            titleTarefaLabel.heightAnchor.constraint(equalToConstant: 30),
+            
+            dateTarefaLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 10),
+            dateTarefaLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            dateTarefaLabel.heightAnchor.constraint(equalToConstant: 30),
+            dateTarefaLabel.widthAnchor.constraint(equalToConstant: 185),
         ])
     }
-
-
+    
 }

@@ -9,7 +9,7 @@ import UIKit
 
 protocol HomeViewProtocol: AnyObject {
     func tappedCriarTarefaButton()
-   
+    
 }
 
 class HomeView: UIView {
@@ -24,10 +24,25 @@ class HomeView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Tarefas Cadastradas"
-        label.textColor = .white
+        label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 22)
         label.textAlignment = .center
         
+        return label
+    }()
+    
+    lazy var dateLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .white
+        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.textAlignment = .center
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE, d 'de' MMMM 'de' yyyy"
+        dateFormatter.locale = Locale(identifier: "pt_BR")
+        let date = Date()
+        let dateString = dateFormatter.string(from: date)
+        label.text = dateString
         return label
     }()
     
@@ -40,6 +55,8 @@ class HomeView: UIView {
         image.isUserInteractionEnabled = true
         image.clipsToBounds = true
         image.layer.cornerRadius = 50
+        image.layer.borderWidth = 1
+        image.layer.borderColor = UIColor.white.cgColor
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tappedUserImage))
         image.addGestureRecognizer(tapGesture)
         return image
@@ -58,13 +75,32 @@ class HomeView: UIView {
         
         return label
     }()
+    lazy var headerView: HomeHeaderView = {
+        let view = HomeHeaderView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        return view
     
+    }()
+    lazy var headerTableView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
+        //view.roundCorners(cornerRadius: 20, typeCorners: [.layerMaxXMaxYCorner, .layerMinXMaxYCorner])
+        
+        //view.roundCorners(cornerRadius: 50, typeCorners: [.layerMaxXMinYCorner])
+        
+        return view
+        
+    }()
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundColor = .black
+        tableView.backgroundColor = UIColor(red: 67/255, green: 154/255, blue: 224/255, alpha: 1)
         tableView.separatorStyle = .none
         tableView.register(TarefasCriadasTableViewCell.self, forCellReuseIdentifier: TarefasCriadasTableViewCell.identifier)
+        tableView.clipsToBounds = true
+        tableView.roundCorners(cornerRadius: 50, typeCorners: [.layerMaxXMinYCorner])
         return tableView
     }()
     func configTableViewProtocol(delegate: UITableViewDelegate, dataSource: UITableViewDataSource){
@@ -93,7 +129,7 @@ class HomeView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .black
+        backgroundColor = UIColor(red: 67/255, green: 154/255, blue: 224/255, alpha: 1)
         configElements()
         configConstraints()
     }
@@ -103,19 +139,25 @@ class HomeView: UIView {
     }
     
     private func configElements(){
-        addSubview(titleLabel)
-        addSubview(userImageView)
-        addSubview(nameUserLabel)
+        //addSubview(titleLabel)
+        //addSubview(dateLabel)
+        //addSubview(userImageView)
+        //addSubview(nameUserLabel)
+        addSubview(headerView)
+        addSubview(headerTableView)
         addSubview(tableView)
         addSubview(criarTarefaButton)
     }
     private func configConstraints(){
         NSLayoutConstraint.activate([
             
-            
-            titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
+            /*titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 30),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             titleLabel.heightAnchor.constraint(equalToConstant: 30),
+            
+            dateLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
+            dateLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            dateLabel.heightAnchor.constraint(equalToConstant: 30),
             
             userImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 5),
             userImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
@@ -125,9 +167,19 @@ class HomeView: UIView {
             nameUserLabel.topAnchor.constraint(equalTo: userImageView.bottomAnchor, constant: 0),
             nameUserLabel.centerXAnchor.constraint(equalTo: userImageView.centerXAnchor),
             nameUserLabel.heightAnchor.constraint(equalToConstant: 30),
-            nameUserLabel.widthAnchor.constraint(equalToConstant: 150),
+            nameUserLabel.widthAnchor.constraint(equalToConstant: 150),*/
             
-            tableView.topAnchor.constraint(equalTo: nameUserLabel.bottomAnchor, constant: 5),
+            headerView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            headerView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            headerView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            headerView.heightAnchor.constraint(equalToConstant: 320),
+            
+            headerTableView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
+            headerTableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            headerTableView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            headerTableView.heightAnchor.constraint(equalToConstant: 100),
+            
+            tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
             tableView.heightAnchor.constraint(equalToConstant: 500),

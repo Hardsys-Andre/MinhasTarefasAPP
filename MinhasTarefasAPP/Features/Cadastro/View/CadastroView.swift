@@ -40,7 +40,7 @@ class CadastroView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Cadastre seu Usuário"
-        label.textColor = .white
+        label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 22)
         label.textAlignment = .center
         
@@ -55,6 +55,8 @@ class CadastroView: UIView {
         image.isUserInteractionEnabled = true
         image.clipsToBounds = true
         image.layer.cornerRadius = 80
+        image.layer.borderWidth = 2
+        image.layer.borderColor = UIColor.white.cgColor
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tappedUserImage))
         image.addGestureRecognizer(tapGesture)
         return image
@@ -67,7 +69,7 @@ class CadastroView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Escolha sua Foto"
-        label.textColor = .white
+        label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 18)
         label.textAlignment = .center
         
@@ -88,10 +90,10 @@ class CadastroView: UIView {
         let tf = UITextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
         tf.autocorrectionType = .no
-        tf.backgroundColor = .gray
+        tf.backgroundColor = .white
         tf.borderStyle = .roundedRect
         tf.attributedPlaceholder = NSAttributedString(string: "Digite seu Nome", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white.withAlphaComponent(0.4)])
-        tf.textColor = .white
+        tf.textColor = .black
         tf.clipsToBounds = true
         tf.layer.cornerRadius = 10
         tf.layer.borderWidth = 1.0
@@ -113,10 +115,10 @@ class CadastroView: UIView {
         let tf = UITextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
         tf.autocorrectionType = .no
-        tf.backgroundColor = .gray
+        tf.backgroundColor = .white
         tf.borderStyle = .roundedRect
         tf.attributedPlaceholder = NSAttributedString(string: "Digite seu Sobrenome", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white.withAlphaComponent(0.4)])
-        tf.textColor = .white
+        tf.textColor = .black
         tf.clipsToBounds = true
         tf.layer.cornerRadius = 10
         tf.layer.borderWidth = 1.0
@@ -139,10 +141,10 @@ class CadastroView: UIView {
         let tf = UITextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
         tf.autocorrectionType = .no
-        tf.backgroundColor = .gray
+        tf.backgroundColor = .white
         tf.borderStyle = .roundedRect
         tf.attributedPlaceholder = NSAttributedString(string: "UF", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white.withAlphaComponent(0.4)])
-        tf.textColor = .white
+        tf.textColor = .black
         tf.clipsToBounds = true
         tf.layer.cornerRadius = 10
         tf.layer.borderWidth = 1.0
@@ -165,10 +167,10 @@ class CadastroView: UIView {
         let tf = UITextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
         tf.autocorrectionType = .no
-        tf.backgroundColor = .gray
+        tf.backgroundColor = .white
         tf.borderStyle = .roundedRect
         tf.attributedPlaceholder = NSAttributedString(string: "Escolha sua Cidade", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white.withAlphaComponent(0.4)])
-        tf.textColor = .white
+        tf.textColor = .black
         tf.clipsToBounds = true
         tf.layer.cornerRadius = 10
         tf.layer.borderWidth = 1.0
@@ -191,10 +193,11 @@ class CadastroView: UIView {
         let tf = UITextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
         tf.autocorrectionType = .no
-        tf.backgroundColor = .gray
+        tf.backgroundColor = .white
         tf.borderStyle = .roundedRect
         tf.attributedPlaceholder = NSAttributedString(string: "Digite seu Email", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white.withAlphaComponent(0.4)])
-        tf.textColor = .white
+        tf.autocapitalizationType = .none
+        tf.textColor = .black
         tf.keyboardType = .emailAddress
         tf.clipsToBounds = true
         tf.layer.cornerRadius = 10
@@ -218,10 +221,10 @@ class CadastroView: UIView {
         let tf = UITextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
         tf.autocorrectionType = .no
-        tf.backgroundColor = .gray
+        tf.backgroundColor = .white
         tf.borderStyle = .roundedRect
         tf.attributedPlaceholder = NSAttributedString(string: "Digite sua Senha", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white.withAlphaComponent(0.4)])
-        tf.textColor = .white
+        tf.textColor = .black
         tf.isSecureTextEntry = true
         tf.clipsToBounds = true
         tf.layer.cornerRadius = 10
@@ -235,12 +238,11 @@ class CadastroView: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Cadastrar", for: .normal)
-        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-        button.backgroundColor = .gray
+        button.backgroundColor = .white
         button.clipsToBounds = true
         button.layer.cornerRadius = 8
-        button.tintColor = .white
         button.addTarget(self, action: #selector(tappedCadastrarButton), for: .touchUpInside)
         
         return button
@@ -248,10 +250,12 @@ class CadastroView: UIView {
     @objc func tappedCadastrarButton(){
         self.delegate?.tappedCadastrarButton()
     }
-
+    
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .black
+        backgroundColor = UIColor(red: 67/255, green: 154/255, blue: 224/255, alpha: 1)
         configElements()
         configConstraints()
     }
@@ -282,7 +286,7 @@ class CadastroView: UIView {
     private func configConstraints(){
         NSLayoutConstraint.activate([
             backImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
-            backImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
+            backImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             backImageView.heightAnchor.constraint(equalToConstant: 30),
             backImageView.widthAnchor.constraint(equalToConstant: 30),
             
@@ -300,8 +304,8 @@ class CadastroView: UIView {
             fotoUserLabel.heightAnchor.constraint(equalToConstant: 30),
             
             nameLabel.topAnchor.constraint(equalTo: fotoUserLabel.bottomAnchor, constant: 5),
-            nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
-            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
+            nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
             nameLabel.heightAnchor.constraint(equalToConstant: 35),
             
             nameTextField.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 2),
@@ -364,8 +368,6 @@ class CadastroView: UIView {
             cadastrarButton.heightAnchor.constraint(equalToConstant: 40),
             cadastrarButton.widthAnchor.constraint(equalToConstant: 120),
             
-            
         ])
     }
-    
 }

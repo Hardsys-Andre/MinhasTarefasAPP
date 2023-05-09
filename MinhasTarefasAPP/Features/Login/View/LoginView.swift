@@ -36,7 +36,7 @@ class LoginView: UIView {
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 24)
         label.textAlignment = .center
-       
+        
         return label
     }()
     
@@ -47,7 +47,7 @@ class LoginView: UIView {
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textAlignment = .center
-       
+        
         return label
     }()
     
@@ -55,10 +55,10 @@ class LoginView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Faça o Login"
-        label.textColor = .white
+        label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 24)
         label.textAlignment = .center
-       
+        
         return label
     }()
     
@@ -66,10 +66,11 @@ class LoginView: UIView {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.font = UIFont.systemFont(ofSize: 24)
-        textField.textColor = .white
+        textField.textColor = .black
         textField.keyboardType = .emailAddress
-        textField.backgroundColor = .gray
-        textField.attributedPlaceholder = NSAttributedString(string: "Digite seu Email", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white.withAlphaComponent(0.4)])
+        textField.backgroundColor = .white
+        textField.attributedPlaceholder = NSAttributedString(string: "Digite seu Email", attributes: [NSAttributedString.Key.foregroundColor : UIColor.black.withAlphaComponent(0.4)])
+        textField.autocapitalizationType = .none
         textField.clipsToBounds = true
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.white.cgColor
@@ -84,17 +85,17 @@ class LoginView: UIView {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.font = UIFont.systemFont(ofSize: 24)
-        textField.textColor = .white
+        textField.textColor = .black
         textField.isSecureTextEntry = true
-        textField.backgroundColor = .gray
-        textField.attributedPlaceholder = NSAttributedString(string: "Digite sua senha", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white.withAlphaComponent(0.4)])
+        textField.backgroundColor = .white
+        textField.attributedPlaceholder = NSAttributedString(string: "Digite sua senha", attributes: [NSAttributedString.Key.foregroundColor : UIColor.black.withAlphaComponent(0.4)])
         textField.clipsToBounds = true
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.white.cgColor
         textField.layer.cornerRadius = 10
         textField.autocorrectionType = .no
         textField.borderStyle = .roundedRect
-
+        
         
         return textField
     }()
@@ -102,12 +103,12 @@ class LoginView: UIView {
     lazy var enterButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .gray
+        button.backgroundColor = .white
         button.clipsToBounds = true
         button.layer.cornerRadius = 10
         button.setTitle("Entrar", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 24)
-        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(.black, for: .normal)
         button.addTarget(self, action: #selector(tappedEnterButton), for: .touchUpInside)
         
         return button
@@ -120,21 +121,21 @@ class LoginView: UIView {
     lazy var oneLineview: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .gray
+        view.backgroundColor = .white
         return view
         
     }()
     lazy var twoLineview: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .gray
+        view.backgroundColor = .black
         return view
         
     }()
     lazy var threeLineview: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .gray
+        view.backgroundColor = .white
         return view
         
     }()
@@ -142,7 +143,7 @@ class LoginView: UIView {
     lazy var fourLineview: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .gray
+        view.backgroundColor = .black
         return view
         
     }()
@@ -151,9 +152,9 @@ class LoginView: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.clipsToBounds = true
-        button.tintColor = .white
+        //button.tintColor = .black
         button.setTitle("Cadastre-se aqui!", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         button.setTitleColor(.white, for: .normal)
         button.addTarget(self, action: #selector(tappedCadastroButton), for: .touchUpInside)
         
@@ -166,10 +167,10 @@ class LoginView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .black
+        backgroundColor = UIColor(red: 67/255, green: 154/255, blue: 224/255, alpha: 1)
         configElements()
         configConstraints()
-        emailTextField.text = "Tibia@gmail.com"
+        emailTextField.text = "tibia@gmail.com"
         passwordTextField.text = "123456"
     }
     
@@ -199,8 +200,8 @@ class LoginView: UIView {
             logoImageVIew.widthAnchor.constraint(equalToConstant: 200),
             
             titleLabel.topAnchor.constraint(equalTo: logoImageVIew.bottomAnchor, constant: 20),
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
             
             subTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
             subTitleLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
@@ -211,8 +212,8 @@ class LoginView: UIView {
             loginTitleLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
             
             emailTextField.topAnchor.constraint(equalTo: loginTitleLabel.bottomAnchor, constant: 10),
-            emailTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
-            emailTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
+            emailTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            emailTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
             emailTextField.heightAnchor.constraint(equalToConstant: 45),
             
             passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 15),
@@ -234,7 +235,7 @@ class LoginView: UIView {
             twoLineview.centerXAnchor.constraint(equalTo: centerXAnchor),
             twoLineview.heightAnchor.constraint(equalToConstant: 3),
             twoLineview.widthAnchor.constraint(equalToConstant: 100),
-
+            
             threeLineview.topAnchor.constraint(equalTo: twoLineview.bottomAnchor, constant: 10),
             threeLineview.centerXAnchor.constraint(equalTo: centerXAnchor),
             threeLineview.heightAnchor.constraint(equalToConstant: 3),
@@ -251,5 +252,4 @@ class LoginView: UIView {
             cadastroButton.widthAnchor.constraint(equalToConstant: 180),
         ])
     }
-    
 }

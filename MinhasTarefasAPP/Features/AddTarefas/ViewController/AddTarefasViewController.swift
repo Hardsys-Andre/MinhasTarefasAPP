@@ -14,17 +14,13 @@ class AddTarefasViewController: UIViewController {
     private var alert: Alert?
     private var alertPop: AlertPop?
     var emailLogado: String?
-
     
     override func loadView() {
         addTarefasView = AddTarefasView()
         view = addTarefasView
         alert = Alert(controller: self)
         alertPop = AlertPop(controller: self)
-        
     }
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +42,7 @@ extension AddTarefasViewController: AddTarefasViewModelProtocol {
 }
 var priorityTask: String?
 var categoria: String?
-  
+
 
 extension AddTarefasViewController: AddTarefasViewProtocol{
     func tappedImportante() {
@@ -76,7 +72,6 @@ extension AddTarefasViewController: AddTarefasViewProtocol{
                                  priority: priorityTask ?? "",
                                  dateTask: addTarefasView?.selectedDate ?? "",
                                  category: categoria ?? "")
-            
         }
     }
 }
@@ -84,7 +79,6 @@ extension AddTarefasViewController: AddTarefasCollectionViewCellProtocol {
     func categorySelected(withName name: String) {
         categoria = name
     }
-    
 }
 extension AddTarefasViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -100,5 +94,4 @@ extension AddTarefasViewController: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width - 5, height: 110)
     }
-    
 }
