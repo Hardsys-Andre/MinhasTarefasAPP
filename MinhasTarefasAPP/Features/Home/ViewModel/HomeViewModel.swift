@@ -8,6 +8,7 @@
 import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import UIKit
 
 protocol HomeViewModelViewDelegate {
     func fetchTasksSuccess()
@@ -61,5 +62,48 @@ class HomeViewModel {
                     }
                 }
             }
+    }
+    
+    func getTotalDate() -> Int {
+        let dateFormatterYear = DateFormatter()
+        dateFormatterYear.dateFormat = "yyyy"
+        dateFormatterYear.locale = Locale(identifier: "pt_BR")
+        let dateYear = Date()
+        let dateYearString = dateFormatterYear.string(from: dateYear)
+        let year = dateYearString
+        
+        let dateFormatterMonth = DateFormatter()
+        dateFormatterMonth.dateFormat = "MM"
+        dateFormatterMonth.locale = Locale(identifier: "pt_BR")
+        let dateMonth = Date()
+        let dateMonthString = dateFormatterMonth.string(from: dateMonth)
+        let month = dateMonthString
+        
+        let dateFormatterDay = DateFormatter()
+        dateFormatterDay.dateFormat = "dd"
+        dateFormatterDay.locale = Locale(identifier: "pt_BR")
+        let dateDay = Date()
+        let dateDayString = dateFormatterDay.string(from: dateDay)
+        let day = Int(dateDayString) ?? 0
+        
+        var dateComponents = DateComponents()
+        dateComponents.year = Int(year)
+        dateComponents.month = Int(month)
+
+        let calendar = Calendar.current
+        let datez = calendar.date(from: dateComponents)
+        
+        let interval = calendar.dateInterval(of: .month, for: datez!)!
+
+        let days = calendar.dateComponents([.day], from: interval.start, to: interval.end).day!
+        let restDays = days - day + 1
+        return restDays
+    }
+    
+    func selectedFirstDay(collection: UICollectionView){
+        if collection.numberOfItems(inSection: 0) > 0 {
+            let indexPath = IndexPath(item: 0, section: 0)
+            collection.selectItem(at: indexPath, animated: true, scrollPosition: .left)
+        }
     }
 }

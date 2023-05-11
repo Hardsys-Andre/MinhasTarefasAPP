@@ -77,8 +77,8 @@ class HomeView: UIView {
     }()
     lazy var headerView: HomeHeaderView = {
         let view = HomeHeaderView()
+        view.delegate(delegate: self)
         view.translatesAutoresizingMaskIntoConstraints = false
-        
         return view
     
     }()
@@ -108,25 +108,6 @@ class HomeView: UIView {
         self.tableView.dataSource = dataSource
     }
     
-    lazy var criarTarefaButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Criar Tarefa", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-        button.clipsToBounds = true
-        button.layer.cornerRadius = 12
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.white.cgColor
-        button.tintColor = .white
-        button.addTarget(self, action: #selector(tappedCriarTarefaButton), for: .touchUpInside)
-        
-        return button
-    }()
-    @objc func tappedCriarTarefaButton(){
-        self.delegate?.tappedCriarTarefaButton()
-    }
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor(red: 67/255, green: 154/255, blue: 224/255, alpha: 1)
@@ -139,40 +120,17 @@ class HomeView: UIView {
     }
     
     private func configElements(){
-        //addSubview(titleLabel)
-        //addSubview(dateLabel)
-        //addSubview(userImageView)
-        //addSubview(nameUserLabel)
         addSubview(headerView)
         addSubview(headerTableView)
         addSubview(tableView)
-        addSubview(criarTarefaButton)
     }
     private func configConstraints(){
         NSLayoutConstraint.activate([
             
-            /*titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 30),
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
-            titleLabel.heightAnchor.constraint(equalToConstant: 30),
-            
-            dateLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
-            dateLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
-            dateLabel.heightAnchor.constraint(equalToConstant: 30),
-            
-            userImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 5),
-            userImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
-            userImageView.heightAnchor.constraint(equalToConstant: 100),
-            userImageView.widthAnchor.constraint(equalToConstant: 100),
-            
-            nameUserLabel.topAnchor.constraint(equalTo: userImageView.bottomAnchor, constant: 0),
-            nameUserLabel.centerXAnchor.constraint(equalTo: userImageView.centerXAnchor),
-            nameUserLabel.heightAnchor.constraint(equalToConstant: 30),
-            nameUserLabel.widthAnchor.constraint(equalToConstant: 150),*/
-            
             headerView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             headerView.leadingAnchor.constraint(equalTo: leadingAnchor),
             headerView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            headerView.heightAnchor.constraint(equalToConstant: 320),
+            headerView.heightAnchor.constraint(equalToConstant: 300),
             
             headerTableView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
             headerTableView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -182,13 +140,15 @@ class HomeView: UIView {
             tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            tableView.heightAnchor.constraint(equalToConstant: 500),
-            
-            criarTarefaButton.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 10),
-            criarTarefaButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            criarTarefaButton.heightAnchor.constraint(equalToConstant: 40),
-            criarTarefaButton.widthAnchor.constraint(equalToConstant: 120),
+            tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
         ])
     }
+}
+extension HomeView: HomeHeaderViewProtocol {
+    func tappedCreateNewTask() {
+        self.delegate?.tappedCriarTarefaButton()
+    }
+    
+    
 }

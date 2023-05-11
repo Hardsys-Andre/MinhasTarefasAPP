@@ -482,6 +482,7 @@
 		AC598CB92A099BC60098D620 /* DateTasksCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				AC6ABE6A2A0A994A006CC00C /* View */,
 				AC598CBA2A099BFD0098D620 /* DateTasksCollectionViewCell.swift */,
 			);
 			path = DateTasksCollectionViewCell;
@@ -501,6 +502,13 @@
 				AC598CC02A09E6310098D620 /* UIView.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		AC6ABE6A2A0A994A006CC00C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		AC73DE152A02A83400750AD4 /* Repository */ = {

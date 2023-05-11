@@ -13,6 +13,7 @@ class HomeViewController: UIViewController {
     private lazy var homeView: HomeView = {
         return HomeView()
     }()
+    private var homeHeaderView: HomeHeaderView?
     private var viewModel: HomeViewModel
     
     init(viewModel: HomeViewModel){
@@ -29,15 +30,19 @@ class HomeViewController: UIViewController {
         homeView.tableView.reloadData()
         
         if let imageUrl = viewModel.getUser()?.imageUrl {
-            self.homeView.userImageView.sd_setImage(with: URL(string: imageUrl))
+            self.homeView.headerView.userImageView.sd_setImage(with: URL(string: imageUrl))
         }else{
             print("Falha na extração da URL")
         }
-        self.homeView.nameUserLabel.text = viewModel.getUser()?.name
+        self.homeView.headerView.userLabel.text = viewModel.getUser()?.name
+        
         homeView.delegate(delegate: self)
         homeView.configTableViewProtocol(delegate: self, dataSource: self)
         view = homeView
+        
     }
+    
+    
     
     override func loadView() {
         
@@ -50,6 +55,13 @@ class HomeViewController: UIViewController {
         
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
         homeView.tableView.addGestureRecognizer(longPressRecognizer)
+    }
+    
+    func addNewTask(){
+        let vc = AddTarefasViewController()
+        vc.emailLogado = viewModel.getUser()?.email
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
     
     @objc func handleLongPress(_ gestureRecognizer: UILongPressGestureRecognizer) {
@@ -101,16 +113,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         navigationController?.pushViewController(viewController, animated: true)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 140
+        return 130
     }
 }
 
 extension HomeViewController: HomeViewProtocol {
-    
     func tappedCriarTarefaButton() {
-        let vc = AddTarefasViewController()
-        vc.emailLogado = viewModel.getUser()?.email
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
+        addNewTask()
     }
 }
