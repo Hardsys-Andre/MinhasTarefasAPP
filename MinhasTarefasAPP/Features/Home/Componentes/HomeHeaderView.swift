@@ -8,6 +8,10 @@
 import UIKit
 protocol HomeHeaderViewProtocol: AnyObject {
     func tappedCreateNewTask()
+    
+}
+protocol HomeHeaderViewDayTaskProtocol: AnyObject {
+    func dayTaskSelected()
 }
 
 class HomeHeaderView: UIView {
@@ -15,6 +19,11 @@ class HomeHeaderView: UIView {
     private weak var delegate: HomeHeaderViewProtocol?
     public func delegate(delegate: HomeHeaderViewProtocol?) {
         self.delegate = delegate
+    }
+    
+    private weak var delegateDay: HomeHeaderViewDayTaskProtocol?
+    public func delegateDay(delegateDay: HomeHeaderViewDayTaskProtocol?) {
+        self.delegateDay = delegateDay
     }
     
     var homeViewModel: HomeViewModel?
@@ -148,7 +157,6 @@ class HomeHeaderView: UIView {
     }()
     
     @objc func tappedCreateTask(){
-        print(#function)
         self.delegate?.tappedCreateNewTask()
     }
     
@@ -272,9 +280,7 @@ class HomeHeaderView: UIView {
         let date = Date()
         return dateFormatter.string(from: date)
     }()
-    
 }
-
 extension HomeHeaderView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -284,20 +290,25 @@ extension HomeHeaderView: UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
                 
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DateTasksCollectionViewCell.identifier, for: indexPath) as? DateTasksCollectionViewCell
-                
         else { return UICollectionViewCell() }
 
-        
         cell.configureCell(day: indexPath.row + (Int(getCurrentDate) ?? 0))
-        
+       
         return cell
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DateTasksCollectionViewCell", for: indexPath) as? DateTasksCollectionViewCell else { return }
         
         cell.isSelected = true
+        let daySelected = Int(cell.dayLabel.text ?? "")
+        if daySelected == indexPath.row{
+            let date = cell.dayLabel.text ?? "" + "mai.-2023"
+            print(date)
+            self.delegateDay?.dayTaskSelected()
+        }
+        
+        
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
     

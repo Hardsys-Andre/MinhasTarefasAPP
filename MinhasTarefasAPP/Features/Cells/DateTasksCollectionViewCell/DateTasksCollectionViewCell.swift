@@ -51,6 +51,7 @@ class DateTasksCollectionViewCell: UICollectionViewCell {
     
     func configureCell(day: Int) {
         dayLabel.text = String(day)
+        
     }
     
     override var isSelected: Bool {

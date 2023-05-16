@@ -8,7 +8,9 @@
 import UIKit
 import Firebase
 
+
 class HomeViewController: UIViewController {
+    
     
     private lazy var homeView: HomeView = {
         return HomeView()
@@ -42,8 +44,6 @@ class HomeViewController: UIViewController {
         
     }
     
-    
-    
     override func loadView() {
         
     }
@@ -51,7 +51,10 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.viewDelegate = self
-        viewModel.fetchTasks()
+        homeView.headerView.delegateDay(delegateDay: self)
+        //homeHeaderView?.delegateDay(delegateDay: self)
+        //dayTasksSelected()
+        //viewModel.fetchTasks()
         
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
         homeView.tableView.addGestureRecognizer(longPressRecognizer)
@@ -82,6 +85,11 @@ class HomeViewController: UIViewController {
             }
         }
     }
+    
+    func dayTasksSelected(){
+        
+        viewModel.fetchTasks()
+    }
 }
 
 extension HomeViewController: HomeViewModelViewDelegate {
@@ -96,18 +104,19 @@ extension HomeViewController: HomeViewModelViewDelegate {
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.dataSource.count
+        viewModel.dayTaskSelected.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TarefasCriadasTableViewCell.identifier,
                                                        for: indexPath) as? TarefasCriadasTableViewCell else {
             return UITableViewCell()
         }
-        cell.configureTask(model: viewModel.getTask(row: indexPath.row))
+        cell.configureTask(model: viewModel.getDayTask(row: indexPath.row))
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let task = viewModel.getTask(row: indexPath.row)
+        let task = viewModel.getDayTask(row: indexPath.row)
+        //let task = viewModel.getTask(row: indexPath.row)
         let detailsViewModel = DetailsTasksViewModel(taskData: task)
         let viewController = DetailsTasksViewController(viewModel: detailsViewModel)
         navigationController?.pushViewController(viewController, animated: true)
@@ -121,4 +130,12 @@ extension HomeViewController: HomeViewProtocol {
     func tappedCriarTarefaButton() {
         addNewTask()
     }
+}
+
+extension HomeViewController: HomeHeaderViewDayTaskProtocol {
+    func dayTaskSelected() {
+        dayTasksSelected()
+    }
+    
+    
 }

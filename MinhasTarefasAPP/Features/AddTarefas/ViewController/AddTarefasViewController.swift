@@ -71,6 +71,7 @@ extension AddTarefasViewController: AddTarefasViewProtocol{
                                  descriptionTask: addTarefasView?.descriptionTarefasTextView.text ?? "",
                                  priority: priorityTask ?? "",
                                  dateTask: addTarefasView?.selectedDate ?? "",
+                                 hourTask: addTarefasView?.selectedHour ?? "",
                                  category: categoria ?? "")
         }
     }

@@ -36,6 +36,7 @@ class DetailsTasksViewController: UIViewController {
         detailsTasksView?.descriptionTaskTextView.text = viewModel.taskData?.description
         detailsTasksView?.prioritTaskTextField.text = viewModel.taskData?.priority
         detailsTasksView?.dateTaskTextField.text = viewModel.taskData?.date
+        detailsTasksView?.hourTaskTextField.text = viewModel.taskData?.hour
         detailsTasksView?.categoryTaskTextField.text = viewModel.taskData?.category
     }
 }

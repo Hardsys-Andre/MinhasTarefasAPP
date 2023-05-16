@@ -12,5 +12,6 @@ struct TaskModel: Codable {
     let description: String?
     let priority: String
     let date: String
+    let hour: String
     let category: String
 }

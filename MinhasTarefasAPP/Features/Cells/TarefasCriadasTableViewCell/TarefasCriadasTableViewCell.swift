@@ -41,7 +41,7 @@ class TarefasCriadasTableViewCell: UITableViewCell {
         return label
     }()
     
-    lazy var dateTarefaLabel: UILabel = {
+    lazy var hourTarefaLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
@@ -67,16 +67,19 @@ class TarefasCriadasTableViewCell: UITableViewCell {
     }
     
     func configureTask(model: TaskModel?){
-        titleTarefaLabel.text = model?.title
-        dateTarefaLabel.text = model?.date
+        
+            titleTarefaLabel.text = model?.title
+            hourTarefaLabel.text = model?.hour
+        
         
     }
+    
     
     private func configElements(){
         addSubview(view)
         view.addSubview(categoryImageVIew)
         view.addSubview(titleTarefaLabel)
-        view.addSubview(dateTarefaLabel)
+        view.addSubview(hourTarefaLabel)
     }
     private func configConstraints(){
         NSLayoutConstraint.activate([
@@ -94,10 +97,10 @@ class TarefasCriadasTableViewCell: UITableViewCell {
             titleTarefaLabel.leadingAnchor.constraint(equalTo: categoryImageVIew.trailingAnchor, constant: 15),
             titleTarefaLabel.heightAnchor.constraint(equalToConstant: 30),
             
-            dateTarefaLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 10),
-            dateTarefaLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            dateTarefaLabel.heightAnchor.constraint(equalToConstant: 30),
-            dateTarefaLabel.widthAnchor.constraint(equalToConstant: 185),
+            hourTarefaLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 10),
+            hourTarefaLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            hourTarefaLabel.heightAnchor.constraint(equalToConstant: 30),
+            hourTarefaLabel.widthAnchor.constraint(equalToConstant: 120),
         ])
     }
     

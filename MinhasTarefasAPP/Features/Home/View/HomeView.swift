@@ -144,11 +144,13 @@ class HomeView: UIView {
             
         ])
     }
+    
 }
 extension HomeView: HomeHeaderViewProtocol {
+    
+    
     func tappedCreateNewTask() {
         self.delegate?.tappedCriarTarefaButton()
     }
-    
     
 }

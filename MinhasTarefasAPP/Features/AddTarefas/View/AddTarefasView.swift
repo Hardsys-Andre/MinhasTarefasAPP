@@ -151,14 +151,13 @@ class AddTarefasView: UIView {
     
     lazy var datePicker: UIDatePicker = {
         let picker = UIDatePicker()
-        picker.datePickerMode = .dateAndTime
+        picker.datePickerMode = .date
         picker.translatesAutoresizingMaskIntoConstraints = false
-        picker.backgroundColor = .white
         picker.tintColor = .black
         picker.clipsToBounds = true
         picker.layer.cornerRadius = 10
         picker.layer.borderColor = UIColor.white.cgColor
-        picker.layer.borderWidth = 1
+        picker.layer.borderWidth = 2
         picker.contentHorizontalAlignment = .center
         picker.addTarget(self, action: #selector(dataPickerValueChanged), for: .valueChanged)
         return picker
@@ -167,9 +166,33 @@ class AddTarefasView: UIView {
     var selectedDate: String?
     @objc func dataPickerValueChanged(){
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd, MMM, yyy HH:mm"
+        dateFormatter.dateFormat = "dd-MMM-yyy"
+        dateFormatter.locale = Locale(identifier: "pt_BR")
         let date = datePicker.date
         selectedDate = dateFormatter.string(for: date)
+    }
+    
+    lazy var hourDatePicker: UIDatePicker = {
+        let picker = UIDatePicker()
+        picker.datePickerMode = .time
+        picker.translatesAutoresizingMaskIntoConstraints = false
+        picker.tintColor = .black
+        picker.clipsToBounds = true
+        picker.layer.cornerRadius = 10
+        picker.layer.borderColor = UIColor.white.cgColor
+        picker.layer.borderWidth = 2
+        picker.contentHorizontalAlignment = .center
+        picker.addTarget(self, action: #selector(hourDatePickerValueChanged), for: .valueChanged)
+        return picker
+    }()
+    
+    var selectedHour: String?
+    @objc func hourDatePickerValueChanged(){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        dateFormatter.locale = Locale(identifier: "pt_BR")
+        let date = datePicker.date
+        selectedHour = dateFormatter.string(for: date)
     }
     
     lazy var categoriaLabel: UILabel = {
@@ -242,6 +265,7 @@ class AddTarefasView: UIView {
         addSubview(comumButton)
         addSubview(dataHoraLabel)
         addSubview(datePicker)
+        addSubview(hourDatePicker)
         addSubview(categoriaLabel)
         addSubview(collectionView)
         addSubview(criarTarefaButton)
@@ -281,12 +305,12 @@ class AddTarefasView: UIView {
             prioritLabel.heightAnchor.constraint(equalToConstant: 30),
             
             importanteButton.topAnchor.constraint(equalTo: prioritLabel.bottomAnchor, constant: 5),
-            importanteButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            importanteButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),
             importanteButton.heightAnchor.constraint(equalToConstant: 40),
             importanteButton.widthAnchor.constraint(equalToConstant: 120),
             
             comumButton.topAnchor.constraint(equalTo: prioritLabel.bottomAnchor, constant: 5),
-            comumButton.trailingAnchor.constraint(equalTo: trailingAnchor , constant: -15),
+            comumButton.trailingAnchor.constraint(equalTo: trailingAnchor , constant: -25),
             comumButton.heightAnchor.constraint(equalToConstant: 40),
             comumButton.widthAnchor.constraint(equalToConstant: 120),
             
@@ -296,9 +320,14 @@ class AddTarefasView: UIView {
             dataHoraLabel.heightAnchor.constraint(equalToConstant: 30),
             
             datePicker.topAnchor.constraint(equalTo: dataHoraLabel.bottomAnchor, constant: 10),
-            datePicker.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            datePicker.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
+            datePicker.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),
+            datePicker.widthAnchor.constraint(equalToConstant: 120),
             datePicker.heightAnchor.constraint(equalToConstant: 45),
+            
+            hourDatePicker.topAnchor.constraint(equalTo: dataHoraLabel.bottomAnchor, constant: 10),
+            hourDatePicker.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25),
+            hourDatePicker.widthAnchor.constraint(equalToConstant: 100),
+            hourDatePicker.heightAnchor.constraint(equalToConstant: 45),
             
             categoriaLabel.topAnchor.constraint(equalTo: datePicker.bottomAnchor, constant: 10),
             categoriaLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),

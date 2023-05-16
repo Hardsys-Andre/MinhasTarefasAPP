@@ -105,7 +105,7 @@ class DetailsTasksView: UIView {
     lazy var dateTaskLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Data da tarefa"
+        label.text = "Data e Hora da tarefa"
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textAlignment = .center
@@ -120,6 +120,24 @@ class DetailsTasksView: UIView {
         tf.backgroundColor = .white
         tf.borderStyle = .roundedRect
         tf.attributedPlaceholder = NSAttributedString(string: "Data da sua tarefa", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white.withAlphaComponent(0.4)])
+        tf.textColor = .black
+        tf.font = UIFont.systemFont(ofSize: 20)
+        tf.textAlignment = .center
+        tf.clipsToBounds = true
+        tf.layer.cornerRadius = 10
+        tf.layer.borderWidth = 1.0
+        tf.layer.borderColor = UIColor.white.cgColor
+        
+        return tf
+    }()
+    
+    lazy var hourTaskTextField: UITextField = {
+        let tf = UITextField()
+        tf.translatesAutoresizingMaskIntoConstraints = false
+        tf.autocorrectionType = .no
+        tf.backgroundColor = .white
+        tf.borderStyle = .roundedRect
+        tf.attributedPlaceholder = NSAttributedString(string: "Hora da sua tarefa", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white.withAlphaComponent(0.4)])
         tf.textColor = .black
         tf.font = UIFont.systemFont(ofSize: 20)
         tf.textAlignment = .center
@@ -181,6 +199,7 @@ class DetailsTasksView: UIView {
         addSubview(prioritTaskTextField)
         addSubview(dateTaskLabel)
         addSubview(dateTaskTextField)
+        addSubview(hourTaskTextField)
         addSubview(categoryTaskLabel)
         addSubview(categoryTaskTextField)
     }
@@ -228,9 +247,14 @@ class DetailsTasksView: UIView {
             dateTaskLabel.heightAnchor.constraint(equalToConstant: 35),
             
             dateTaskTextField.topAnchor.constraint(equalTo: dateTaskLabel.bottomAnchor, constant: 10),
-            dateTaskTextField.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            dateTaskTextField.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
+            dateTaskTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),
+            dateTaskTextField.widthAnchor.constraint(equalToConstant: 150),
             dateTaskTextField.heightAnchor.constraint(equalToConstant: 35),
+            
+            hourTaskTextField.topAnchor.constraint(equalTo: dateTaskLabel.bottomAnchor, constant: 10),
+            hourTaskTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25),
+            hourTaskTextField.widthAnchor.constraint(equalToConstant: 100),
+            hourTaskTextField.heightAnchor.constraint(equalToConstant: 35),
             
             categoryTaskLabel.topAnchor.constraint(equalTo: dateTaskTextField.bottomAnchor, constant: 10),
             categoryTaskLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),

@@ -22,9 +22,9 @@ class AddTarefasViewModel {
         self.delegate = delegate
     }
     
-    public func addTarefas(email: String, title: String, descriptionTask: String, priority: String, dateTask: String, category: String){
+    public func addTarefas(email: String, title: String, descriptionTask: String, priority: String, dateTask: String, hourTask: String, category: String){
         
-        if title == "" || priority == "" || dateTask == "" || category == "" {
+        if title == "" || priority == "" || dateTask == "" || hourTask == "" || category == "" {
             delegate?.failure(message: "Preencha e escolha todas as opções da tarefa")
             
         }else{
@@ -36,6 +36,7 @@ class AddTarefasViewModel {
                 "description": descriptionTask,
                 "priority": priority,
                 "date": dateTask,
+                "hour": hourTask,
                 "category": category
             ]
             

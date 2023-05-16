@@ -18,6 +18,7 @@ protocol HomeViewModelViewDelegate {
 class HomeViewModel {
     
     var dataSource: [TaskModel?] = []
+    var dayTaskSelected: [TaskModel?] = []
     var viewDelegate: HomeViewModelViewDelegate?
     
     init(){
@@ -30,6 +31,32 @@ class HomeViewModel {
     func getTask(row: Int) -> TaskModel? {
         dataSource[row]
     }
+    
+    func getDayTask(row: Int) -> TaskModel? {
+        dayTaskSelected[row]
+    }
+    
+    func taskDay(day: String) -> [TaskModel?] {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MMM-yyyy" // formato da string de data em dateString
+        let today = day
+        let dateToday = dateFormatter.date(from: today)
+      
+        
+        let filteredTasks = dataSource.filter { task in
+            if let taskDate = dateFormatter.date(from: task?.date ?? "") {
+                return Calendar.current.isDate(dateToday ?? Date(), inSameDayAs: taskDate)
+            } else {
+                return false
+            }
+        }
+        dayTaskSelected = filteredTasks
+        print(filteredTasks)
+        return filteredTasks
+        
+    }
+
     
     func fetchTasks() {
         let db = Firestore.firestore()
@@ -44,6 +71,7 @@ class HomeViewModel {
                 self.dataSource = documents.compactMap { document in
                     try? document.data(as: TaskModel.self)
                 }
+                self.taskDay(day: "15,mai.,2023")
                 self.viewDelegate?.fetchTasksSuccess()
             }
     }
