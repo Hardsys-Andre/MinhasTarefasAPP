@@ -13,7 +13,11 @@ class CadastroViewController: UIViewController {
     private var alert: Alert?
     private var alertPop: AlertPop?
     private var viewModel: CadastroViewModel = CadastroViewModel()
+    private var loadingViewController = LoadingViewController()
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
     
     override func loadView() {
         screen = CadastroView()
@@ -26,8 +30,11 @@ class CadastroViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
+    func encerrarTelaDeCarregamento() {
+        loadingViewController.activityIndicator.stopAnimating()
+            dismiss(animated: true, completion: nil)
+        }
 }
 
 extension CadastroViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -45,7 +52,6 @@ extension CadastroViewController: UIImagePickerControllerDelegate, UINavigationC
         }
         picker.dismiss(animated: true, completion: nil)
     }
-    
 }
 
 extension CadastroViewController: CadastroViewProtocol {
@@ -54,7 +60,7 @@ extension CadastroViewController: CadastroViewProtocol {
     }
     
     func tappedBackImage() {
-        dismiss(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
     func tappedCadastrarButton() {
@@ -67,18 +73,22 @@ extension CadastroViewController: CadastroViewProtocol {
             (screen?.passwordTextField.text == ""){
             alert?.alert(title: "Atenção", message: "Preencha todos os campos antes de prosseguir")
         }else{
+            present(loadingViewController, animated: true)
+            
             viewModel.cadastroUser(email: screen?.emailTextField.text ?? "", password: screen?.passwordTextField.text ?? "", name: screen?.nameTextField.text ?? "", lastName: screen?.lastNameTextField.text ?? "", uf: screen?.ufTextField.text ?? "", city: screen?.cityTextField.text ?? "", imageUser: screen?.userImageView.image ?? UIImage())
         }
     }
 }
 extension CadastroViewController: CadastroViewModelProtocol {
     func sucessCadastro() {
+        self.encerrarTelaDeCarregamento()
         alertPop?.alertPop(title: "Parabéns", message: "Cadastro realizado com sucesso")
+        
     }
     
     func errorCadastro(errorMessage: String) {
-        alert?.alert(title: "Ops Erro no Cadastro", message: errorMessage)
+        self.encerrarTelaDeCarregamento()
+        alert?.alert(title: "Atenção Erro no Cadastro", message: errorMessage)
+        
     }
-    
-    
 }

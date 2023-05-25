@@ -45,23 +45,24 @@ extension LoginViewController: LoginViewProtocol {
     }
     
     func tappedCadastroButton() {
-        let vc = CadastroViewController()
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
+        let cadastroViewController = CadastroViewController()
+        navigationController?.pushViewController(cadastroViewController, animated: true)
+        //vc.modalPresentationStyle = .fullScreen
+        //present(vc, animated: true)
     }
 }
 
 extension LoginViewController: LoginViewModelProtocol {
     func loginSuccess() {
-        let vc = TabBarController()
+        let tabBarController = TabBarController()
         loginView?.emailTextField.text = ""
         loginView?.passwordTextField.text = ""
-        
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
+        navigationController?.pushViewController(tabBarController, animated: true)
+        //tabBarController.modalPresentationStyle = .fullScreen
+        //present(tabBarController, animated: true)
     }
     
     func loginFailure(message: String?) {
-        alert?.alert(title: "Ops Erro no Login", message: message ?? "")
+        alert?.alert(title: "Atenção Erro no Login", message: message ?? "")
     }
 }

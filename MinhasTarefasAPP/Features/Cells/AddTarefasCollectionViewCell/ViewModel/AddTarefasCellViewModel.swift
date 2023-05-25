@@ -10,13 +10,11 @@ import Foundation
 struct CategoryData {
     let category: String
 }
-
 class AddTarefasCellViewModel {
     
     var categoryData: CategoryData?
     
     init(categoryData: CategoryData){
         self.categoryData = categoryData
-        
     }
 }

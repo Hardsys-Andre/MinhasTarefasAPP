@@ -28,7 +28,6 @@ class PerfilViewModel {
     
     var imageHasChanged = false
     
-    
     init(){
         
     }
@@ -101,9 +100,5 @@ class PerfilViewModel {
                 }
             }
         }
-        
-        
     }
-    
 }
-

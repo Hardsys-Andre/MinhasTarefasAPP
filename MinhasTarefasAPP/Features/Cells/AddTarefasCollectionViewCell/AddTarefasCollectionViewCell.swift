@@ -11,14 +11,12 @@ protocol AddTarefasCollectionViewCellProtocol: AnyObject {
     func categorySelected(withName name: String)
 }
 
-
 class AddTarefasCollectionViewCell: UICollectionViewCell {
     
     private weak var delegate: AddTarefasCollectionViewCellProtocol?
     public func delegate(delegate: AddTarefasCollectionViewCellProtocol?){
         self.delegate = delegate
     }
-    
     
     static let identifier: String = String(describing: AddTarefasCollectionViewCell.self)
     
@@ -34,14 +32,12 @@ class AddTarefasCollectionViewCell: UICollectionViewCell {
         configConstraints()
         cellAddTarefasView.delegate(delegate: self)
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     private func configElements(){
         contentView.addSubview(cellAddTarefasView)
     }
-    
     private func configConstraints(){
         NSLayoutConstraint.activate([
             cellAddTarefasView.topAnchor.constraint(equalTo: topAnchor),
@@ -49,20 +45,15 @@ class AddTarefasCollectionViewCell: UICollectionViewCell {
             cellAddTarefasView.trailingAnchor.constraint(equalTo: trailingAnchor),
             cellAddTarefasView.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
-        
     }
     var categoryTask: String?
-    
-    
 }
 
 extension AddTarefasCollectionViewCell: AddTarefasCollectionViewCellViewProtocol {
     
-    
     func tappedTrabalho() {
         let categoriTask = "Trabalho"
         delegate?.categorySelected(withName: categoriTask)
-        
         cellAddTarefasView.trabalhoButton.backgroundColor = .gray
         cellAddTarefasView.escolaButton.backgroundColor = .blue
         cellAddTarefasView.lazerButton.backgroundColor = .orange
@@ -75,7 +66,6 @@ extension AddTarefasCollectionViewCell: AddTarefasCollectionViewCellViewProtocol
     func tappedEscola() {
         let categoriTask = "Escola"
         delegate?.categorySelected(withName: categoriTask)
-        
         cellAddTarefasView.trabalhoButton.backgroundColor = .red
         cellAddTarefasView.escolaButton.backgroundColor = .gray
         cellAddTarefasView.lazerButton.backgroundColor = .orange
@@ -88,7 +78,6 @@ extension AddTarefasCollectionViewCell: AddTarefasCollectionViewCellViewProtocol
     func tappedLazer() {
         let categoriTask = "Lazer"
         delegate?.categorySelected(withName: categoriTask)
-        
         cellAddTarefasView.trabalhoButton.backgroundColor = .red
         cellAddTarefasView.escolaButton.backgroundColor = .blue
         cellAddTarefasView.lazerButton.backgroundColor = .gray
@@ -101,7 +90,6 @@ extension AddTarefasCollectionViewCell: AddTarefasCollectionViewCellViewProtocol
     func tappedSaude() {
         let categoriTask = "Saude"
         delegate?.categorySelected(withName: categoriTask)
-        
         cellAddTarefasView.trabalhoButton.backgroundColor = .red
         cellAddTarefasView.escolaButton.backgroundColor = .blue
         cellAddTarefasView.lazerButton.backgroundColor = .orange
@@ -114,7 +102,6 @@ extension AddTarefasCollectionViewCell: AddTarefasCollectionViewCellViewProtocol
     func tappedAlimentacao() {
         let categoriTask = "Alimentacao"
         delegate?.categorySelected(withName: categoriTask)
-        
         cellAddTarefasView.trabalhoButton.backgroundColor = .red
         cellAddTarefasView.escolaButton.backgroundColor = .blue
         cellAddTarefasView.lazerButton.backgroundColor = .orange
@@ -127,7 +114,6 @@ extension AddTarefasCollectionViewCell: AddTarefasCollectionViewCellViewProtocol
     func tappedDomestica() {
         let categoriTask = "Domestica"
         delegate?.categorySelected(withName: categoriTask)
-        
         cellAddTarefasView.trabalhoButton.backgroundColor = .red
         cellAddTarefasView.escolaButton.backgroundColor = .blue
         cellAddTarefasView.lazerButton.backgroundColor = .orange
@@ -140,7 +126,6 @@ extension AddTarefasCollectionViewCell: AddTarefasCollectionViewCellViewProtocol
     func tappedOutra() {
         let categoriTask = "Outra"
         delegate?.categorySelected(withName: categoriTask)
-        
         cellAddTarefasView.trabalhoButton.backgroundColor = .red
         cellAddTarefasView.escolaButton.backgroundColor = .blue
         cellAddTarefasView.lazerButton.backgroundColor = .orange
@@ -149,6 +134,4 @@ extension AddTarefasCollectionViewCell: AddTarefasCollectionViewCellViewProtocol
         cellAddTarefasView.domesticaButton.backgroundColor = .purple
         cellAddTarefasView.outrasButton.backgroundColor = .gray
     }
-    
-    
 }

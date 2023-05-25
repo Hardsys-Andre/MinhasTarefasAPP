@@ -8,10 +8,13 @@
 import UIKit
 protocol HomeHeaderViewProtocol: AnyObject {
     func tappedCreateNewTask()
-    
 }
 protocol HomeHeaderViewDayTaskProtocol: AnyObject {
     func dayTaskSelected()
+    func tappedDate()
+    func tappedAllTasks()
+    func tappedUserImageView()
+    func tappedNotificationLabel()
 }
 
 class HomeHeaderView: UIView {
@@ -33,21 +36,20 @@ class HomeHeaderView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
         return view
-        
     }()
+    
     lazy var headerCenterView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor(red: 67/255, green: 154/255, blue: 224/255, alpha: 1)
         return view
-        
     }()
+    
     lazy var headerLeftView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
         view.roundCorners(cornerRadius: 50, typeCorners: [.layerMaxXMinYCorner])
-        
         return view
     }()
     
@@ -59,16 +61,33 @@ class HomeHeaderView: UIView {
         image.contentMode = .scaleToFill
         image.isUserInteractionEnabled = true
         image.clipsToBounds = true
-        
         return image
     }()
+    
+    lazy var notificationLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .white
+        label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.backgroundColor = .red
+        label.textAlignment = .center
+        label.clipsToBounds = true
+        label.layer.cornerRadius = 10
+        label.isHidden = true
+        label.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tappedNotificationLabel))
+        label.addGestureRecognizer(tapGesture)
+        return label
+    }()
+    @objc func tappedNotificationLabel(){
+        self.delegateDay?.tappedNotificationLabel()
+    }
     
     lazy var headerRightView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor(red: 67/255, green: 154/255, blue: 224/255, alpha: 1)
         view.roundCorners(cornerRadius: 50, typeCorners: [.layerMinXMaxYCorner])
-
         return view
     }()
     
@@ -82,9 +101,15 @@ class HomeHeaderView: UIView {
         image.layer.cornerRadius = 35
         image.layer.borderWidth = 1
         image.layer.borderColor = UIColor.white.cgColor
-        
+        image.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tappedUserImageView))
+        image.addGestureRecognizer(tapGesture)
         return image
     }()
+    @objc func tappedUserImageView(){
+        self.delegateDay?.tappedUserImageView()
+    }
+    
     lazy var userLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -92,18 +117,15 @@ class HomeHeaderView: UIView {
         label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 12)
         label.textAlignment = .center
-        
         return label
     }()
    
-    
     lazy var headerBottomtView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
         view.roundCorners(cornerRadius: 50, typeCorners: [.layerMaxXMinYCorner, .layerMinXMaxYCorner])
         return view
-        
     }()
     
     lazy var titleLabel: UILabel = {
@@ -113,9 +135,9 @@ class HomeHeaderView: UIView {
         label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 28)
         label.textAlignment = .center
-        
         return label
     }()
+    
     lazy var todayLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -123,7 +145,6 @@ class HomeHeaderView: UIView {
         label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textAlignment = .center
-        
         return label
     }()
     
@@ -152,37 +173,58 @@ class HomeHeaderView: UIView {
         image.clipsToBounds = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tappedCreateTask))
         image.addGestureRecognizer(tapGesture)
-        
         return image
     }()
-    
     @objc func tappedCreateTask(){
         self.delegate?.tappedCreateNewTask()
     }
     
-    lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout.init())
-        let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        layout.scrollDirection = .horizontal
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.setCollectionViewLayout(layout, animated: false)
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.backgroundColor = .white
-        collectionView.register(DateTasksCollectionViewCell.self, forCellWithReuseIdentifier: DateTasksCollectionViewCell.identifier)
-        return collectionView
+    lazy var dateSelectedLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .white
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.backgroundColor =  UIColor(red: 67/255, green: 154/255, blue: 224/255, alpha: 1)
+        label.textAlignment = .center
+        label.text = "Escolha por data"
+        label.clipsToBounds = true
+        label.layer.cornerRadius = 15
+        label.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tappedDate))
+        label.addGestureRecognizer(tapGesture)
+        return label
     }()
+    @objc func tappedDate(){
+        self.delegateDay?.tappedDate()
+    }
+    
+    lazy var allTasksLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .white
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.backgroundColor =  .red
+        label.textAlignment = .center
+        label.text = "Limpar Filtro"
+        label.clipsToBounds = true
+        label.layer.cornerRadius = 15
+        label.isUserInteractionEnabled = true
+        label.isHidden = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tappedAllTasks))
+        label.addGestureRecognizer(tapGesture)
+        return label
+    }()
+    @objc func tappedAllTasks(){
+        self.delegateDay?.tappedAllTasks()
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         homeViewModel = HomeViewModel()
         backgroundColor = UIColor(red: 67/255, green: 154/255, blue: 224/255, alpha: 1)
         configElements()
-        configConstraints()
-        homeViewModel?.selectedFirstDay(collection: collectionView)
-        
+        configConstraints()        
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -192,6 +234,7 @@ class HomeHeaderView: UIView {
         headerTopView.addSubview(headerCenterView)
         headerTopView.addSubview(headerLeftView)
         headerLeftView.addSubview(notificationImageView)
+        headerLeftView.addSubview(notificationLabel)
         headerTopView.addSubview(headerRightView)
         headerRightView.addSubview(userImageView)
         headerRightView.addSubview(userLabel)
@@ -200,11 +243,8 @@ class HomeHeaderView: UIView {
         headerBottomtView.addSubview(addTaskImageView)
         headerBottomtView.addSubview(todayLabel)
         headerBottomtView.addSubview(dateLabel)
-        headerBottomtView.addSubview(collectionView)
-        
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
+        headerBottomtView.addSubview(allTasksLabel)
+        headerBottomtView.addSubview(dateSelectedLabel)
     }
     private func configConstraints(){
         NSLayoutConstraint.activate([
@@ -227,6 +267,11 @@ class HomeHeaderView: UIView {
             notificationImageView.leadingAnchor.constraint(equalTo: headerLeftView.leadingAnchor, constant: 50),
             notificationImageView.heightAnchor.constraint(equalToConstant: 35),
             notificationImageView.widthAnchor.constraint(equalToConstant: 35),
+            
+            notificationLabel.topAnchor.constraint(equalTo: notificationImageView.bottomAnchor, constant: -15),
+            notificationLabel.leadingAnchor.constraint(equalTo: notificationImageView.trailingAnchor, constant: -15),
+            notificationLabel.heightAnchor.constraint(equalToConstant: 20),
+            notificationLabel.widthAnchor.constraint(equalToConstant: 20),
             
             headerRightView.topAnchor.constraint(equalTo: headerTopView.topAnchor),
             headerRightView.leadingAnchor.constraint(equalTo: headerLeftView.trailingAnchor),
@@ -264,57 +309,15 @@ class HomeHeaderView: UIView {
             dateLabel.trailingAnchor.constraint(equalTo: headerBottomtView.trailingAnchor, constant: -20),
             dateLabel.heightAnchor.constraint(equalToConstant: 20),
             
-            collectionView.topAnchor.constraint(equalTo: todayLabel.bottomAnchor, constant: 20),
-            collectionView.leadingAnchor.constraint(equalTo: headerBottomtView.leadingAnchor, constant: 20),
-            collectionView.trailingAnchor.constraint(equalTo: headerBottomtView.trailingAnchor),
-            collectionView.heightAnchor.constraint(equalToConstant: 80),
+            dateSelectedLabel.topAnchor.constraint(equalTo: todayLabel.bottomAnchor, constant: 40),
+            dateSelectedLabel.centerXAnchor.constraint(equalTo: headerBottomtView.centerXAnchor),
+            dateSelectedLabel.widthAnchor.constraint(equalToConstant: 250),
+            dateSelectedLabel.heightAnchor.constraint(equalToConstant: 35),
             
-
+            allTasksLabel.topAnchor.constraint(equalTo: dateSelectedLabel.bottomAnchor, constant: 5),
+            allTasksLabel.centerXAnchor.constraint(equalTo: headerBottomtView.centerXAnchor),
+            allTasksLabel.widthAnchor.constraint(equalToConstant: 150),
+            allTasksLabel.heightAnchor.constraint(equalToConstant: 30),
         ])
-    }
-    
-    private var getCurrentDate: String = {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd"
-        dateFormatter.locale = Locale(identifier: "pt_BR")
-        let date = Date()
-        return dateFormatter.string(from: date)
-    }()
-}
-extension HomeHeaderView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return homeViewModel?.getTotalDate() ?? 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-                
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DateTasksCollectionViewCell.identifier, for: indexPath) as? DateTasksCollectionViewCell
-        else { return UICollectionViewCell() }
-
-        cell.configureCell(day: indexPath.row + (Int(getCurrentDate) ?? 0))
-       
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DateTasksCollectionViewCell", for: indexPath) as? DateTasksCollectionViewCell else { return }
-        
-        cell.isSelected = true
-        let daySelected = Int(cell.dayLabel.text ?? "")
-        if daySelected == indexPath.row{
-            let date = cell.dayLabel.text ?? "" + "mai.-2023"
-            print(date)
-            self.delegateDay?.dayTaskSelected()
-        }
-        
-        
-        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-    }
-    
-    
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 80, height: 80)
     }
 }

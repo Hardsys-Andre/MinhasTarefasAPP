@@ -13,6 +13,7 @@ class AddTarefasViewController: UIViewController {
     private var viewModel: AddTarefasViewModel = AddTarefasViewModel()
     private var alert: Alert?
     private var alertPop: AlertPop?
+    private var loadingViewController = LoadingViewController()
     var emailLogado: String?
     
     override func loadView() {
@@ -37,12 +38,11 @@ extension AddTarefasViewController: AddTarefasViewModelProtocol {
     }
     
     func failure(message: String?) {
-        alert?.alert(title: "Ops Erro no Cadastro da tarefa", message: message ?? "")
+        alert?.alert(title: "Atenção Erro no Cadastro da tarefa", message: message ?? "")
     }
 }
 var priorityTask: String?
 var categoria: String?
-
 
 extension AddTarefasViewController: AddTarefasViewProtocol{
     func tappedImportante() {
@@ -58,13 +58,20 @@ extension AddTarefasViewController: AddTarefasViewProtocol{
     }
     
     func tappedBackImage() {
-        dismiss(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     func tappedCriarTarefa() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MMM-yyyy"
+        let today = Date()
+        let dateString = dateFormatter.string(from: today)
+        let dateToday = dateFormatter.date(from: dateString)
+        let dateTask = dateFormatter.date(from: addTarefasView?.selectedDate ?? "")
+                
         if addTarefasView?.titleTarefaTextField.text == "" || priorityTask == "" || addTarefasView?.selectedDate == "" || categoria == "" {
-            print("erro da tarefa")
-            alert?.alert(title: "Atenção Erro!", message: "Preencha e escolha todas as opções da tarefa")
-            
+            alert?.alert(title: "Atenção, Error!", message: "Preencha todas as opções da tarefa")
+        }else if dateTask ?? Date() < dateToday ?? Date() {
+            alert?.alert(title: "Atenção, Error!", message: "Não é aceito data anterior a data de hoje, escolha outra data")
         }else{
             viewModel.addTarefas(email: emailLogado ?? "",
                                  title: addTarefasView?.titleTarefaTextField.text ?? "",
@@ -82,11 +89,9 @@ extension AddTarefasViewController: AddTarefasCollectionViewCellProtocol {
     }
 }
 extension AddTarefasViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 1
     }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddTarefasCollectionViewCell.identifier, for: indexPath) as? AddTarefasCollectionViewCell
         cell?.delegate(delegate: self)

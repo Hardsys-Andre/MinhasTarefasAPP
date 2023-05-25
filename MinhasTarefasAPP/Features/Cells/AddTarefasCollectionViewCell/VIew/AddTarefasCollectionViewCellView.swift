@@ -39,10 +39,8 @@ class AddTarefasCollectionViewCellView: UIView {
         
         return button
     }()
-    
     @objc func tappedTrabalho(){
         self.delegate?.tappedTrabalho()
-        
     }
     
     lazy var escolaButton: UIButton = {
@@ -170,7 +168,6 @@ class AddTarefasCollectionViewCellView: UIView {
         configElements()
         configConstraints()
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -219,7 +216,6 @@ class AddTarefasCollectionViewCellView: UIView {
             outrasButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
             outrasButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -29),
             outrasButton.heightAnchor.constraint(equalToConstant: 30),
-            
         ])
     }
 }

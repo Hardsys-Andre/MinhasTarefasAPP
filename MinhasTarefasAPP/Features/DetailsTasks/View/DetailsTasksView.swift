@@ -178,15 +178,51 @@ class DetailsTasksView: UIView {
         return tf
     }()
     
+    lazy var categoryView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
+        view.roundCorners(cornerRadius: 40, typeCorners: [.layerMaxXMaxYCorner, .layerMinXMinYCorner])
+        return view
+        
+    }()
+    
+    lazy var categoryImageVIew: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        //image.image = UIImage(named: "work")
+        
+        return image
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor(red: 67/255, green: 154/255, blue: 224/255, alpha: 1)
         configElements()
         configConstraints()
+        categoryImage()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func categoryImage(){
+        if categoryTaskTextField.text == "Trabalho" {
+            categoryImageVIew.image = UIImage(named: "work")
+        }else if categoryTaskTextField.text == "Escola" {
+                categoryImageVIew.image = UIImage(named: "scholl")
+        }else if categoryTaskTextField.text == "Saude" {
+            categoryImageVIew.image = UIImage(named: "saude")
+        }else if categoryTaskTextField.text == "Alimentacao" {
+            categoryImageVIew.image = UIImage(named: "alimentacao")
+        }else if categoryTaskTextField.text == "Domestica" {
+            categoryImageVIew.image = UIImage(named: "domestica")
+        }else if categoryTaskTextField.text == "Lazer" {
+            categoryImageVIew.image = UIImage(named: "sport")
+        }else if categoryTaskTextField.text == "Outras" {
+            categoryImageVIew.image = UIImage(named: "others")
+        }
     }
     
     private func configElements(){
@@ -202,6 +238,8 @@ class DetailsTasksView: UIView {
         addSubview(hourTaskTextField)
         addSubview(categoryTaskLabel)
         addSubview(categoryTaskTextField)
+        addSubview(categoryView)
+        categoryView.addSubview(categoryImageVIew)
     }
     private func configConstraints(){
         NSLayoutConstraint.activate([
@@ -265,6 +303,16 @@ class DetailsTasksView: UIView {
             categoryTaskTextField.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             categoryTaskTextField.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
             categoryTaskTextField.heightAnchor.constraint(equalToConstant: 35),
+            
+            categoryView.topAnchor.constraint(equalTo: categoryTaskTextField.bottomAnchor, constant: 10),
+            categoryView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            categoryView.widthAnchor.constraint(equalToConstant: 150),
+            categoryView.heightAnchor.constraint(equalToConstant: 90),
+            
+            categoryImageVIew.topAnchor.constraint(equalTo: categoryView.topAnchor, constant: 5),
+            categoryImageVIew.centerXAnchor.constraint(equalTo: categoryView.centerXAnchor),
+            categoryImageVIew.heightAnchor.constraint(equalToConstant: 80),
+            categoryImageVIew.widthAnchor.constraint(equalToConstant: 80),
         ])
     }
 }

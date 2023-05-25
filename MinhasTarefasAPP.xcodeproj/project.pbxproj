@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		143695670700EDDD43877A4B /* Pods_MinhasTarefasAPP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959A657B784DDEC53654666A /* Pods_MinhasTarefasAPP.framework */; };
 		AC00EE5329F4118100F228A1 /* AddTarefasCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC00EE5229F4118100F228A1 /* AddTarefasCellViewModel.swift */; };
+		AC10E5112A1D40E500FC40D6 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC10E5102A1D40E500FC40D6 /* LoadingViewController.swift */; };
 		AC1E8EE529E98F3800D8A130 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8EE429E98F3800D8A130 /* AppDelegate.swift */; };
 		AC1E8EE729E98F3800D8A130 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8EE629E98F3800D8A130 /* SceneDelegate.swift */; };
 		AC1E8EEE29E98F3900D8A130 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC1E8EED29E98F3900D8A130 /* Assets.xcassets */; };
@@ -31,11 +32,11 @@
 		AC1E8F4629E996DC00D8A130 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F4529E996DC00D8A130 /* Alert.swift */; };
 		AC1E8F4829E9970C00D8A130 /* AlertPop.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E8F4729E9970C00D8A130 /* AlertPop.swift */; };
 		AC1E8F4B29E99C8B00D8A130 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC1E8F4A29E99C8B00D8A130 /* GoogleService-Info.plist */; };
+		AC350A9E2A14480400346ACD /* DataPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC350A9D2A14480400346ACD /* DataPickerViewController.swift */; };
 		AC4F34362A000A3A00C65C93 /* DetailsTasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4F34352A000A3A00C65C93 /* DetailsTasksView.swift */; };
 		AC4F343A2A000A6E00C65C93 /* DetailsTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4F34392A000A6E00C65C93 /* DetailsTasksViewController.swift */; };
 		AC4F343D2A000BAA00C65C93 /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4F343C2A000BAA00C65C93 /* UserDataModel.swift */; };
 		AC4F343F2A0012FF00C65C93 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4F343E2A0012FF00C65C93 /* TaskModel.swift */; };
-		AC598CBB2A099BFD0098D620 /* DateTasksCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC598CBA2A099BFD0098D620 /* DateTasksCollectionViewCell.swift */; };
 		AC598CBE2A09DBCB0098D620 /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC598CBD2A09DBCB0098D620 /* HomeHeaderView.swift */; };
 		AC598CC12A09E6310098D620 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC598CC02A09E6310098D620 /* UIView.swift */; };
 		AC73DE172A02A85300750AD4 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC73DE162A02A85300750AD4 /* UserRepository.swift */; };
@@ -85,6 +86,7 @@
 		904F69CE50CBF4DE278FD7FE /* Pods-MinhasTarefasAPP-MinhasTarefasAPPUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MinhasTarefasAPP-MinhasTarefasAPPUITests.release.xcconfig"; path = "Target Support Files/Pods-MinhasTarefasAPP-MinhasTarefasAPPUITests/Pods-MinhasTarefasAPP-MinhasTarefasAPPUITests.release.xcconfig"; sourceTree = "<group>"; };
 		959A657B784DDEC53654666A /* Pods_MinhasTarefasAPP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MinhasTarefasAPP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC00EE5229F4118100F228A1 /* AddTarefasCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTarefasCellViewModel.swift; sourceTree = "<group>"; };
+		AC10E5102A1D40E500FC40D6 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		AC1E8EE129E98F3800D8A130 /* MinhasTarefasAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MinhasTarefasAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC1E8EE429E98F3800D8A130 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC1E8EE629E98F3800D8A130 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,11 +113,11 @@
 		AC1E8F4529E996DC00D8A130 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		AC1E8F4729E9970C00D8A130 /* AlertPop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPop.swift; sourceTree = "<group>"; };
 		AC1E8F4A29E99C8B00D8A130 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AC350A9D2A14480400346ACD /* DataPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPickerViewController.swift; sourceTree = "<group>"; };
 		AC4F34352A000A3A00C65C93 /* DetailsTasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTasksView.swift; sourceTree = "<group>"; };
 		AC4F34392A000A6E00C65C93 /* DetailsTasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTasksViewController.swift; sourceTree = "<group>"; };
 		AC4F343C2A000BAA00C65C93 /* UserDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataModel.swift; sourceTree = "<group>"; };
 		AC4F343E2A0012FF00C65C93 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
-		AC598CBA2A099BFD0098D620 /* DateTasksCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTasksCollectionViewCell.swift; sourceTree = "<group>"; };
 		AC598CBD2A09DBCB0098D620 /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
 		AC598CC02A09E6310098D620 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		AC73DE162A02A85300750AD4 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
@@ -198,6 +200,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		AC10E50F2A1D40B600FC40D6 /* LoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				AC10E5102A1D40E500FC40D6 /* LoadingViewController.swift */,
+			);
+			path = LoadingView;
+			sourceTree = "<group>";
+		};
 		AC1E8ED829E98F3800D8A130 = {
 			isa = PBXGroup;
 			children = (
@@ -257,6 +267,8 @@
 		AC1E8F1429E9900800D8A130 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				AC10E50F2A1D40B600FC40D6 /* LoadingView */,
+				AC350A9C2A1447DC00346ACD /* DataPicker */,
 				AC1E8F4429E996C800D8A130 /* Alert */,
 			);
 			path = Utils;
@@ -368,7 +380,6 @@
 		AC1E8F2E29E993ED00D8A130 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				AC598CB92A099BC60098D620 /* DateTasksCollectionViewCell */,
 				AC1E8F3329E9948C00D8A130 /* TarefasCriadasTableViewCell */,
 				AC1E8F2F29E9940600D8A130 /* AddTarefasCollectionViewCell */,
 			);
@@ -444,6 +455,14 @@
 			path = Alert;
 			sourceTree = "<group>";
 		};
+		AC350A9C2A1447DC00346ACD /* DataPicker */ = {
+			isa = PBXGroup;
+			children = (
+				AC350A9D2A14480400346ACD /* DataPickerViewController.swift */,
+			);
+			path = DataPicker;
+			sourceTree = "<group>";
+		};
 		AC4F34342A000A0300C65C93 /* DetailsTasks */ = {
 			isa = PBXGroup;
 			children = (
@@ -479,15 +498,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		AC598CB92A099BC60098D620 /* DateTasksCollectionViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				AC6ABE6A2A0A994A006CC00C /* View */,
-				AC598CBA2A099BFD0098D620 /* DateTasksCollectionViewCell.swift */,
-			);
-			path = DateTasksCollectionViewCell;
-			sourceTree = "<group>";
-		};
 		AC598CBC2A09DB7F0098D620 /* Componentes */ = {
 			isa = PBXGroup;
 			children = (
@@ -502,13 +512,6 @@
 				AC598CC02A09E6310098D620 /* UIView.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		AC6ABE6A2A0A994A006CC00C /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		AC73DE152A02A83400750AD4 /* Repository */ = {
@@ -846,7 +849,6 @@
 				AC1E8F2B29E9935900D8A130 /* AddTarefasView.swift in Sources */,
 				ACFF3B7D29FAEB5800C54C44 /* PerfilViewController.swift in Sources */,
 				ACA98A8A29F3023600570216 /* AddTarefasViewModel.swift in Sources */,
-				AC598CBB2A099BFD0098D620 /* DateTasksCollectionViewCell.swift in Sources */,
 				AC1E8F4029E9964000D8A130 /* CadastroView.swift in Sources */,
 				AC4F343F2A0012FF00C65C93 /* TaskModel.swift in Sources */,
 				AC1E8EE529E98F3800D8A130 /* AppDelegate.swift in Sources */,
@@ -857,6 +859,8 @@
 				AC73DE172A02A85300750AD4 /* UserRepository.swift in Sources */,
 				AC1E8F4329E9968800D8A130 /* CadastroViewController.swift in Sources */,
 				AC1E8F2D29E9937400D8A130 /* AddTarefasViewController.swift in Sources */,
+				AC10E5112A1D40E500FC40D6 /* LoadingViewController.swift in Sources */,
+				AC350A9E2A14480400346ACD /* DataPickerViewController.swift in Sources */,
 				ACFF3B7F29FAEB7700C54C44 /* PerfilVIew.swift in Sources */,
 				AC1E8F1D29E990B900D8A130 /* LoginView.swift in Sources */,
 				AC1E8F2429E992A200D8A130 /* HomeView.swift in Sources */,

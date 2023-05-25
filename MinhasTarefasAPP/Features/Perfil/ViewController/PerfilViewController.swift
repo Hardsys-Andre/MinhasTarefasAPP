@@ -15,6 +15,8 @@ class PerfilViewController: UIViewController {
     
     private var viewModel: PerfilViewModel?
     
+    private var loadingViewController = LoadingViewController()
+    
     private var alert: Alert?
     
     init(viewModel: PerfilViewModel){
@@ -22,7 +24,6 @@ class PerfilViewController: UIViewController {
         self.viewModel = viewModel
         alert = Alert(controller: self)
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -31,16 +32,10 @@ class PerfilViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
         perfilView?.delegate(delegate: self)
         
-    }
-    
-    override func loadView() {
-        perfilView = PerfilVIew()
-        view = perfilView
-        
         if let imageUrl = viewModel?.userData?.imageUrl {
             self.perfilView?.userLogadoImageView.sd_setImage(with: URL(string: imageUrl))
         }else{
-            print("Falha na extração da URL")
+            alert?.alert(title: "Atenção", message: "Falha na extração da imagem")
         }
         perfilView?.nameTextField.text = viewModel?.userData?.name
         perfilView?.lastNameTextField.text = viewModel?.userData?.lastName
@@ -49,10 +44,19 @@ class PerfilViewController: UIViewController {
         perfilView?.emailTextField.text = viewModel?.userData?.email
     }
     
+    override func loadView() {
+        perfilView = PerfilVIew()
+        view = perfilView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel?.delegate(delegate: self)
     }
+    func encerrarTelaDeCarregamento() {
+        loadingViewController.activityIndicator.stopAnimating()
+            dismiss(animated: true, completion: nil)
+        }
 }
 
 extension PerfilViewController: PerfilViewProtocol {
@@ -61,14 +65,14 @@ extension PerfilViewController: PerfilViewProtocol {
     }
     
     func tappedSalvar() {
+        present(loadingViewController, animated: true)
+        
         viewModel?.updateUserData(name: perfilView?.nameTextField.text ?? "",
                                   lastName: perfilView?.lastNameTextField.text ?? "",
                                   uf: perfilView?.ufTextField.text ?? "",
                                   city: perfilView?.cityTextField.text ?? "",
                                   imageUser: perfilView?.userLogadoImageView.image ?? UIImage())
-        
     }
-    
     func tappedLogoutApp() {
         
         let windows = UIApplication.shared.windows
@@ -78,11 +82,8 @@ extension PerfilViewController: PerfilViewProtocol {
         let window = UIApplication.shared.windows.first
         window?.rootViewController = loginViewController
         window?.makeKeyAndVisible()
-        
     }
-    
 }
-
 extension PerfilViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func showImagePicker(){
@@ -102,9 +103,11 @@ extension PerfilViewController: UIImagePickerControllerDelegate, UINavigationCon
 }
 extension PerfilViewController: PerfilViewModelProtocol {
     func successUpdate() {
+        self.encerrarTelaDeCarregamento()
         alert?.alert(title: "Atenção", message: "Alterações feitas com sucesso")
     }
     func errorUpdate(message: String) {
+        self.encerrarTelaDeCarregamento()
         alert?.alert(title: "Atenção Error", message: message)
     }
 }

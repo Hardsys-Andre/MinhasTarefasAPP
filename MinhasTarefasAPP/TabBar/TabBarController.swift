@@ -17,6 +17,7 @@ class TabBarController: UITabBarController {
         fatalError("init(coder:) has not been implemented")
     }
     override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
         setupTabBar()
     }
     override func viewDidLoad() {

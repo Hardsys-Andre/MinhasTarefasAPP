@@ -18,7 +18,8 @@ class AlertPop {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-            self.controller.dismiss(animated: true, completion: nil)
+            self.controller.navigationController?.popViewController(animated: true)
+            //self.controller.dismiss(animated: true, completion: nil)
         }))
         controller.present(alert, animated: true, completion: nil)
     }

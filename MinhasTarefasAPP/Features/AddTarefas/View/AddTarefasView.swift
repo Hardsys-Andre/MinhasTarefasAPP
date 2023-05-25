@@ -14,7 +14,6 @@ protocol AddTarefasViewProtocol: AnyObject {
     func tappedComum()
 }
 
-
 class AddTarefasView: UIView {
     
     private weak var delegate: AddTarefasViewProtocol?
@@ -30,7 +29,6 @@ class AddTarefasView: UIView {
         image.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tappedBackImage))
         image.addGestureRecognizer(tapGesture)
-        
         return image
     }()
     @objc func tappedBackImage(){
@@ -44,7 +42,6 @@ class AddTarefasView: UIView {
         label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 22)
         label.textAlignment = .center
-        
         return label
     }()
     
@@ -61,9 +58,9 @@ class AddTarefasView: UIView {
         tf.layer.cornerRadius = 10
         tf.layer.borderWidth = 1.0
         tf.layer.borderColor = UIColor.white.cgColor
-        
         return tf
     }()
+    
     lazy var descriptionTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -71,9 +68,9 @@ class AddTarefasView: UIView {
         label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 18)
         label.textAlignment = .center
-        
         return label
     }()
+    
     lazy var descriptionTarefasTextView: UITextView = {
         let textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
@@ -85,7 +82,6 @@ class AddTarefasView: UIView {
         textView.layer.borderColor = UIColor.white.cgColor
         textView.clipsToBounds = true
         textView.layer.cornerRadius = 10
-        
         return textView
     }()
     
@@ -96,7 +92,6 @@ class AddTarefasView: UIView {
         label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 22)
         label.textAlignment = .center
-        
         return label
     }()
     
@@ -112,7 +107,6 @@ class AddTarefasView: UIView {
         button.layer.borderColor = UIColor.white.cgColor
         button.tintColor = .white
         button.addTarget(self, action: #selector(tappedImportante), for: .touchUpInside)
-        
         return button
     }()
     @objc func tappedImportante(){
@@ -131,7 +125,6 @@ class AddTarefasView: UIView {
         button.layer.borderColor = UIColor.white.cgColor
         button.tintColor = .white
         button.addTarget(self, action: #selector(tappedComum), for: .touchUpInside)
-        
         return button
     }()
     @objc func tappedComum(){
@@ -145,7 +138,6 @@ class AddTarefasView: UIView {
         label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textAlignment = .center
-        
         return label
     }()
     
@@ -162,7 +154,6 @@ class AddTarefasView: UIView {
         picker.addTarget(self, action: #selector(dataPickerValueChanged), for: .valueChanged)
         return picker
     }()
-    
     var selectedDate: String?
     @objc func dataPickerValueChanged(){
         let dateFormatter = DateFormatter()
@@ -185,7 +176,6 @@ class AddTarefasView: UIView {
         picker.addTarget(self, action: #selector(hourDatePickerValueChanged), for: .valueChanged)
         return picker
     }()
-    
     var selectedHour: String?
     @objc func hourDatePickerValueChanged(){
         let dateFormatter = DateFormatter()
@@ -202,7 +192,6 @@ class AddTarefasView: UIView {
         label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textAlignment = .center
-        
         return label
     }()
     
@@ -216,10 +205,8 @@ class AddTarefasView: UIView {
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.backgroundColor = UIColor(red: 67/255, green: 154/255, blue: 224/255, alpha: 1)
         collectionView.register(AddTarefasCollectionViewCell.self, forCellWithReuseIdentifier: AddTarefasCollectionViewCell.identifier)
-        
         return collectionView
     }()
-    
     func configCollectionView(delegate: UICollectionViewDelegate, dataSource: UICollectionViewDataSource){
         collectionView.delegate = delegate
         collectionView.dataSource = dataSource
@@ -236,10 +223,8 @@ class AddTarefasView: UIView {
         button.layer.borderColor = UIColor.white.cgColor
         button.tintColor = .white
         button.addTarget(self, action: #selector(tappedCriarTarefa), for: .touchUpInside)
-        
         return button
     }()
-    
     @objc func tappedCriarTarefa(){
         self.delegate?.tappedCriarTarefa()
     }
@@ -250,7 +235,6 @@ class AddTarefasView: UIView {
         configElements()
         configConstraints()
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -269,7 +253,6 @@ class AddTarefasView: UIView {
         addSubview(categoriaLabel)
         addSubview(collectionView)
         addSubview(criarTarefaButton)
-        
     }
     
     private func configConstraints(){
@@ -343,7 +326,6 @@ class AddTarefasView: UIView {
             criarTarefaButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
             criarTarefaButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -35),
             criarTarefaButton.heightAnchor.constraint(equalToConstant: 40),
-            
         ])
     }
 }

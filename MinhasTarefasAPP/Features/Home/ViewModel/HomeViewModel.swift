@@ -13,17 +13,19 @@ import UIKit
 protocol HomeViewModelViewDelegate {
     func fetchTasksSuccess()
     func fetchTasksFailure()
+    func deleteTaskFailure()
 }
 
 class HomeViewModel {
     
     var dataSource: [TaskModel?] = []
     var dayTaskSelected: [TaskModel?] = []
+    var numberOfTasks: [TaskModel?] = []
     var viewDelegate: HomeViewModelViewDelegate?
     
     init(){
-        
     }
+    
     func getUser() -> UserDataModel? {
         UserRepository().getUser()
     }
@@ -36,14 +38,34 @@ class HomeViewModel {
         dayTaskSelected[row]
     }
     
+    func getNumberTask(number: Int) -> TaskModel? {
+        numberOfTasks[number]
+    }
+    
+    func numberTasksToday(today: Date) -> [TaskModel?] {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MMM-yyyy"
+      
+        let numberTasks = dataSource.filter { task in
+            if let taskDate = dateFormatter.date(from: task?.date ?? "") {
+                return Calendar.current.isDate(today, inSameDayAs: taskDate)
+            } else {
+                return false
+            }
+        }
+        numberOfTasks = numberTasks
+            return numberTasks
+    }
+    
+    var filter: Bool = false
+    
     func taskDay(day: String) -> [TaskModel?] {
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MMM-yyyy" // formato da string de data em dateString
+        dateFormatter.dateFormat = "dd-MMM-yyyy"
         let today = day
         let dateToday = dateFormatter.date(from: today)
       
-        
         let filteredTasks = dataSource.filter { task in
             if let taskDate = dateFormatter.date(from: task?.date ?? "") {
                 return Calendar.current.isDate(dateToday ?? Date(), inSameDayAs: taskDate)
@@ -51,28 +73,49 @@ class HomeViewModel {
                 return false
             }
         }
-        dayTaskSelected = filteredTasks
-        print(filteredTasks)
-        return filteredTasks
-        
+            dayTaskSelected = filteredTasks
+            return filteredTasks
     }
-
     
     func fetchTasks() {
         let db = Firestore.firestore()
         
         db.collection("tasks").whereField("email", isEqualTo: getUser()?.email ?? "")
-            .addSnapshotListener { querySnapshot, error in
+            .addSnapshotListener { [self] querySnapshot, error in
                 guard let documents = querySnapshot?.documents else {
-                    print("Error fetching documents: \(error!)")
                     self.viewDelegate?.fetchTasksFailure()
                     return
                 }
-                self.dataSource = documents.compactMap { document in
+                let taskDataSource = documents.compactMap { document in
                     try? document.data(as: TaskModel.self)
                 }
-                self.taskDay(day: "15,mai.,2023")
+                let arrayOrdenado = taskDataSource.sorted(by: { $0.date < $1.date })
+                for taskDataSource in arrayOrdenado {
+                    dataSource = arrayOrdenado
+                }
                 self.viewDelegate?.fetchTasksSuccess()
+            }
+    }
+    
+    func deleteOldTasks() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MMM-yyyy"
+        let today = Date() + 1
+        let dateToday = dateFormatter.string(from: today)
+        let db = Firestore.firestore()
+        
+        db.collection("tasks")
+            .whereField("date", isLessThan: dateToday)
+            .getDocuments() { (querySnapshot, error) in
+                
+                
+                if let error = error {
+                    self.viewDelegate?.deleteTaskFailure()
+                } else {
+                    for document in querySnapshot!.documents {
+                        document.reference.delete()
+                    }
+                }
             }
     }
     
@@ -83,7 +126,7 @@ class HomeViewModel {
             .whereField("title", isEqualTo: title)
             .getDocuments() { (querySnapshot, error) in
                 if let error = error {
-                    print("Error deleting document: \(error)")
+                    self.viewDelegate?.deleteTaskFailure()
                 } else {
                     for document in querySnapshot!.documents {
                         document.reference.delete()
@@ -91,7 +134,6 @@ class HomeViewModel {
                 }
             }
     }
-    
     func getTotalDate() -> Int {
         let dateFormatterYear = DateFormatter()
         dateFormatterYear.dateFormat = "yyyy"
@@ -126,12 +168,5 @@ class HomeViewModel {
         let days = calendar.dateComponents([.day], from: interval.start, to: interval.end).day!
         let restDays = days - day + 1
         return restDays
-    }
-    
-    func selectedFirstDay(collection: UICollectionView){
-        if collection.numberOfItems(inSection: 0) > 0 {
-            let indexPath = IndexPath(item: 0, section: 0)
-            collection.selectItem(at: indexPath, animated: true, scrollPosition: .left)
-        }
     }
 }

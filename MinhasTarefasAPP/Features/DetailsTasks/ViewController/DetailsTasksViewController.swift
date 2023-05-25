@@ -38,5 +38,21 @@ class DetailsTasksViewController: UIViewController {
         detailsTasksView?.dateTaskTextField.text = viewModel.taskData?.date
         detailsTasksView?.hourTaskTextField.text = viewModel.taskData?.hour
         detailsTasksView?.categoryTaskTextField.text = viewModel.taskData?.category
+        
+        if detailsTasksView?.categoryTaskTextField.text == "Trabalho" {
+            detailsTasksView?.categoryImageVIew.image = UIImage(named: "work")
+        }else if detailsTasksView?.categoryTaskTextField.text == "Escola" {
+            detailsTasksView?.categoryImageVIew.image = UIImage(named: "scholl")
+        }else if detailsTasksView?.categoryTaskTextField.text == "Saude" {
+            detailsTasksView?.categoryImageVIew.image = UIImage(named: "saude")
+        }else if detailsTasksView?.categoryTaskTextField.text == "Alimentacao" {
+            detailsTasksView?.categoryImageVIew.image = UIImage(named: "alimentacao")
+        }else if detailsTasksView?.categoryTaskTextField.text == "Domestica" {
+            detailsTasksView?.categoryImageVIew.image = UIImage(named: "domestica")
+        }else if detailsTasksView?.categoryTaskTextField.text == "Lazer" {
+            detailsTasksView?.categoryImageVIew.image = UIImage(named: "sport")
+        }else if detailsTasksView?.categoryTaskTextField.text == "Outra" {
+            detailsTasksView?.categoryImageVIew.image = UIImage(named: "others")
+        }
     }
 }

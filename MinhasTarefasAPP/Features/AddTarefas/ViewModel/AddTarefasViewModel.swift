@@ -39,7 +39,6 @@ class AddTarefasViewModel {
                 "hour": hourTask,
                 "category": category
             ]
-            
             db.collection("tasks").addDocument(data: taskData) { (error) in
                 if error != nil {
                     self.delegate?.failure(message: error?.localizedDescription ?? "")

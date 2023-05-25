@@ -34,7 +34,6 @@ class PerfilVIew: UIView {
         label.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tappedLogoutApp))
         label.addGestureRecognizer(tapGesture)
-        
         return label
     }()
     @objc func tappedLogoutApp(){
@@ -48,7 +47,6 @@ class PerfilVIew: UIView {
         label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 22)
         label.textAlignment = .center
-        
         return label
     }()
     
@@ -73,10 +71,9 @@ class PerfilVIew: UIView {
     lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Nome"
+        label.text = "Primeiro Nome"
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 18)
-        
         return label
     }()
     
@@ -86,22 +83,21 @@ class PerfilVIew: UIView {
         tf.autocorrectionType = .no
         tf.backgroundColor = .white
         tf.borderStyle = .roundedRect
-        tf.attributedPlaceholder = NSAttributedString(string: "Este é seu Nome", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white.withAlphaComponent(0.4)])
+        tf.attributedPlaceholder = NSAttributedString(string: "Este é seu primeiro Nome", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white.withAlphaComponent(0.4)])
         tf.textColor = .black
         tf.clipsToBounds = true
         tf.layer.cornerRadius = 10
         tf.layer.borderWidth = 1.0
         tf.layer.borderColor = UIColor.white.cgColor
-        
         return tf
     }()
+    
     lazy var lastNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Sobrenome"
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 18)
-        
         return label
     }()
     
@@ -117,7 +113,6 @@ class PerfilVIew: UIView {
         tf.layer.cornerRadius = 10
         tf.layer.borderWidth = 1.0
         tf.layer.borderColor = UIColor.white.cgColor
-        
         return tf
     }()
     
@@ -127,7 +122,6 @@ class PerfilVIew: UIView {
         label.text = "Estado"
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 18)
-        
         return label
     }()
     
@@ -138,12 +132,12 @@ class PerfilVIew: UIView {
         tf.backgroundColor = .white
         tf.borderStyle = .roundedRect
         tf.attributedPlaceholder = NSAttributedString(string: "Este é seu UF", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white.withAlphaComponent(0.4)])
+        tf.autocapitalizationType = .allCharacters
         tf.textColor = .black
         tf.clipsToBounds = true
         tf.layer.cornerRadius = 10
         tf.layer.borderWidth = 1.0
         tf.layer.borderColor = UIColor.white.cgColor
-        
         return tf
     }()
     
@@ -153,7 +147,6 @@ class PerfilVIew: UIView {
         label.text = "Cidade"
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 18)
-        
         return label
     }()
     
@@ -169,7 +162,6 @@ class PerfilVIew: UIView {
         tf.layer.cornerRadius = 10
         tf.layer.borderWidth = 1.0
         tf.layer.borderColor = UIColor.white.cgColor
-        
         return tf
     }()
     
@@ -179,7 +171,6 @@ class PerfilVIew: UIView {
         label.text = "Email"
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 18)
-        
         return label
     }()
     
@@ -197,7 +188,6 @@ class PerfilVIew: UIView {
         tf.layer.borderWidth = 1.0
         tf.layer.borderColor = UIColor.white.cgColor
         tf.isEnabled = false
-        
         return tf
     }()
     
@@ -211,22 +201,18 @@ class PerfilVIew: UIView {
         button.clipsToBounds = true
         button.layer.cornerRadius = 8
         button.addTarget(self, action: #selector(tappedCadastrarButton), for: .touchUpInside)
-        
         return button
     }()
     @objc func tappedCadastrarButton(){
         self.delegate?.tappedSalvar()
     }
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor(red: 67/255, green: 154/255, blue: 224/255, alpha: 1)
         configElements()
         configConstraints()
-        
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -318,6 +304,5 @@ class PerfilVIew: UIView {
             salvarAlteracaoButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -35),
             salvarAlteracaoButton.heightAnchor.constraint(equalToConstant: 40),
         ])
-        
     }
 }

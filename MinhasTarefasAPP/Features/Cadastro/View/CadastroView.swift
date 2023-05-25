@@ -29,7 +29,6 @@ class CadastroView: UIView {
         image.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tappedBackImage))
         image.addGestureRecognizer(tapGesture)
-        
         return image
     }()
     @objc func tappedBackImage(){
@@ -43,7 +42,6 @@ class CadastroView: UIView {
         label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 22)
         label.textAlignment = .center
-        
         return label
     }()
     
@@ -72,17 +70,15 @@ class CadastroView: UIView {
         label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 18)
         label.textAlignment = .center
-        
         return label
     }()
     
     lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Nome"
+        label.text = "Primeiro Nome"
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 18)
-        
         return label
     }()
     
@@ -92,22 +88,21 @@ class CadastroView: UIView {
         tf.autocorrectionType = .no
         tf.backgroundColor = .white
         tf.borderStyle = .roundedRect
-        tf.attributedPlaceholder = NSAttributedString(string: "Digite seu Nome", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white.withAlphaComponent(0.4)])
+        tf.attributedPlaceholder = NSAttributedString(string: "Digite seu primeiro Nome", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white.withAlphaComponent(0.4)])
         tf.textColor = .black
         tf.clipsToBounds = true
         tf.layer.cornerRadius = 10
         tf.layer.borderWidth = 1.0
         tf.layer.borderColor = UIColor.white.cgColor
-        
         return tf
     }()
+    
     lazy var lastNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Sobrenome"
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 18)
-        
         return label
     }()
     
@@ -123,7 +118,6 @@ class CadastroView: UIView {
         tf.layer.cornerRadius = 10
         tf.layer.borderWidth = 1.0
         tf.layer.borderColor = UIColor.white.cgColor
-        
         return tf
     }()
     
@@ -133,7 +127,6 @@ class CadastroView: UIView {
         label.text = "Estado"
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 18)
-        
         return label
     }()
     
@@ -144,12 +137,12 @@ class CadastroView: UIView {
         tf.backgroundColor = .white
         tf.borderStyle = .roundedRect
         tf.attributedPlaceholder = NSAttributedString(string: "UF", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white.withAlphaComponent(0.4)])
+        tf.autocapitalizationType = .allCharacters
         tf.textColor = .black
         tf.clipsToBounds = true
         tf.layer.cornerRadius = 10
         tf.layer.borderWidth = 1.0
         tf.layer.borderColor = UIColor.white.cgColor
-        
         return tf
     }()
     
@@ -159,7 +152,6 @@ class CadastroView: UIView {
         label.text = "Cidade"
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 18)
-        
         return label
     }()
     
@@ -175,7 +167,6 @@ class CadastroView: UIView {
         tf.layer.cornerRadius = 10
         tf.layer.borderWidth = 1.0
         tf.layer.borderColor = UIColor.white.cgColor
-        
         return tf
     }()
     
@@ -185,7 +176,6 @@ class CadastroView: UIView {
         label.text = "Email"
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 18)
-        
         return label
     }()
     
@@ -203,7 +193,6 @@ class CadastroView: UIView {
         tf.layer.cornerRadius = 10
         tf.layer.borderWidth = 1.0
         tf.layer.borderColor = UIColor.white.cgColor
-        
         return tf
     }()
     
@@ -213,7 +202,6 @@ class CadastroView: UIView {
         label.text = "Senha"
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 18)
-        
         return label
     }()
     
@@ -230,7 +218,6 @@ class CadastroView: UIView {
         tf.layer.cornerRadius = 10
         tf.layer.borderWidth = 1.0
         tf.layer.borderColor = UIColor.white.cgColor
-        
         return tf
     }()
     
@@ -244,14 +231,11 @@ class CadastroView: UIView {
         button.clipsToBounds = true
         button.layer.cornerRadius = 8
         button.addTarget(self, action: #selector(tappedCadastrarButton), for: .touchUpInside)
-        
         return button
     }()
     @objc func tappedCadastrarButton(){
         self.delegate?.tappedCadastrarButton()
     }
-    
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -259,7 +243,6 @@ class CadastroView: UIView {
         configElements()
         configConstraints()
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -367,7 +350,6 @@ class CadastroView: UIView {
             cadastrarButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             cadastrarButton.heightAnchor.constraint(equalToConstant: 40),
             cadastrarButton.widthAnchor.constraint(equalToConstant: 120),
-            
         ])
     }
 }
